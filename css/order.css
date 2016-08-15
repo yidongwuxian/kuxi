@@ -41,19 +41,6 @@
     font-size: 1.4rem;
     color: #1d202f;
 }
-.my_bth {
-    display: block;
-    width: 90%;
-    height:3rem;
-    line-height:3rem;
-    background: #d1ac51;
-    color: #fff;
-    font-size:1.4rem;
-    border:none;
-    margin:50px auto 0;
-    padding:0;
-    text-align: center;
-}
 /*dialog*/
 .modal-dialog{ margin: 0; }
 .modal-content{ margin:50% auto; width:750px; height:862px; background:url(../img/order/shai.png) no-repeat; background-size: 50%; border: none; box-shadow: 0 0 0 transparent;}

@@ -25,7 +25,7 @@
 			   <a href="#notpaid" data-toggle="tab">待支付</a>
 		   </li>
 		   <li><a href="#inservice" data-toggle="tab">服务中</a></li>
-		   <li><a href="#completed" data-toggle="tab">已完成</a></li>
+		   <li><a href="#completed" data-toggle="tab" id="completedLnk">已完成</a></li>
 		</ul>
 		<div id="myTabContent" class="tab-content">
 		   <div class="tab-pane fade in active" id="notpaid">
@@ -256,9 +256,11 @@
 	<script type="text/javascript" src="js/modal.js"></script>
 	<script type="text/javascript">
 	$(function(){
-	//    $('#activityModal').modal({
- // 	      keyboard: true
- // 	   })
+		$('#completedLnk').click(function(){
+		   $('#activityModal').modal({
+	  	      keyboard: true
+	  	   })
+		});
 	});
 	</script>
 </body>

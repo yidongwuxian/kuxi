@@ -21,6 +21,47 @@
 .list-ft a{ display: inline-block; float: right; width:30%; line-height: 4.9rem; text-align: center; font-size: 1.6rem; background-color: #d1ac51; color:white; }
 
 /*加减数量*/
-.yunBox span{ display: none; margin: 0 5px; font-size: 1rem; color: #1d202f; }
-.reduceBtn{ display: none; float:left; width:13px; height:13px; background: url(../img/list/reduce.png) no-repeat; background-size: 13px; }
-.plusBtn{ display: inline-block; float:left; width:13px; height:13px; background: url(../img/list/plus.png) no-repeat; background-size: 13px; }
+.yunBox{ clear: both; margin-top: 28px; }
+.yunBox span{ display: inline-block !important; float:left; margin: 0 5px; font-size: 1rem; color: #1d202f; opacity: 0; }
+.reduceBtn{ display: none; float:left; width:13px; height:13px; background: url(../img/list/reduce.png) no-repeat; background-size: 13px; margin-top: 5px; }
+.plusBtn{ display: inline-block; float:left; width:13px; height:13px; background: url(../img/list/plus.png) no-repeat; background-size: 13px; margin-top: 5px; }
+
+/*选取衣服*/
+.bang-item{ width: 90%; margin:5% auto; }
+.bang-item dl{ border: 1px solid #d1ac51; border-radius: 4px; overflow: hidden; }
+.bang-item dt{ display:inline-block; width: 84px; height:84px; margin:20px; }
+.bang-item dt img{ display: block; width: 100%; vertical-align: middle; }
+.bang-item dd{ float: left; margin:20px; }
+.bang-item dd span{ display:block; color: #1d202f; font-size: 1.6rem; line-height: 25px; margin-bottom: 10px; }
+.bang-item dd a{ background-color: #d1ac51; color: #fff; padding:3px 5px; border-radius: 2px; }
+.bang-item ul{ margin:5% auto; }
+.bang-item li{ height:50px; line-height: 50px; border-bottom:1px solid #e5e5e5; background: url(../img/common/zt.png) 95% center no-repeat; background-size: 15px; }
+.bang-item li a{ width:50%; color: #1d202f; font-size: 1.2rem; }
+.bang-item li s{ display: inline-block; width:25px; height:25px; background-size: 100%; vertical-align: middle; margin-right:5px; }
+.positionIco{ background: url(../img/common/wz.png) no-repeat; }
+.timeIco{ background: url(../img/common/sj.png) no-repeat; }
+.commitBox{ margin:5% auto 0; }
+.commitBox p{ font-size: 1.4rem; text-indent: 1em; }
+.commitBox textarea{ width: 100%; margin:3% auto 0; height:10rem; border: 1px solid #e5e5e5; padding:10px 13px; overflow: hidden; }
+.tipBox{ margin:5% auto; }
+.tipBox h3{ font-size: 1.4rem; text-indent: 1em;}
+.tipBox p{ text-indent: 1em; color: #1d202f; }
+.my_bth_radius1{ display: block; width: 90%; height:3rem; line-height:3rem; background: #d1ac51; color: #fff; font-size:1.4rem; border:none; margin:50px auto 0; padding:0; text-align: center; border-radius: 5px; position: fixed; bottom:5%;
+left:6%;}
+
+/*选取衣服的弹窗*/
+.modal-content{ width: 95%; margin: 50% auto; background-color: #f9f6f2; border-radius: 8px; }
+.modal-header{ width: 90%; margin:0 auto; border-bottom:1px solid #e5e5e5; }
+.modal-header h4{ text-align:center; color: #d1ac51; }
+.modal-body{ padding:0 15px; }
+.bang-modal-item{ border-bottom: 1px solid #e5e5e5; }
+.bang-modal-item .bangcheckbox{ float:right; }
+.bang-modal-item dt span{ font-size: 1.4rem; }
+.bang-modal-item dt, .bang-modal-item dd{ margin:5px 0; }
+.bang-modal-item dd p{ color: #a3a3a3; font-size: 1.2rem; margin-top: 5px;}
+.bang-modal-item dd i{ font-style: normal; }
+.modal-footer{ text-align: center; }
+.modal-footer button{ padding:4px 10px; background-color: #d1ac51; color: #fff; border:none; margin:0 15px;}
+.serviceCn{ margin-top:10px; }
+.serviceCn, .servicePrice{ display:none; }
+.bang-item dd span.serviceMinPrice, .bang-item dd span.serviceMaxPrice{ display: inline-block; font-size:1.2rem; color: #1d202f; }

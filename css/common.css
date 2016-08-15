@@ -35,6 +35,8 @@ header .back{ display:inline-block; width:109px; height:42px; background: url(..
 .ft dl.active dt.ftIco3{ width: 20px; height:20px; background: url(../img/index/ftIco3Cur.png) no-repeat; background-size: 20px 20px;}
 .ft dd{ margin-top:3%; color:#a3a3a4; font-size: 1.2rem; }
 .ft dl.active dd{ color:#d1ac51; }
+/*黄色按钮*/
+.my_bth{ display: block; width: 90%; height:3rem; line-height:3rem; background: #d1ac51; color: #fff; font-size:1.4rem; border:none; margin:50px auto 0; padding:0; text-align: center; }
 /*tab切换*/
 .nav-tabs{ width: 87%; height: 2.8rem; line-height: 2.8rem; text-align: center; border:2px solid #d1ac51; border-radius: 5px; background-color:#f9f6f2; margin: 10px auto; }
 .nav-tabs li{ float:left; width: 25%;  background-color: white; border-right:2px solid #d1ac51;}

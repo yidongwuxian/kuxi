@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>帮衣坊-选</title>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/list.css" />
+</head>
+<body>
+	<div class="kuxi-page">
+		<header>
+            <p>
+                <s class="back"></s>
+				帮衣坊
+            </p>
+        </header>
+		<form class="bang-item" action="myOrder.html">
+			<dl>
+				<dt class="fl">
+					<img src="img/list/qunzi.png" />
+				</dt>
+				<dd class="pr">
+					<span>裙子</span>
+					<a href="javascript:;" id="selectService">点击选择需要的服务</a>
+					<p class="serviceCn"></p>
+					<p class="servicePrice">
+						预估价：<span class="serviceMinPrice"></span>-<span class="serviceMaxPrice"></span>
+					</p>
+				</dd>
+			</dl>
+			<ul>
+				<li>
+					<a href="/addAddress.html"><s class="positionIco"></s>点击添加地址</a>
+				</li>
+				<li>
+					<a href="/"><s class="timeIco"></s>请选择服务时间</a>
+				</li>
+			</ul>
+			<div class="commitBox">
+				<p>留言</p>
+				<textarea id="commitTextArea" placeholder="给商家留言，限50个字。"></textarea>
+			</div>
+			<div class="tipBox">
+				<h3>订单须知：</h3>
+				<p>1、下单即生效，不需要马上支付</p>
+				<p>2、管家上门量体收衣后，便可支付，并可用优惠券</p>
+			</div>
+			<input type="submit" class="my_bth_radius1" value="提交" />
+	</form>
+	<!--bang-mask start-->
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="bangModal" tabindex="-1" role="dialog" aria-labelledby="bangModalLabel" aria-hidden="true">
+	   <div class="pr modal-dialog">
+		  <div class="modal-content">
+			  <div class="modal-header">
+				   <h4 class="modal-title" id="bangModalLabel">
+					  请选择您需要的服务
+				   </h4>
+			  </div>
+			  <div class="modal-body">
+				  <dl class="bang-modal-item">
+					  <dt>
+						  <span>改领形</span>
+						  <input type="checkbox" name="bangcheckbox" class="bangcheckbox" />
+					  </dt>
+					  <dd>
+						  <span>普通型: <i class="serviceMinPriceVal">20元</i></span>
+						  <span>高档型: <i class="serviceMaxPriceVal">30元</i></span>
+						  <p>衣物的特殊说明如：长短收费一样特殊面料不能洗涤殊面料不能洗涤</p>
+					  </dd>
+				  </dl>
+				  <dl class="bang-modal-item">
+					  <dt>
+						  <span>改腰身</span>
+						  <input type="checkbox" name="bangcheckbox" class="bangcheckbox" />
+					  </dt>
+					  <dd>
+						  <span>普通型: <i class="serviceMinPriceVal">40元</i></span>
+						  <span>高档型: <i class="serviceMaxPriceVal">60元</i></span>
+						  <p>衣物的特殊说明如：长短收费一样特殊面料不能洗涤殊面料不能洗涤</p>
+					  </dd>
+				  </dl>
+				  <dl class="bang-modal-item">
+					  <dt>
+						  <span>改裤腿</span>
+						  <input type="checkbox" name="bangcheckbox" class="bangcheckbox" />
+					  </dt>
+					  <dd>
+						  <span>普通型:<i class="serviceMinPriceVal">30元</i></span>
+						  <span>高档型:<i class="serviceMaxPriceVal">40元</i></span>
+						  <p>衣物的特殊说明如：长短收费一样特殊面料不能洗涤殊面料不能洗涤</p>
+					  </dd>
+				  </dl>
+			  </div>
+			  <div class="tipDiv"></div>
+			  <div class="modal-footer">
+	            <button type="button" class="btn btn-default" id="bangSave">保存</button>
+	            <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+	         </div>
+		  </div><!-- /.modal-content -->
+	   </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!--bang-mask end-->
+	<script type="text/javascript" src="js/jquery.1.11.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/modal.js"></script>
+	<script type="text/javascript" src="js/list.js"></script>
+</body>
+</html>
