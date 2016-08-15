@@ -1,0 +1,11 @@
+.invite-banner img{ display: block; width:100%; }
+.invite-item s{ display:block; width:63px; height:63px; background-size: 63px; margin:0 auto; }
+.inviteIco1{ background: url(../img/invite/weixin.png) no-repeat; }
+.inviteIco2{ background: url(../img/invite/pyq.png) no-repeat; }
+.inviteIco3{ background: url(../img/invite/qq.png) no-repeat; }
+.invite-item dl{ display:inline-block; width:32%; margin:2.5rem auto; }
+.invite-item dd{ font-size: 1.6rem; color:#1d202f; text-align: center; }
+.inviteLine{ width:320px; height:2px; margin:0 auto; background: url(../img/invite/hx.png) no-repeat; background-size: 320px 2px;}
+.inviteTx{ width:80%; margin:7.2rem auto; }
+.inviteTx p.tx{ width:100%; margin:0 auto 1rem; text-align: left; text-indent: 1em; line-height:3.6rem; background-color: #d1ac51; font-size: 1.6rem; color:#fff; }
+.inviteTx p{ text-align: center; font-size: 1.6rem; color:#1d202f;}

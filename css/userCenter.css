@@ -1,0 +1,30 @@
+/*头部*/
+.ScanBtn{ position: absolute; right:15px; font-size: 1.6rem; color: #d1ac51;}
+/*exclusive-item*/
+.no-nav-tab{ width:100%; border:none; margin:0 auto; border-bottom: 1px solid  #dbdbdb;  }
+.no-nav-tab p{ text-align: left; width:80%; margin:0 auto; }
+.exclusive-item{ width:100%; background-color: white; overflow: hidden; }
+.exclusive-item dl{ float:left; width:100%;border-bottom: 1px solid  #dbdbdb; }
+.exclusive-item dt a{ display:inline-block; width:80px; height:80px; margin:20px; }
+.exclusive-item dt img{ display:block; width:100%;  vertical-align: middle;}
+.exclusive-item .details{ display: inline-block; width: 60%; padding: 20px 0; border-bottom: 1px solid #ececec; float: left; }
+.exclusive-item .details p { font-size: 1.3rem; color: #7b7b7b; line-height: 20px;}
+.exclusive-item .details p span { display: inline-block; width: 80px; color: #1d202f; text-align: right; }
+.exclusive-item dd{ font-size: 1.4rem; color: #a3a3a3; width: 88%; margin: 0 auto; line-height: 2; }
+/*user-center*/
+.user-hd .user-hd-bd{ position: absolute; top:40px; z-index:2;}
+.user-hd .user-icon-pic{ border-radius: 45px; }
+.user-hd img, .user-hd .user-hd-bd{ display: block; width: 100%; vertical-align: middle; }
+.user-nav{ position: relative; top:0; z-index: 3; background: url(../img/userCenter/wo-beijing.png) 100% center no-repeat; background-size: 100%; }
+.user-icon{ width: 70px; height: 70px; margin:0 auto; border: 3px solid #d1ac51; border-radius: 45px;}
+.user-tx{ display: block; color: #d1ac51; font-size: 1.6rem; margin:0.1rem auto 0.3rem; text-align: center; }
+.user-hd ul{ margin: 4% 0 0 0; overflow: hidden; }
+.user-hd li{ float:left; width: 33.3%; border-right:1px solid #d1ac51; margin-bottom: 10px; }
+.user-hd li:last-child{ border-right:none; }
+.user-hd li p{ color: #d1ac51; font-size: 1.2rem; text-align: center;}
+.user-hd li p span{ font-family:"Microsoft Yahei"; }
+.user-item{ background-color: #f9f6f2; }
+.user-item li{ height:50px; line-height: 50px; border-bottom:1px solid #e5e5e5; background: white url(../img/common/zt.png) 95% center no-repeat; background-size: 15px; padding-left:10%; }
+.user-item li a{ width:50%; color: #1d202f; font-size: 1.4rem; }
+.user-item .first-item{ margin-bottom: 8px; }
+.user-item .last-item{ margin-top: 8px;}

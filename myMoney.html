@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>我的钱包</title>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/money.css" />
+<script type="text/javascript" src="js/jquery.1.11.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/modal.js"></script>
+</head>
+<body>
+	<div class="kuxi-page">
+		<header>
+            <p>
+                <s class="back"></s>
+				我的钱包
+            </p>
+        </header>
+		<div class="guest-cn">
+    		<div class="bd">
+    			<div class="notice">
+		        	<div class="moneyIco"></div>
+					<p>账户</p>
+		        	<b>112.3</b>
+					<div id="rechargeBtn" class="my_bth1" data-toggle="modal" data-target="#rechargeModal"><span>充值</span></div>
+					<div class="my_bth2" href=""><span>消费记录</span></div>
+		        </div>
+    		</div>
+        </div>
+	</div>
+	<!-- 模态框（Modal） -->
+<div class="modal fade" id="rechargeModal" tabindex="-1" role="dialog" aria-labelledby="rechargeModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         
+         <div class="modal-body">
+            <div class="recharge-item">
+				<label>充值号</label>
+				<input type="text" value="" />
+			</div>
+			<div class="recharge-item">
+				<label>充值码</label>
+				<input type="text" value="" />
+			</div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-yellow"
+               data-dismiss="modal">取消
+            </button>
+            <button type="button" class="btn btn-yellow">
+               保存
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+	<script type="text/javascript">
+	$(function(){
+		$('#rechargeBtn').click(function(){
+		   $('#rechargeModal').modal({
+	 	      keyboard: true
+	 	   })
+		});
+	});
+	</script>
+</body>
+</html>

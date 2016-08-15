@@ -1,0 +1,47 @@
+body { background: #f7f7f7; font-size: 62.5%; }
+body,div,p,ul,li,a,h1,h2,h3,h4,h5,h6{ margin:0; padding: 0; }
+ul,li,ol{ list-style: none; }
+.clear{ clear:both; }
+.fl{ float:left; }
+.fr{ float:right;}
+.ow{ overflow: hidden; }
+.pr{ position: relative; }
+.m10{ margin-top: 1rem; }
+.mt50{ margin-top:50px; }
+.nbt{ border-bottom: none !important; }
+.cblack{ color: #1d202f; font-size: 1.4rem; }
+.cgray{ color: #a3a3a3;  font-size: 1.4rem; }
+.bd-fleshcolor{ background-color: #f9f6f2; min-height: 800px; }
+.bd-whitecolor{ background-color: white; min-height: 700px; }
+img { border:0; background-color: transparent; }
+input, img { vertical-align: middle; }
+/*整体框架*/
+.kuxi-page{ position: relative; min-width: 320px; height:1000em; background-color: white; overflow: hidden; }
+/*公共头部*/
+header{ width:100%; margin:0 auto; height:40px; line-height:40px; text-align: center; background: #181a26; font-size:1.6rem; color:#d1ac51; }
+header p{ font-size: 1.6rem; }
+header .back{ display:inline-block; width:109px; height:42px; background: url(../img/common/back.png) left center no-repeat; background-size: 55px 21px; position: absolute; left:15px; }
+.serviceDes{ position: absolute; right:15px; font-size: 1.4rem; color: #d1ac51;}
+/*公共尾部*/
+.ft{ position: fixed; bottom:0; left:0; width:100%; height:4.8rem; background-color: #444849; overflow:hidden; }
+.ft dl{ float:left; width:30%;  margin:0 1%; text-align: center; }
+.ft dl a{ display: block; margin: 10px; }
+.ft dt{ margin:0 auto; }
+.ft dt.ftIco1{ width: 19px; height:19px; background: url(../img/index/ftIco1.png) no-repeat; background-size: 19px 19px;}
+.ft dt.ftIco2{ width: 18px; height:20px; background: url(../img/index/ftIco2.png) no-repeat; background-size: 18px 20px;}
+.ft dt.ftIco3{ width: 20px; height:20px; background: url(../img/index/ftIco3.png) no-repeat; background-size: 20px 20px;}
+.ft dl.active dt.ftIco1{ width: 19px; height:19px; background: url(../img/index/ftIco1Cur.png) no-repeat; background-size: 19px 19px;}
+.ft dl.active dt.ftIco2{ width: 18px; height:20px; background: url(../img/index/ftIco2Cur.png) no-repeat; background-size: 18px 20px;}
+.ft dl.active dt.ftIco3{ width: 20px; height:20px; background: url(../img/index/ftIco3Cur.png) no-repeat; background-size: 20px 20px;}
+.ft dd{ margin-top:3%; color:#a3a3a4; font-size: 1.2rem; }
+.ft dl.active dd{ color:#d1ac51; }
+/*tab切换*/
+.nav-tabs{ width: 87%; height: 2.8rem; line-height: 2.8rem; text-align: center; border:2px solid #d1ac51; border-radius: 5px; background-color:#f9f6f2; margin: 10px auto; }
+.nav-tabs li{ float:left; width: 25%;  background-color: white; border-right:2px solid #d1ac51;}
+.nav-tabs li:last-child{ border-right:none; }
+.nav>li>a:focus, .nav>li>a:hover{ background-color: #1d202f; border:none; border-radius:0; }
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{ background-color: #1d202f; border-radius:0; color: #d1ac51; border:none; }
+.nav-tabs li.cur{ background-color: #1d202f; border-radius:0; }
+.nav-tabs li a{ height: 30px; line-height: 2.2; text-align: center; color: #d1ac51; margin: 0; padding:0; border-radius:0; }
+.nav-tab1 li{ width: 33.3% !important; }
+.nav-tab2 li{ width: 50% !important; }

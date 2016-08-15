@@ -1,0 +1,10 @@
+.bdblue{ background-color: #1d202f; height: 800px;}
+.loginlogo{ width: 125px; height:59px; background: url(../img/login/deng-logo.png) left center no-repeat; background-size: 100%; margin:30% auto 20%; }
+.loginform .in{ width: 351px; height: 128px; background: url(../img/login/bd.png) left center no-repeat; background-size: 100%; margin:0 auto;}
+.loginform .conform{ display:block; width:84.5%; height:3.5rem; line-height: 3.5rem; text-align: center; background-color: #d1ac51; color: #fff; font-size:1.6rem; border-radius: 5px; margin:3% auto; }
+.div-phone, .div-ranks{ width: 86%; height:62px;  margin-left:50px; }
+.div-phone input, .div-ranks input{ display:inline-block; line-height: 62px; background-color: transparent; border:none; text-indent: 1em; font-size:1.6rem; }
+.send0, .send1{ display:block; position: absolute; top:19px; right:15px; background-color: #d3d3d3; padding:5px 8px; color: #fff; font-size: 1.6rem; border-radius: 5px;}
+.loginTip{ color: #655c77; text-align: center; margin:5% auto; font-size: 1.4rem; }
+.loginTip a{ color: #fff; text-decoration: underline; }
+.loginDes{ color: #585e78; text-align: center; margin:50% auto 0; }

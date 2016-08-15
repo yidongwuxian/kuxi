@@ -1,0 +1,26 @@
+/*list-item*/
+.list-item{ width:100%; background-color: white;  border-bottom: 1px solid  #dbdbdb; overflow: hidden; }
+.list-item dl{ float:left; width:50%; border-top: 1px solid  #dbdbdb; border-right: 1px solid  #dbdbdb; padding:10px 0 10px 10px; margin:0; min-height: 155px;}
+.list-item dl:nth-child(2n){ border-right:none; }
+.list-item dt a{ display:block; width:80px; height:80px; }
+.list-item dt img{ display:block; width:100%;  vertical-align: middle;}
+.list-item .details{ width:76px; }
+.list-item .details h3{ display:block; margin:10px 15px 10px 0; font-size:1.6rem; color:#1d202f; max-width: 71px;
+    max-height: 20px; line-height: 20px; overflow:hidden;}
+.list-item .details span{ display: block; font-weight:normal; font-family: "Microsoft YaHei"; font-size:1.6rem; color: #ff4800; margin-right:10px; }
+.list-item .details span b{ font-weight:normal; font-family: Arial; font-size:3rem; }
+.list-item dd{ margin-top: 10px; font-size: 1.2rem; color: #a3a3a3; }
+.selecteBtn{ position: absolute; right:5px; bottom:5px; width:18px; height:18px; background: url(../img/list/gx-03.png) no-repeat; background-size: 18px; }
+.selecteBtn.cur{ position: absolute; right:5px; bottom:5px; width:18px; height:18px;  background: url(../img/list/gx.png) no-repeat; background-size: 18px; }
+
+/*底部结算*/
+.list-ft{ position: fixed; bottom:0; width: 100%; background-color: #e5e5e5; }
+.list-ft .tt{ display: inline-block; width:70%; padding:10px 10px 0; }
+.list-ft .tt p{ font-size: 1.3rem; color:#1d202f; text-align: right;}
+.list-ft .tt p b{ display:inline-block; font-size: 2rem; color: #ff4800; font-family: Arial;}
+.list-ft a{ display: inline-block; float: right; width:30%; line-height: 4.9rem; text-align: center; font-size: 1.6rem; background-color: #d1ac51; color:white; }
+
+/*加减数量*/
+.yunBox span{ display: none; margin: 0 5px; font-size: 1rem; color: #1d202f; }
+.reduceBtn{ display: none; float:left; width:13px; height:13px; background: url(../img/list/reduce.png) no-repeat; background-size: 13px; }
+.plusBtn{ display: inline-block; float:left; width:13px; height:13px; background: url(../img/list/plus.png) no-repeat; background-size: 13px; }
