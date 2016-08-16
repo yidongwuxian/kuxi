@@ -21,17 +21,26 @@ $(function(){
 
 	});
 	//选择城市 start
-	$('body').on('click', '.city-list p', function () {
-		var type = $('.city-container').data('type');
-		//$('#zone_ids').html($(this).html()).attr('data-id', $(this).attr('data-id'));
-		$('.regionTx').html($(this).html()).attr('data-id', $(this).attr('data-id'));
-		$('.city-container').hide();
-	});
-	$('body').on('click', '.letter a', function () {
-		var s = $(this).html();
-		$(window).scrollTop($('#' + s + '1').offset().top);
-	});
+	// $('body').on('click', '.city-list p', function () {
+	// 	var type = $('.city-container').data('type');
+	// 	//$('#zone_ids').html($(this).html()).attr('data-id', $(this).attr('data-id'));
+	// 	$('.regionTx').html($(this).html()).attr('data-id', $(this).attr('data-id'));
+	// 	$('.city-container').hide();
+	// });
+	// $('body').on('click', '.letter a', function () {
+	// 	var s = $(this).html();
+	// 	$(window).scrollTop($('#' + s + '1').offset().top);
+	// });
 	//顶部区域选择 end
+	$.ajax({
+	   type: "GET",//请求方式
+	   url: "http://111.198.143.96:11211/api/area_list_v1.do",//地址，就是action请求路径
+	   //data: "jsonp",//数据类型text xml json  script  jsonp
+	   success: function(msg){//返回的参数就是 action里面所有的有get和set方法的参数
+	        console.log(msg);
+	     document.getElementById("result").innerHTML=msg;
+	   }
+	});
 
 	//轮播图 start
 	window.mySwipe = Swipe(document.getElementById('gallery'));

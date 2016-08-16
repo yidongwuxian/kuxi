@@ -1,3 +1,8 @@
+	$(function(){
+		$.getJSON('http://111.198.143.96:11211/api/sendcode.do?USERNAME=13552081763&callback=JSON_CALLBACK', function(data){
+				alert(data);
+		});
+	})
 
 	var sends = {
 		checked:1,
@@ -20,6 +25,7 @@
 							sends.checked = 1;
 							return true;
 						}
+
 						$('.div-ranks a').html(time+"S后再次发送");
 						time--;
 						return false;
