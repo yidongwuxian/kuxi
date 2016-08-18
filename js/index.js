@@ -32,49 +32,6 @@ $(function(){
 	});
 	//顶部区域选择 end
 
-	// $.ajax({
-    //          type: "get",
-    //          async: false,
-    //          url: "http://111.198.143.96:11211/api/area_list_v1.do",
-    //          dataType: "jsonp",
-    //          jsonp: "callback",
-    //          jsonpCallback:"JSON_CALLBACK",
-    //          success: function(data){
-	// 			 if(data.resp_code == "200" && data.resp_msg == "success"){
-	// 				  var newData = data.result;
-	// 				  var html = '<ul>';
-	// 				  for(var i = 0; i < newData.length; i++){
-	// 					 html += '<li>' + newData[i].AREA_EN + '</li>';
-	// 				  }
-	// 				  html += '</ul>';
-	//
-	// 				 $('.letter').html(html);
-	// 				 var newhtml ='';
-	// 				 for(var j= 0; j< newData.length; j++){
-	// 					 var inData = newData[j].AREA_EN;
-	// 					 for(var k = 0; k< inData.length; k++ ){
-	// 						 console.log(inData[i].AREA_NAME);
-	// 					 newhtml += '<div class="city-list"> \
-	// 					      <div class="city-letter" id="'+ newData[j].AREA_EN +'1"> \
-	// 					          <span>'+ newData[j].AREA_EN +'</span> \
-	// 					          <span>'+ newData[j].AREA_NAME+'</span> \
-	// 					      </div> \
-	// 					      <div class="city-cn"> \
-	// 					          <p data-id="">'+ inData[k].AREA_NAME +'</p>\
-	// 					      </div>\
-	// 					    </div>';
-	// 				   	  $('.city').html(newhtml);
-	//
-	// 			   		}
-	// 				 }
-	//
-	// 			 }
-    //          },
-    //          error: function(){
-    //              alert('fail');
-    //          }
-    // });
-
 	//轮播图 start
 	window.mySwipe = Swipe(document.getElementById('gallery'));
 	//轮播图 end

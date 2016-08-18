@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/index.css" />
 </head>
-<body ng-app="myApp">
+<body>
     <div class="kuxi-page">
         <!--区域选择-->
         <header>
@@ -117,7 +117,7 @@
 </div>
 <!--ft end-->
 <!--regionSelection start-->
-<div class="city-container" ng-controller="cityCtrl">
+<div class="city-container" ng-app="myApp" ng-controller="cityCtrl">
   <div class="city">
       <div class="city-list" ng-repeat="item in items">
         <div class="city-letter" id="{{item.AREA_EN}}1">
@@ -134,7 +134,6 @@
     </ul>
   </div>
 </div>
-<input type="hidden" value="{{[item.AREA_EN]}}" />
 <!--regionSelection end-->
 <script type="text/javascript" src="js/jquery.1.11.min.js"></script>
 <script type="text/javascript" src="js/angular.min.js"></script>
