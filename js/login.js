@@ -1,13 +1,22 @@
 var httpx = 'http://111.198.143.96:11211';
-var app = angular.module('myApp', ["ngRoute"]);
-app.controller('loginCtrl', function($scope,$http, $interval, $route, $location) {
+var app = angular.module('myApp', ["ngRoute","ngStorage"]);
+app.controller('loginCtrl', function($scope,$http, $interval, $route, $location, $localStorage) {
 	$scope.master = { TYPE:1, REQ_TYPE: "01"};
 	$scope.user1 = angular.copy($scope.master);
 
 	$scope.submitForm = function(){
 		$http.jsonp(httpx+'/api/login.do?&callback=JSON_CALLBACK&&'+ 'USERNAME='+$scope.user.USERNAME+ '&CODE='+$scope.user.CODE+ '').success(
 		　　function(data){
-			  $location.path("myCenter?"+ 'USERNAME='+data.result.USERNAME+ 'TOKEN='+data.result.TOKEN);
+				if(data.result){
+					$localStorage.USERNAME=data.result.USERNAME;
+					$localStorage.TOKEN=data.result.TOKEN;
+					window.location = "myCenter.html";
+				}else{
+					$localStorage.reset();
+					alert(data.resp_msg)
+				}
+//			  $location.path("myCenter?"+ 'USERNAME='+data.result.USERNAME+ 'TOKEN='+data.result.TOKEN);
+				
 		　　}
 		);
 	}

@@ -21,12 +21,12 @@
         </header>
         <div id="gallery" class="swipe">
             <ul class="swipe-wrap">
-                <li>
+                <li ng-repeat="ad in ads">
                     <a href="/">
-                        <img src="img/index/indexBanner1.png" alt="" />
+                        <img src="{{ad.PICTURE_URL}}" alt="" />
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="/">
                         <img src="img/index/blue.png" alt="" />
                     </a>
@@ -35,7 +35,7 @@
                     <a href="/">
                         <img src="img/index/orange.png" alt="" />
                     </a>
-                </li>
+                </li> -->
             </ul>
             <div class="gallery-mask"></div>
          </div>
@@ -133,6 +133,7 @@
         <li ng-repeat="item in items"><a href="javascript:;">{{item.AREA_EN}}</a></li>
     </ul>
   </div>
+</div>
 </div>
 <!--regionSelection end-->
 <script type="text/javascript" src="js/jquery.1.11.min.js"></script>
