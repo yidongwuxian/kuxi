@@ -21,26 +21,59 @@ $(function(){
 
 	});
 	//选择城市 start
-	// $('body').on('click', '.city-list p', function () {
-	// 	var type = $('.city-container').data('type');
-	// 	//$('#zone_ids').html($(this).html()).attr('data-id', $(this).attr('data-id'));
-	// 	$('.regionTx').html($(this).html()).attr('data-id', $(this).attr('data-id'));
-	// 	$('.city-container').hide();
-	// });
-	// $('body').on('click', '.letter a', function () {
-	// 	var s = $(this).html();
-	// 	$(window).scrollTop($('#' + s + '1').offset().top);
-	// });
-	//顶部区域选择 end
-	$.ajax({
-	   type: "GET",//请求方式
-	   url: "http://111.198.143.96:11211/api/area_list_v1.do",//地址，就是action请求路径
-	   //data: "jsonp",//数据类型text xml json  script  jsonp
-	   success: function(msg){//返回的参数就是 action里面所有的有get和set方法的参数
-	        console.log(msg);
-	     document.getElementById("result").innerHTML=msg;
-	   }
+	$('body').on('click', '.city-list p', function () {
+		var type = $('.city-container').data('type');
+		$('.regionTx').html($(this).html()).attr('data-id', $(this).attr('data-id'));
+		$('.city-container').hide();
 	});
+	$('body').on('click', '.letter a', function () {
+		var s = $(this).html();
+		$(window).scrollTop($('#' + s + '1').offset().top);
+	});
+	//顶部区域选择 end
+
+	// $.ajax({
+    //          type: "get",
+    //          async: false,
+    //          url: "http://111.198.143.96:11211/api/area_list_v1.do",
+    //          dataType: "jsonp",
+    //          jsonp: "callback",
+    //          jsonpCallback:"JSON_CALLBACK",
+    //          success: function(data){
+	// 			 if(data.resp_code == "200" && data.resp_msg == "success"){
+	// 				  var newData = data.result;
+	// 				  var html = '<ul>';
+	// 				  for(var i = 0; i < newData.length; i++){
+	// 					 html += '<li>' + newData[i].AREA_EN + '</li>';
+	// 				  }
+	// 				  html += '</ul>';
+	//
+	// 				 $('.letter').html(html);
+	// 				 var newhtml ='';
+	// 				 for(var j= 0; j< newData.length; j++){
+	// 					 var inData = newData[j].AREA_EN;
+	// 					 for(var k = 0; k< inData.length; k++ ){
+	// 						 console.log(inData[i].AREA_NAME);
+	// 					 newhtml += '<div class="city-list"> \
+	// 					      <div class="city-letter" id="'+ newData[j].AREA_EN +'1"> \
+	// 					          <span>'+ newData[j].AREA_EN +'</span> \
+	// 					          <span>'+ newData[j].AREA_NAME+'</span> \
+	// 					      </div> \
+	// 					      <div class="city-cn"> \
+	// 					          <p data-id="">'+ inData[k].AREA_NAME +'</p>\
+	// 					      </div>\
+	// 					    </div>';
+	// 				   	  $('.city').html(newhtml);
+	//
+	// 			   		}
+	// 				 }
+	//
+	// 			 }
+    //          },
+    //          error: function(){
+    //              alert('fail');
+    //          }
+    // });
 
 	//轮播图 start
 	window.mySwipe = Swipe(document.getElementById('gallery'));
@@ -50,3 +83,13 @@ $(function(){
 	setInterval('autoScroll(".hdlines-box")', 3000);
    //头条新闻上下滚动调用代码 end
 });
+
+//城市选择调用API代码 start
+var httpx = 'http://111.198.143.96:11211';
+	var app = angular.module('myApp', []);
+	app.controller('cityCtrl', function($scope,$http) {
+	    $http.jsonp(httpx + '/api/area_list_v1.do?callback=JSON_CALLBACK&&').success(function(data){
+	    	$scope.items = data.result;
+	    });
+	});
+//城市选择调用API代码 end

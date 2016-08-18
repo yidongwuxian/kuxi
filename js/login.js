@@ -1,39 +1,53 @@
-	$(function(){
-		$.getJSON('http://111.198.143.96:11211/api/sendcode.do?USERNAME=13552081763&callback=JSON_CALLBACK', function(data){
-				alert(data);
-		});
-	})
+var httpx = 'http://111.198.143.96:11211';
+var app = angular.module('myApp', ["ngRoute"]);
+app.controller('loginCtrl', function($scope,$http, $interval, $route, $location) {
+	$scope.master = { TYPE:1, REQ_TYPE: "01"};
+	$scope.user1 = angular.copy($scope.master);
 
-	var sends = {
-		checked:1,
-		send:function(){
-				var numbers = /^1\d{10}$/;
-				var val = $('#phone').val().replace(/\s+/g,""); //获取输入手机号码
-				if($('.div-ranks').find('span').length == 0 && $('.div-ranks a').attr('class') == 'send1'){
-					if(!numbers.test(val) || val.length ==0){
-						$('.div-phone').append('<span class="error">手机格式错误</span>');
-						return false;
-					}
-				}
-				if(numbers.test(val)){
-					var time = 30;
-					$('.div-phone span').remove();
-					function timeCountDown(){
-						if(time==0){
-							clearInterval(timer);
-							$('.div-ranks a').addClass('send1').removeClass('send0').html("发送验证码");
-							sends.checked = 1;
-							return true;
-						}
-
-						$('.div-ranks a').html(time+"S后再次发送");
-						time--;
-						return false;
-						sends.checked = 0;
-					}
-					$('.div-ranks a').addClass('send0').removeClass('send1');
-					timeCountDown();
-					var timer = setInterval(timeCountDown,1000);
-				}
-		}
+	$scope.submitForm = function(){
+		$http.jsonp(httpx+'/api/login.do?&callback=JSON_CALLBACK&&'+ 'USERNAME='+$scope.user.USERNAME+ '&CODE='+$scope.user.CODE+ '').success(
+		　　function(data){
+			  $location.path("myCenter?"+ 'USERNAME='+data.result.USERNAME+ 'TOKEN='+data.result.TOKEN);
+		　　}
+		);
 	}
+	$scope.paracont = "获取验证码";
+	$scope.paraclass = "but_null";
+	$scope.paraevent = true;
+	$scope.sendCode = function (){
+		var second = 60,
+		timePromise = undefined;
+		$http.jsonp(httpx+'/api/sendcode.do?&callback=JSON_CALLBACK&&'+ 'USERNAME='+$scope.user.USERNAME+ '&TYPE='+$scope.user1.TYPE+ '&REQ_TYPE='+$scope.user1.REQ_TYPE).success(
+		　　function(data){
+		　　　　alert(data.resp_msg);
+		　　}
+		);
+		timePromise = $interval(function(){
+		  if(second<=0){
+			$interval.cancel(timePromise);
+			timePromise = undefined;
+
+			second = 60;
+			$scope.paracont = "重发验证码";
+			$scope.paraclass = "but_null";
+			$scope.paraevent = true;
+		  }else{
+			$scope.paracont = second + "秒后可重发";
+			$scope.paraclass = "not but_null";
+			second--;
+		  }
+		},1000,100);
+	}
+
+});
+
+app.config(function($routeProvider, $locationProvider) {
+          $routeProvider
+        .when('myCenter', {
+            templateUrl: 'myCenter.html',
+            controller: 'myCenterController'
+          })
+        .otherwise({
+            redirectTo: '/login'
+          });
+    });

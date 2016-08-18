@@ -76,14 +76,13 @@
 /*order-submit-item*/
 .order-submit-item{ width: 100%; margin:0 auto;}
 .order-submit-item ul{ padding:10px 0; }
-.line-freshcolor{ width: 100%; height:8px; background-color: #f9f6f2; }
 .order-submit-item li{ width: 90%; margin:0 auto; background: url(../img/common/zt.png) 100% center no-repeat; background-size: 15px; }
 .order-submit-item li div{ display: inline-block; width:80%; margin-left: 12%; }
 .order-submit-item li span:first-child{ width: 58%; }
 .order-submit-item li span:last-child{ width: 42%; }
 .order-submit-item li p{ line-height: 25px; }
-.order-submit-item li s{ display: inline-block; width:25px; height:25px; background-size: 100%; margin-right:5px; position: absolute; top:28%; }
-.order-submit-item .positionIco{ background: url(../img/order/dq.png) no-repeat; }
+.order-submit-item li s{ display: inline-block; width:25px; height:25px; margin-right:5px; position: absolute; top:28%; }
+.order-submit-item .positionIco{ background: url(../img/order/dq.png) no-repeat; background-size: 100%; }
 .order-submit-item dd  .priceNum{ font-size: 2rem; color: #ff4800; font-family: Arial; }
 .order-submit-item dd  .priceNum i{ margin-right:5px; font-style: normal; font-size:1rem; font-family:"Microsoft Yahei"; }
 
@@ -96,11 +95,12 @@
 .order-submit-dl dd .desc p{ line-height: 20px; }
 .order-submit-dl .productName{ font-size: 1.6rem; color: #1d202f; }
 .order-submit-dl .productAlias, .order-submit-dl .productSize, .order-submit-dl .productDetail{ font-size: 1.2rem; color: #7b7b7b; }
-.order-submit-dl dd .priceNum{ float:right; width: 30%; }
-.order-submit-dl dd .priceNum p{ margin-top:32px; background-color: #f9f6f2; overflow:hidden; }
-.order-submit-dl dd .priceNum span{ display: inline-block; float:left; line-height:38px; margin: 0 5px; font-size: 1rem; color: #1d202f; }
-.order-submit-dl dd .priceNum .reduceBtn{ display: inline-block; float:left; width:25px; height:30px; background: url(../img/order/order-reduce.png) no-repeat; background-size: 25px 30px; margin-top: 5px; margin-right:0; }
-.order-submit-dl dd .priceNum .plusBtn{ display: inline-block; float:left; width:25px; height:30px; background: url(../img/order/order-plus.png) no-repeat; background-size: 25px 30px; margin-top: 5px; margin-right:0; }
+.order-submit-dl dd .priceNum{ float:right; }
+.order-submit-dl dd .priceNum b{ display: block; width:100%; text-align: right;}
+.order-submit-dl dd .priceNum p{ width: 100%; margin-top:32px; background-color: #f9f6f2; overflow:hidden; }
+.order-submit-dl dd .priceNum span{ display: inline-block; font-size: 1.6rem; color: #1d202f; vertical-align:middle; }
+.order-submit-dl dd .priceNum .reduceBtn{ display: inline-block; width:25px; height:25px; background: url(../img/order/order-reduce.png) no-repeat; background-size: 25px; margin-right:0; vertical-align:text-bottom; }
+.order-submit-dl dd .priceNum .plusBtn{ display: inline-block; width:25px; height:25px; background: url(../img/order/order-plus.png) no-repeat; background-size: 25px; margin-right:0; vertical-align:text-bottom; }
 
 .order-submit-item .serviceTime{ width:90%; margin:5% auto; }
 .order-submit-item .serviceTime div{ margin-bottom: 5px; }
@@ -117,3 +117,40 @@
 .tipBox h3{ font-size: 1.4rem; text-indent: 1em;}
 .tipBox p{ text-indent: 1em; color: #1d202f; }
 .my_bth_radius1{ display: block; width: 90%; height:3rem; line-height:3rem; background: #d1ac51; color: #fff; font-size:1.4rem; border:none; margin:5% auto 0; padding:0; text-align: center; border-radius: 5px; position:relative; }
+
+/*order-details-item*/
+.order-details-item{ width: 90%; margin: 0 auto; padding: 10px 0; overflow: hidden; }
+.order-details-item dl{ margin:0; }
+.order-details-item dt{ width:80px; height:80px; margin-right:20px; float:left; border:4px solid #d1ac51; border-radius: 45px; }
+.order-details-item dt img{ display: block; width: 100%; vertical-align: middle; }
+.order-details-item dd{ padding-top:10px; }
+.order-details-item dd p{ line-height: 1.2; font-size: 1.6rem; color: #7b7b7b; }
+.order-details-item p{ line-height: 1.2; font-size: 1.4rem; color: #7b7b7b; }
+.order-details-item p b{ display:inline-block; width:70%; font-weight: normal; }
+.order-details-item dd p span{ width: auto; color:#7b7b7b; }
+.order-details-item p span{ display: inline-block; float: left; width: 18%; margin-right: 10px; color: #1d202f; }
+
+.order-submit-dl2{ margin-top:8px; background-color: white; border-bottom: 1px solid #ececec; overflow:hidden; }
+.order-submit-dl2 dl{ margin:0; padding-bottom:10px; overflow: hidden; }
+.order-submit-dl2 dt{ display:inline-block; width: 60px; height:60px; margin:10px; border:none; }
+.order-submit-dl2 dt img{ display: block; width: 100%; vertical-align: middle; }
+.order-submit-dl2 dd{ float: left; width:70%; margin-top: 10px; }
+.order-submit-dl2 dd .desc{ float:left; width: 75%; margin: 0px 3%; }
+.order-submit-dl2 dd .desc p{ line-height: 20px; }
+.order-submit-dl2 .productName{ font-size: 1.6rem; color: #1d202f; }
+.order-submit-dl2 .productAlias, .order-submit-dl2 .productSize, .order-submit-dl2 .productDetail{ font-size: 1.2rem; color: #7b7b7b; }
+.order-submit-dl2 dd .priceNum{ float:right; }
+.order-submit-dl2 dd .priceNum b{ display: block; width:100%; text-align: right; color: #ff4800; font-size: 1.6rem; }
+.order-submit-dl2 dd .priceNum p{ width: 100%; margin-top:32px; background-color: #f9f6f2; overflow:hidden; }
+.order-submit-dl2 dd .priceNum span{ display: inline-block; font-size: 1.6rem; color: #1d202f; vertical-align:middle; }
+.order-submit-dl2 dd .priceNum i{ font-style: normal; font-size:1rem; font-family:"Microsoft Yahei"; }
+.order-details-item .nav-tabs{ width:50%; margin:0 0 10px 20px; height:2.4rem; line-height: 2.2rem; }
+.order-details-item .nav-tabs li{ width:50%; }
+.order-details-ol{ background-color: #f9f6f2; }
+.order-details-ol ol{ width:90%; margin:0 auto; overflow: hidden; }
+.order-details-ol li{ height:50px; background: url(../img/order/yuan-un.png) left center no-repeat; background-size: 25px 50px; }
+.order-details-ol li.cur{ height:50px; background: url(../img/order/yuan.png) left center no-repeat; background-size: 25px 50px; }
+.order-details-ol li span{ line-height: 50px; font-size: 1.2rem; color: #1d202f; }
+.order-details-ol li span.tt{ float: left; margin-left:7%;}
+.order-details-ol li span.time{ float: right; }
+.order-details-item.w100{ width:100%; }

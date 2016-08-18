@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/index.css" />
 </head>
-<body>
+<body ng-app="myApp">
     <div class="kuxi-page">
         <!--区域选择-->
         <header>
@@ -40,7 +40,7 @@
             <div class="gallery-mask"></div>
          </div>
          <div class="floor-item">
-             <nav class="quick-entry-nav pr">
+             <nav class="quick-entry-nav pr" ng-controller="index_goods_type_Ctrl">
                  <a class="quick-entry-link" href="/clothes.html">
                      <img src="img/index/icon1.png" />
                      <span>精致洗衣</span>
@@ -117,70 +117,28 @@
 </div>
 <!--ft end-->
 <!--regionSelection start-->
-<div class="city-container">
+<div class="city-container" ng-controller="cityCtrl">
   <div class="city">
-    <div class="city-list">
-      <div class="city-letter" id="B1">
-          <span>B</span>
-          <span>北京市</span>
-      </div>
-      <div class="city-cn">
-          <p data-id="220800">丰台区</p>
-          <p data-id="150200">房山区</p>
-          <p data-id="150800">大兴区</p>
-          <p data-id="130600">海淀区</p>
-      </div>
-    </div>
-    <div class="city-list">
-      <div class="city-letter" id="C1">
-          <span>C</span>
-          <span>常州市</span>
-      </div>
-      <div class="city-cn">
-          <p data-id="140400">丰台区</p>
-      </div>
-    </div>
-    <div class="city-list">
-        <div class="city-letter" id="D1">
-            <span>D</span>
-            <span>大同市</span>
+      <div class="city-list" ng-repeat="item in items">
+        <div class="city-letter" id="{{item.AREA_EN}}1">
+            <span>{{item.AREA_EN}}</span>
+            <span>{{item.AREA_NAME}}</span>
         </div>
         <div class="city-cn">
-            <p data-id="232700">丰台区</p>
+            <p data-id="{{list.AREA_ID}}" ng-repeat="list in item[item.AREA_EN]">{{list.COMMUNITY_NAME}}</p>
         </div>
-    </div>
   </div>
   <div class="letter">
     <ul>
-      <li><a href="javascript:;">A</a></li>
-      <li><a href="javascript:;">B</a></li>
-      <li><a href="javascript:;">C</a></li>
-      <li><a href="javascript:;">D</a></li>
-      <li><a href="javascript:;">E</a></li>
-      <li><a href="javascript:;">F</a></li>
-      <li><a href="javascript:;">G</a></li>
-      <li><a href="javascript:;">H</a></li>
-      <li><a href="javascript:;">J</a></li>
-      <li><a href="javascript:;">K</a></li>
-      <li><a href="javascript:;">L</a></li>
-      <li><a href="javascript:;">M</a></li>
-      <li><a href="javascript:;">N</a></li>
-      <li><a href="javascript:;">P</a></li>
-      <li><a href="javascript:;">Q</a></li>
-      <li><a href="javascript:;">R</a></li>
-      <li><a href="javascript:;">S</a></li>
-      <li><a href="javascript:;">T</a></li>
-      <li><a href="javascript:;">W</a></li>
-      <li><a href="javascript:;">X</a></li>
-      <li><a href="javascript:;">Y</a></li>
-      <li><a href="javascript:;">Z</a></li>
+        <li ng-repeat="item in items"><a href="javascript:;">{{item.AREA_EN}}</a></li>
     </ul>
   </div>
 </div>
+<input type="hidden" value="{{[item.AREA_EN]}}" />
 <!--regionSelection end-->
 <script type="text/javascript" src="js/jquery.1.11.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/doT.js" ></script>
 <script type="text/javascript" src="js/swipe.js" ></script>
 <script type="text/javascript" src="js/index.js" ></script>
 </body>

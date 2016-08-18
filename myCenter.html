@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/userCenter.css" />
 </head>
-<body>
-	<div class="kuxi-page">
+<body ng-app="myApp">
+	<div class="kuxi-page" ng-controller="usersCtrl">
 		<header>
             <p>
                 <s class="back"></s>
@@ -20,7 +20,7 @@
 		<div class="user-hd">
 			<div class="user-nav">
 				<div class="user-icon"><img class="user-icon-pic" src="img/userCenter/touxiang.png" /></div>
-				<h3 class="user-tx">15901101057</h3>
+				<h3 class="user-tx" ng-model="user.USERNAME">13552081753</h3>
 				<ul>
 					<li>
 						<div>
@@ -53,7 +53,7 @@
 					<a href="myMoney.html">我的钱包</a>
 				</li>
 				<li>
-					<a>优惠券</a>
+					<a href="coupon.html">优惠券</a>
 				</li>
 				<li>
 					<a href="invite.html">邀请有奖</a>
@@ -96,6 +96,8 @@
 	</div>
 	<!--ft end-->
 	<script type="text/javascript" src="js/jquery.1.11.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/myCenter.js"></script>
 </body>
 </html>
