@@ -22,9 +22,9 @@
         <div id="gallery"  ng-controller="ads1Ctrl">
             <carousel interval="myInterval">
                 <slide ng-repeat="slide in slides" active="slide.active">
-                  <img ng-src="{{slide.image}}" style="margin:auto;">
+                  <img ng-src="{{slide.PICTURE_URL}}" style="margin:auto;">
                   <div class="carousel-caption">
-                    <p>{{slide.text}}</p>
+                    <p>{{slide.NAME}}</p>
                   </div>
                 </slide>
             </carousel>        
