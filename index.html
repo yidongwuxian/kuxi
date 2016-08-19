@@ -19,14 +19,22 @@
                 <i></i>
             </p>
         </header>
-        <div id="gallery" class="swipe"  ng-controller="ads1Ctrl">
-            <ul class="swipe-wrap">
-                <li ng-repeat="ad in ads1">
+        <div id="gallery"  ng-controller="ads1Ctrl">
+            <carousel interval="myInterval">
+                <slide ng-repeat="slide in slides" active="slide.active">
+                  <img ng-src="{{slide.image}}" style="margin:auto;">
+                  <div class="carousel-caption">
+                    <p>{{slide.text}}</p>
+                  </div>
+                </slide>
+            </carousel>        
+            <!-- <ul class="swipe-wrap">
+                <li ng-repeat="item in ads1">
                     <a href="/">
-                        <img src="{{ad.PICTURE_URL}}" alt="" />
+                        <img src="{{item.PICTURE_URL}}" alt="" />
                     </a>
                 </li>
-                <!-- <li>
+                <li>
                     <a href="/">
                         <img src="img/index/blue.png" alt="" />
                     </a>
@@ -35,8 +43,8 @@
                     <a href="/">
                         <img src="img/index/orange.png" alt="" />
                     </a>
-                </li> -->
-            </ul>
+                </li> 
+            </ul>-->
             <div class="gallery-mask"></div>
          </div>
          <div class="floor-item"  ng-controller="floorCtrl">
@@ -137,9 +145,11 @@
 <!--regionSelection end-->
 <script type="text/javascript" src="js/jquery.1.11.min.js"></script>
 <script type="text/javascript" src="js/angular.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
+<!-- <script type="text/javascript" src="js/bootstrap.js"></script> -->
 <script type="text/javascript" src="js/util/ngStorage.min.js"></script>
-<script type="text/javascript" src="js/swipe.js" ></script>
+<script type="text/javascript" src="js/util/ui-bootstrap.1.3.3.min.js"></script>
+<script type="text/javascript" src="js/util/ui-bootstrap-tpls.1.3.3.min.js"></script>
+<!-- <script type="text/javascript" src="js/swipe.js" ></script> -->
 <script type="text/javascript" src="js/index.js" ></script>
 </body>
 </html>

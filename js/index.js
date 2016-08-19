@@ -37,7 +37,7 @@ $(function($localStorage){
 	//顶部区域选择 end
 
 	//轮播图 start
-	window.mySwipe = Swipe(document.getElementById('gallery'));
+	//window.mySwipe = Swipe(document.getElementById('gallery'));
 	//轮播图 end
 
     //头条新闻上下滚动调用代码 start
@@ -71,11 +71,19 @@ var httpx = 'http://111.198.143.96:11211';
 //轮播图调用API代码 start
 	app.controller('ads1Ctrl', ads1Ctrl);
 	function ads1Ctrl($scope,$http, $localStorage) {
-		$http.jsonp(httpx + '/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+$localStorage.AREA_ID+'&AD_ZONE_ID=1&REQ_TYPE=01').success(function(data){
-	    	$(data.result).each(function(index,item){//待删除
-	    		item.PICTURE_URL="http://img.kucixy.com/img/20160118/4c4db0c74a0d4b498f3c49212bff14ec.jpg";
-	    	})
+		       // 设置轮播图图片间隔
+        $scope.myInterval = 5000;
+              // 轮播图数据初始化
+        var slides = $scope.slides = [];
+             // 添加轮播图源
+        slides.push({ image: '/Content/images/carousel_1.png', text: '' });
+
+		$http.jsonp(httpx + '/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+19+'&AD_ZONE_ID=1&REQ_TYPE=01').success(function(data){
+	    	// $(data.result).each(function(index,item){//待删除
+	    	// 	item.PICTURE_URL="http://img.kucixy.com/img/20160118/4c4db0c74a0d4b498f3c49212bff14ec.jpg";
+	    	// })
 	    	$scope.ads1 = data.result;
+	    	console.log(data.result);
 	    });
 	}
 //轮播图调用API代码 start
