@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/index.css" />
 </head>
-<body>
+<body ng-app="myApp">
     <div class="kuxi-page">
         <!--区域选择-->
         <header>
@@ -19,9 +19,9 @@
                 <i></i>
             </p>
         </header>
-        <div id="gallery" class="swipe">
+        <div id="gallery" class="swipe"  ng-controller="ads1Ctrl">
             <ul class="swipe-wrap">
-                <li ng-repeat="ad in ads">
+                <li ng-repeat="ad in ads1">
                     <a href="/">
                         <img src="{{ad.PICTURE_URL}}" alt="" />
                     </a>
@@ -39,13 +39,13 @@
             </ul>
             <div class="gallery-mask"></div>
          </div>
-         <div class="floor-item">
-             <nav class="quick-entry-nav pr" ng-controller="index_goods_type_Ctrl">
-                 <a class="quick-entry-link" href="/clothes.html">
-                     <img src="img/index/icon1.png" />
-                     <span>精致洗衣</span>
+         <div class="floor-item"  ng-controller="floorCtrl">
+             <nav class="quick-entry-nav pr" >
+                 <a class="quick-entry-link" href="/clothes.html" ng-repeat="floor in floors">
+                     <img src="{{floor.SERVICE_IMG_URL}}" />
+                     <span>{{floor.GOODS_TYPE_NAME}}</span>
                  </a>
-                 <a class="quick-entry-link">
+                 <!-- <a class="quick-entry-link">
                      <img src="img/index/icon2.png" />
                      <span>奢饰品洗护</span>
                  </a>
@@ -72,25 +72,24 @@
                  <a class="quick-entry-link">
                      <img src="img/index/icon8.png"/>
                      <span>周周洗</span>
-                 </a>
+                 </a> -->
              </nav>
          </div>
          <div class="floor-item m10">
              <div class="headlines">
                  <span class="hdlines-tt"><img src="img/index/scrollTT.png" /></span>
-                 <div class="hdlines-box" id="hdlinesBox">
+                 <div class="hdlines-box" id="hdlinesBox" ng-controller="ads6Ctrl">
                      <ul>
-                         <li><a href="#">洗鞋均一价19元啦， 活动日期：2016-05-25</a></li>
-                         <li><a href="#">洗衣均一价39元啦， 活动日期：2016-05-25</a></li>
-                         <li><a href="#">洗车均一价59元啦， 活动日期：2016-05-25</a></li>
+                         <li ng-repeat="ad in ads6"><a href="#">{{ad.NAME}}</a></li>
                      </ul>
                 </div>
              </div>
-             <div class="module-con">
-                 <li><a><img src="img/index/indexPic1.png" /></a></li>
-                 <li><a><img src="img/index/indexPic2.png" /></a></li>
-                 <li><a><img src="img/index/indexPic3.png" /></a></li>
-                 <li><a><img src="img/index/indexPic4.png" /></a></li>
+             <div class="module-con" ng-controller="ads7Ctrl">
+                <li ng-repeat="ad in ads7">
+                    <a href="/">
+                        <img src="{{ad.PICTURE_URL}}" alt="" />
+                    </a>
+                </li>
              </div>
          </div>
     </div>
@@ -117,7 +116,7 @@
 </div>
 <!--ft end-->
 <!--regionSelection start-->
-<div class="city-container" ng-app="myApp" ng-controller="cityCtrl">
+<div class="city-container" ng-controller="cityCtrl" >
   <div class="city">
       <div class="city-list" ng-repeat="item in items">
         <div class="city-letter" id="{{item.AREA_EN}}1">
@@ -125,7 +124,7 @@
             <span>{{item.AREA_NAME}}</span>
         </div>
         <div class="city-cn">
-            <p data-id="{{list.AREA_ID}}" ng-repeat="list in item[item.AREA_EN]">{{list.COMMUNITY_NAME}}</p>
+            <p ng-click="selectArea($event)" data-id="{{list.AREA_ID}}" ng-repeat="list in item[item.AREA_EN]">{{list.COMMUNITY_NAME}}</p>
         </div>
   </div>
   <div class="letter">
@@ -139,6 +138,7 @@
 <script type="text/javascript" src="js/jquery.1.11.min.js"></script>
 <script type="text/javascript" src="js/angular.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/util/ngStorage.min.js"></script>
 <script type="text/javascript" src="js/swipe.js" ></script>
 <script type="text/javascript" src="js/index.js" ></script>
 </body>
