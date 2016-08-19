@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="css/feedback.css" />
 </head>
 <body>
-	<div class="kuxi-page">
+	<div class="kuxi-page" ng-app="myApp" ng-controller="messageCtrl">
 		<header>
             <p>
                 <s class="back" onclick="history.go(-1);"></s>
@@ -19,30 +19,15 @@
 				<a class="serviceDes" href="/">编辑</a>
             </p>
         </header>
-		<div class="feedback-item1">
+		<div class="feedback-item1" ng-repeat="item in items">
 			<div>
 				<p class="cblack">系统信息：</p>
-				<p class="cgray">恭喜您成功注册。<span class="fr">9-28</span></p>
-			</div>
-		</div>
-		<div class="feedback-item1">
-			<div>
-				<p class="cblack">账户信息：</p>
-				<p class="cgray">您成功领取10元优惠券一张。<span class="fr">9-28</span></p>
-			</div>
-		</div>
-		<div class="feedback-item1">
-			<div>
-				<p class="cblack">系统信息：</p>
-				<p class="cgray">恭喜您成功注册。<span class="fr">9-28</span></p>
-			</div>
-		</div>
-		<div class="feedback-item1">
-			<div>
-				<p class="cblack">系统信息：</p>
-				<p class="cgray">恭喜您成功注册。<span class="fr">9-28</span></p>
+				<p class="cgray">{{item.MESSAGE_CONTENT}}<span class="fr">{{item.ADD_TIME | date:'MM-dd'}}</span></p>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/util/ngStorage.min.js"></script>
+	<script type="text/javascript" src="js/message.js"></script>
 </body>
 </html>
