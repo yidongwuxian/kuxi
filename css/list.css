@@ -65,3 +65,26 @@ left:6%;}
 .serviceCn{ margin-top:10px; }
 .serviceCn, .servicePrice{ display:none; }
 .bang-item dd span.serviceMinPrice, .bang-item dd span.serviceMaxPrice{ display: inline-block; font-size:1.2rem; color: #1d202f; }
+
+/*库洗周周洗*/
+.week-banner{ margin:7px auto; overflow:hidden; }
+.week-banner img{ display: block; width: 100%; vertical-align: middle; }
+.weekBox{ width:100%; border-top: 1px solid #eee; }
+.week-tab{ float: left; width: 90px; }
+.week-tab li{ height: 33px; line-height: 33px; text-align: center; background-color: #faf6f3; border-bottom: 1px solid #eee; overflow: hidden; }
+.week-tab li a{ color: #1d202f; font-size: 1.5rem;}
+.week-tab li.cur{ background-color: #d1ac51; }
+#myTab li.active{ color: #fff; }
+.week-list-item{ width: 75%; float:left; }
+.week-list-item dl{ width: 90%; margin:0 auto; padding:10px 0; border-bottom: 1px solid #e5e5e5; overflow:hidden; }
+.week-list-item dt{ width:100%; margin:0 auto; overflow:hidden; }
+.week-list-item dt .details{ width: 63% }
+.week-list-item dt .details h3{ display: inline-block; }
+.week-list-item dt .details strong{ text-align: right; color: #ff4800; font-size: 1rem; }
+.week-list-item dt .details strong b{ margin-left: 5px; font-size: 2rem; }
+.week-list-item dt .details p{ margin-top: 5%;}
+.week-list-item dt .details p span:first-child{ display: block; line-height: 25px; color: #a3a3a3; font-size: 1.3rem; }
+.week-list-item dt .details p span:last-child{ display: block; line-height: 25px; color: #ff4800; font-size: 1.3rem; }
+.week-list-item dt a{ display: block; width: 29%; height: 95px; margin: 10px; }
+.week-list-item dt a img{ display: block; width:100%; }
+.week-list-item dd{ color: #a3a3a3; }

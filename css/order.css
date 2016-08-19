@@ -132,9 +132,9 @@
 
 .order-submit-dl2{ margin-top:8px; background-color: white; border-bottom: 1px solid #ececec; overflow:hidden; }
 .order-submit-dl2 dl{ margin:0; padding-bottom:10px; overflow: hidden; }
-.order-submit-dl2 dt{ display:inline-block; width: 60px; height:60px; margin:10px; border:none; }
+.order-submit-dl2 dt{ display:inline-block; width: 60px; height:60px; margin:10px; border:1px solid #ececec; }
 .order-submit-dl2 dt img{ display: block; width: 100%; vertical-align: middle; }
-.order-submit-dl2 dd{ float: left; width:70%; margin-top: 10px; }
+.order-submit-dl2 dd{ float: left; width:73%; margin-top: 10px; }
 .order-submit-dl2 dd .desc{ float:left; width: 75%; margin: 0px 3%; }
 .order-submit-dl2 dd .desc p{ line-height: 20px; }
 .order-submit-dl2 .productName{ font-size: 1.6rem; color: #1d202f; }
@@ -154,3 +154,29 @@
 .order-details-ol li span.tt{ float: left; margin-left:7%;}
 .order-details-ol li span.time{ float: right; }
 .order-details-item.w100{ width:100%; }
+/*order-details-price-item*/
+.order-details-price-item,.order-details-price1-item{ width:90%; margin:0 auto; overflow:hidden; }
+.order-details-price-item .details{ line-height: 40px; border-bottom: 1px solid #ececec; overflow: hidden; }
+.order-details-price-item .details span:first-child{ font-size: 1.3rem; color: #1d202f; }
+.order-details-price-item .details span:last-child{ font-size:1.6rem; color: #c0c0c3; text-align: right; }
+.order-details-price-item .selectCoupon{ line-height: 40px; background: url(../img/common/zt.png) right center no-repeat; background-size: 15px; overflow: hidden; }
+.order-details-price-item .selectCoupon span:first-child{ margin-right:10px; }
+
+.order-details-price-item .selectCoupon s{ display: inline-block; width:16px; height:16px; background: url(../img/list/gx-02.png) no-repeat;  background-size: 16px; vertical-align:middle; margin-right: 5px; }
+.order-details-price-item .selectCoupon b.coupon-bd{ display: inline-block; width: 94px; height:24px; line-height: 24px; background: url(../img/order/hongbao.png) right center no-repeat; background-size: 94px 24px; text-align: center; color:#fff; font-weight: normal; text-indent:2em; margin-left: 38px; font-family: "SimHei"; }
+
+.order-details-price1-item{ line-height: 40px; }
+.order-details-price1-item div:first-child span:first-child{ font-size: 1.5rem; color: #1d202f; }
+.order-details-price1-item div:first-child span:last-child{ font-size:2rem; color: #ff4800; text-align: right; }
+.order-details-price1-item div:first-child span:last-child i{ display: inline-block; font-style: normal; font-size: 1rem; }
+
+
+
+/*order-detail-list*/
+.order-detail-list{ width:90%; margin:0 auto; }
+.order-detail-list li{ line-height: 40px; background: url(../img/list/gx-02.png) 96% center no-repeat;  background-size: 16px; border-bottom: 1px solid #ececec; }
+.order-detail-list li span{ display:inline-block; }
+.order-detail-list s{ display: inline-block; vertical-align:sub; margin-right:10px; }
+.order-detail-list s.wx{ width: 18px; height:18px; background: url(../img/order/wm-36.png) no-repeat;  background-size: 18px; }
+.order-detail-list s.zfb{ width: 18px; height:18px; background: url(../img/order/zfb-36.png) no-repeat;  background-size: 18px;}
+.order-detail-list s.ye{ width: 18px; height:18px; background: url(../img/order/ye-36.png) no-repeat;  background-size: 18px;}

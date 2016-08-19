@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>周周有礼</title>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/list.css" />
+</head>
+<body>
+	<div class="kuxi-page" ng-app="myApp" >
+		<header>
+            <p>
+                <s class="back"></s>
+				库洗周周洗
+            </p>
+        </header>
+		<div class="week-banner">
+			<img src="img/week/banner.png" />
+		</div>
+		<div id="myTab" class="weekBox" ng-controller="weekTabCtrl">
+			<ul class="week-tab">
+				<li ng-repeat="tab in myTab"
+ 				   ng-class="{active:isActiveTab(tab.url)}"
+ 				   ng-click="onClickTab(tab)">{{tab.title}}</li>
+			</ul>
+			<div id="mainView">
+				<div ng-include="currentTab"></div>
+			</div>
+		</div>
+		<script type="text/ng-template" id="laundry.tpl">
+			<div class="week-list-item">
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+			 </div>
+		</script>
+		<script type="text/ng-template" id="culotte.tpl">
+			<div class="week-list-item">
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+			 </div>
+		</script>
+		<script type="text/ng-template" id="house.tpl">
+			<div class="week-list-item">
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+			 </div>
+		</script>
+		<script type="text/ng-template" id="car.tpl">
+			<div class="week-list-item">
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+			 </div>
+		</script>
+		<script type="text/ng-template" id="others.tpl">
+			<div class="week-list-item">
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+				 <dl>
+				   <dt>
+					   <a class="fl"><img src="img/week/buxie.png" /></a>
+					   <div class="fl details">
+						   <h3>床单</h3>
+						   <strong class="fr">￥<b>15</b></strong>
+						   <p>
+							   <span>普通</span>
+							   <span>支付立减10元</span>
+						   </p>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+			 </div>
+		</script>
+		<!--list-ft start-->
+		<div class="list-ft">
+			<div class="tt">
+				<p>您已选择衣物数量：3件</p>
+				<p>需支付： <b>45元</b></p>
+			</div>
+			<a>点击确认</a>
+		</div>
+		<!--list-ft end-->
+	</div>
+	<script type="text/javascript" src="js/jquery.1.11.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/week.js"></script>
+</body>
+</html>
