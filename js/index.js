@@ -73,7 +73,7 @@ var httpx = 'http://111.198.143.96:11211';
 	function ads1Ctrl($scope,$http, $localStorage) {
 		       // 设置轮播图图片间隔
         $scope.myInterval = 5000;
-              // 轮播图数据初始化
+              // 轮播图数据初始化 
         var slides = $scope.slides = [];
              // 添加轮播图源
 //        slides.push({ image: '/Content/images/carousel_1.png', text: '' });
