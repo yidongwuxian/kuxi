@@ -37,7 +37,9 @@ $(function($localStorage){
 	//顶部区域选择 end
 
 	//轮播图 start
-	//window.mySwipe = Swipe(document.getElementById('gallery'));
+	// window.mySwipe = Swipe(document.getElementById('gallery'),{
+	// 	auto: 1000
+	// });
 	//轮播图 end
 
     //头条新闻上下滚动调用代码 start
@@ -47,7 +49,7 @@ $(function($localStorage){
 
 //城市选择调用API代码 start
 var httpx = 'http://111.198.143.96:11211';
-	var app = angular.module('myApp', ["ngStorage"]);
+	var app = angular.module('myApp', ["ngStorage",'ngAnimate', 'ngTouch']);
 	app.controller('cityCtrl', function($scope,$http,$localStorage) {
 	    $http.jsonp(httpx + '/api/area_list_v1.do?callback=JSON_CALLBACK&&').success(function(data){
 	    	$scope.items = data.result;
@@ -60,7 +62,8 @@ var httpx = 'http://111.198.143.96:11211';
 			$localStorage.AREA_ID=$$this.data('id');
 			$('.city-container').hide();
 			
-			ads1Ctrl($scope,$http,$localStorage);
+			ads1CtrlFun();
+			//ads1Ctrl($scope,$http,$localStorage)
 			floorCtrl($scope,$http,$localStorage);
 			ads7Ctrl($scope,$http,$localStorage);
 			ads6Ctrl($scope,$http,$localStorage);
@@ -69,23 +72,81 @@ var httpx = 'http://111.198.143.96:11211';
 //城市选择调用API代码 end
 
 //轮播图调用API代码 start
-	app.controller('ads1Ctrl', ads1Ctrl);
-	function ads1Ctrl($scope,$http, $localStorage) {
-		       // 设置轮播图图片间隔
-        $scope.myInterval = 5000;
-              // 轮播图数据初始化 
-        var slides = $scope.slides = [];
-             // 添加轮播图源
-//        slides.push({ image: '/Content/images/carousel_1.png', text: '' });
+    function ads1CtrlFun() {
+    	app.controller('ads1Ctrl', function($scope,$http,$localStorage) {  
+	 		var slides = $scope.slides = [];
+			$http.jsonp(httpx + '/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+19+'&AD_ZONE_ID=1&REQ_TYPE=01').success(function(data){
+		    	$scope.slides = data.result;
+		    	console.log(data.result);
+		    });
+		    $scope.direction = 'left';
+	        $scope.currentIndex = 0;
 
-		$http.jsonp(httpx + '/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+19+'&AD_ZONE_ID=1&REQ_TYPE=01').success(function(data){
-//	    	 $(data.result).each(function(index,item){//待删除
-//	    	 	item.PICTURE_URL="http://img.kucixy.com/img/20160118/4c4db0c74a0d4b498f3c49212bff14ec.jpg";
-//	    	 })
-	    	$scope.slides = data.result;
-	    	console.log(data.result);
+	        $scope.setCurrentSlideIndex = function (index) {
+	            $scope.direction = (index > $scope.currentIndex) ? 'left' : 'right';
+	            $scope.currentIndex = index;
+	        };
+
+	        $scope.isCurrentSlideIndex = function (index) {
+	            return $scope.currentIndex === index;
+	        };
+
+	        $scope.prevSlide = function () {
+	            $scope.direction = 'left';
+	            $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
+	        };
+
+	        $scope.nextSlide = function () {
+	            $scope.direction = 'right';
+	            $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
+	        };
+		}).animation('.slide-animation', function () {
+	        return {
+	            beforeAddClass: function (element, className, done) {
+	                var scope = element.scope();
+
+	                if (className == 'ng-hide') {
+	                    var finishPoint = element.parent().width();
+	                    if(scope.direction !== 'right') {
+	                        finishPoint = -finishPoint;
+	                    }
+	                    TweenMax.to(element, 0.5, {left: finishPoint, onComplete: done });
+	                }
+	                else {
+	                    done();
+	                }
+	            },
+	            removeClass: function (element, className, done) {
+	                var scope = element.scope();
+
+	                if (className == 'ng-hide') {
+	                    element.removeClass('ng-hide');
+
+	                    var startPoint = element.parent().width();
+	                    if(scope.direction === 'right') {
+	                        startPoint = -startPoint;
+	                    }
+
+	                    TweenMax.fromTo(element, 0.5, { left: startPoint }, {left: 0, onComplete: done });
+	                }
+	                else {
+	                    done();
+	                }
+	            }
+	        };
 	    });
-	}
+    } 
+	
+	ads1CtrlFun();
+
+	// function ads1Ctrl($scope,$http, $localStorage) {
+ //        $scope.myInterval = 5000;
+ //        var slides = $scope.slides = [];
+	// 	$http.jsonp(httpx + '/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+19+'&AD_ZONE_ID=1&REQ_TYPE=01').success(function(data){
+	//     	$scope.slides = data.result;
+	//     	console.log(data.result);
+	//     });
+	// }
 //轮播图调用API代码 start
 
 //首页分类调用API代码 start

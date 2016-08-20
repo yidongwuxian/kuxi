@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title>库洗-首页</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/swipe.css" />
+    <link rel="stylesheet" href="css/app.css"/>
     <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/bannerStyles.css" />
     <link rel="stylesheet" href="css/index.css" />
 </head>
 <body ng-app="myApp">
     <div class="kuxi-page">
+        <div ng-view></div>
         <!--区域选择-->
         <header>
             <p class="pr regionSelection">
@@ -19,38 +21,29 @@
                 <i></i>
             </p>
         </header>
-        <div id="gallery"  ng-controller="ads1Ctrl">
-            <carousel interval="myInterval">
-                <slide ng-repeat="slide in slides" active="slide.active">
-                  <img ng-src="{{slide.PICTURE_URL}}" style="margin:auto;">
-                  <div class="carousel-caption">
-                    <p>{{slide.NAME}}</p>
-                  </div>
-                </slide>
-            </carousel>        
-            <!-- <ul class="swipe-wrap">
-                <li ng-repeat="item in ads1">
-                    <a href="/">
-                        <img src="{{item.PICTURE_URL}}" alt="" />
-                    </a>
-                </li>
-                <li>
-                    <a href="/">
-                        <img src="img/index/blue.png" alt="" />
-                    </a>
-                </li>
-                <li>
-                    <a href="/">
-                        <img src="img/index/orange.png" alt="" />
-                    </a>
-                </li> 
-            </ul>-->
+        <div id="gallery" class="swipe" ng-controller="ads1Ctrl">
+            <div class="container slider" >
+                <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
+                     ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+                     ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.PICTURE_URL}}">
+                <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
+                <a class="arrow next" href="#" ng-click="prevSlide()"></a>
+                <nav class="nav">
+                    <div class="wrapper">
+                        <ul class="dots">
+                            <li class="dot" ng-repeat="slide in slides">
+                                <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                                   ng-click="setCurrentSlideIndex($index);">{{slide.NAME}}</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
             <div class="gallery-mask"></div>
          </div>
          <div class="floor-item"  ng-controller="floorCtrl">
              <nav class="quick-entry-nav pr" >
                  <a class="quick-entry-link" href="/clothes.html" ng-repeat="floor in floors">
-                     <img src="{{floor.SERVICE_IMG_URL}}" />
+                     <img src="" />
                      <span>{{floor.GOODS_TYPE_NAME}}</span>
                  </a>
                  <!-- <a class="quick-entry-link">
@@ -95,7 +88,7 @@
              <div class="module-con" ng-controller="ads7Ctrl">
                 <li ng-repeat="ad in ads7">
                     <a href="/">
-                        <img src="{{ad.PICTURE_URL}}" alt="" />
+                        <img src="" alt="" />
                     </a>
                 </li>
              </div>
@@ -145,10 +138,14 @@
 <!--regionSelection end-->
 <script type="text/javascript" src="js/jquery.1.11.min.js"></script>
 <script type="text/javascript" src="js/angular.min.js"></script>
-<!-- <script type="text/javascript" src="js/bootstrap.js"></script> -->
+<script src="js/angular-animate.min.js"></script>
+<script src="js/angular-touch.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+
+<script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/util/ngStorage.min.js"></script>
-<script type="text/javascript" src="js/util/ui-bootstrap.1.3.3.min.js"></script>
-<script type="text/javascript" src="js/util/ui-bootstrap-tpls.1.3.3.min.js"></script>
+<!-- <script type="text/javascript" src="js/util/ui-bootstrap.1.3.3.min.js"></script>
+<script type="text/javascript" src="js/util/ui-bootstrap-tpls.1.3.3.min.js"></script> -->
 <!-- <script type="text/javascript" src="js/swipe.js" ></script> -->
 <script type="text/javascript" src="js/index.js" ></script>
 </body>
