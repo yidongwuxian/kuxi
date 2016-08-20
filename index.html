@@ -43,7 +43,7 @@
          <div class="floor-item"  ng-controller="floorCtrl">
              <nav class="quick-entry-nav pr" >
                  <a class="quick-entry-link" href="/clothes.html" ng-repeat="floor in floors">
-                     <img src="" />
+                     <img src="{{floor.SERVICE_IMG_URL}}" />
                      <span>{{floor.GOODS_TYPE_NAME}}</span>
                  </a>
                  <!-- <a class="quick-entry-link">
@@ -88,7 +88,7 @@
              <div class="module-con" ng-controller="ads7Ctrl">
                 <li ng-repeat="ad in ads7">
                     <a href="/">
-                        <img src="" alt="" />
+                        <img src="{{ad.PICTURE_URL}}" alt="" />
                     </a>
                 </li>
              </div>
