@@ -2,7 +2,7 @@ var constantsApp = angular.module('ngConts',['ngStorage'])
 constantsApp.factory('Constants', function($localStorage){
 	return {
 		USERNAME : $localStorage.USERNAME,
-		TOKEN    : $localStorage.TOKEN,
+		TOKEN    : $localStorage.TOKEN, 
 		baseUrl  : 'http://111.198.143.96:11211',
 		index_city_url:'/api/area_list_v1.do?callback=JSON_CALLBACK&&',
 		index_ads1_url:'/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+19+'&AD_ZONE_ID=1&REQ_TYPE=01',
