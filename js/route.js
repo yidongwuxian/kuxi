@@ -1,15 +1,15 @@
-var app = angular.module('myApp', ['ui.router']);
+var app = angular.module('myApp', ['ui.router',"ngStorage",'ngAnimate', 'ngTouch', 'ngService', "ngConts"]);
 //路由 start
 app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
       $urlRouterProvider.when('', '/main');
       $stateProvider
       .state('main', {
           url: '/main',
-          templateUrl: '/kuxi/pages/main.html'
+          templateUrl: 'pages/main.html'
       })
       .state('login', {
               url: '/login',
-              templateUrl: '/kuxi/pages/login.html',
+              templateUrl: 'pages/login.html',
               controller:  'loginCtrl'
       })
       $urlRouterProvider.otherwise('/login');

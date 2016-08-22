@@ -13,9 +13,9 @@ function autoScroll(obj){
 //头条新闻上下滚动 end
 
 $(function($localStorage){
-
+	
 	$localStorage.AREA_ID="23";//默认区域Id 23
-
+	
 	//顶部区域选择 start
 	//加载城市事件
 	$('body').on('click', '.regionTx', function () {
@@ -24,12 +24,12 @@ $(function($localStorage){
 
 	});
 	//选择城市 start
-	// $('body').on('click', '.city-list p', function () {
-	// 	var type = $('.city-container').data('type');
-	// 	$('.regionTx').html($(this).html()).attr('data-id', $(this).attr('data-id'));
-	// 	$localStorage.AREA_ID=$(this).attr('data-id');
-	// 	$('.city-container').hide();
-	// });
+	/*$('body').on('click', '.city-list p', function () {
+		var type = $('.city-container').data('type');
+		$('.regionTx').html($(this).html()).attr('data-id', $(this).attr('data-id'));
+		$localStorage.AREA_ID=$(this).attr('data-id');
+		$('.city-container').hide();
+	});*/
 	$('body').on('click', '.letter a', function () {
 		var s = $(this).html();
 		$(window).scrollTop($('#' + s + '1').offset().top);
@@ -43,17 +43,16 @@ $(function($localStorage){
 });
 
 //城市选择调用API代码 start
-	var app = angular.module('myApp', ["ngStorage",'ngAnimate', 'ngTouch', 'ngService', "ngConts"]);
 	app.controller('cityCtrl', function($scope,DataGetterService,$localStorage,Constants) {
 		DataGetterService.getData(function(data){$scope.items= data;}, Constants.index_city_url);
-
+	    
 	    $scope.selectArea = function($event){
 	    	var $$this = $($event.target);
 	    	var type = $('.city-container').data('type');
 			$('.regionTx').html($$this.html()).attr('data-id', $$this.data('id'));
 			$localStorage.AREA_ID=$$this.data('id');
 			$('.city-container').hide();
-
+			
 			ads1CtrlFun();
 			//ads1Ctrl($scope,$http,$localStorage)
 			floorCtrl($scope, DataGetterService, index_floor_url);
@@ -65,7 +64,7 @@ $(function($localStorage){
 
 //轮播图调用API代码 start
     function ads1CtrlFun() {
-    	app.controller('ads1Ctrl', function($scope,DataGetterService, Constants) {
+    	app.controller('ads1Ctrl', function($scope,DataGetterService, Constants) {  
 	 		var slides = $scope.slides = [];
 	 		DataGetterService.getData(function(data){$scope.slides= data;}, Constants.index_ads1_url);
 		    $scope.direction = 'left';
@@ -124,31 +123,31 @@ $(function($localStorage){
 	            }
 	        };
 	    });
-    }
-
+    } 
+	
 	ads1CtrlFun();
 
 //轮播图调用API代码 start
 
 //首页分类调用API代码 start
-	// app.controller('floorCtrl', floorCtrl);
-	// function floorCtrl($scope,DataGetterService, Constants) {
-	// 	DataGetterService.getData(function(data){
-	// 		$scope.floors= data;
-	// 	}, Constants.index_floor_url);
-	// }
+	app.controller('floorCtrl', floorCtrl);
+	function floorCtrl($scope,DataGetterService, Constants) {
+		DataGetterService.getData(function(data){
+			$scope.floors= data;
+		}, Constants.index_floor_url);
+	}
 //首页分类调用API代码 start
-
+	
 //底部广告调用API代码 start
-	// app.controller('ads7Ctrl', ads7Ctrl);
-	// function ads7Ctrl($scope, DataGetterService, Constants) {
-	// 	DataGetterService.getData(function(data){$scope.ads7= data;}, Constants.index_ads7_url);
-	// }
+	app.controller('ads7Ctrl', ads7Ctrl);
+	function ads7Ctrl($scope, DataGetterService, Constants) {
+		DataGetterService.getData(function(data){$scope.ads7= data;}, Constants.index_ads7_url);
+	}
 //底部广告调用API代码 start
-
+	
 //底部头条调用API代码 start
-	// app.controller('ads6Ctrl', ads6Ctrl);
-	// function ads6Ctrl($scope, DataGetterService, Constants) {
-	// 	DataGetterService.getData(function(data){$scope.ads6= data;}, Constants.index_ads6_url);
-	// }
+	app.controller('ads6Ctrl', ads6Ctrl);
+	function ads6Ctrl($scope, DataGetterService, Constants) {
+		DataGetterService.getData(function(data){$scope.ads6= data;}, Constants.index_ads6_url);
+	}
 //底部头条调用API代码 start
