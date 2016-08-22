@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
@@ -9,146 +9,26 @@
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/bannerStyles.css" />
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/order.css" />
+    <link rel="stylesheet" href="css/userCenter.css" />
 </head>
-<body ng-app="myApp">
-    <div class="kuxi-page">
-        <div ng-view></div>
-        <!--区域选择-->
-        <header>
-            <p class="pr regionSelection">
-                <s></s>
-                <span class="regionTx" data-id="">高碑店市高碑店社区1</span>
-                <i></i>
-            </p>
-        </header>
-        <div id="gallery" class="swipe" ng-controller="ads1Ctrl">
-            <div class="container slider" >
-                <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
-                     ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
-                     ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.PICTURE_URL}}">
-                <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
-                <a class="arrow next" href="#" ng-click="prevSlide()"></a>
-                <nav class="nav">
-                    <div class="wrapper">
-                        <ul class="dots">
-                            <li class="dot" ng-repeat="slide in slides">
-                                <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
-                                   ng-click="setCurrentSlideIndex($index);">{{slide.NAME}}</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            <div class="gallery-mask"></div>
-         </div>
-         <div class="floor-item"  ng-controller="floorCtrl">
-             <nav class="quick-entry-nav pr" >
-                 <a class="quick-entry-link" href="/clothes.html" ng-repeat="floor in floors">
-                     <img src="{{floor.SERVICE_IMG_URL}}" />
-                     <span>{{floor.GOODS_TYPE_NAME}}</span>
-                 </a>
-                 <!-- <a class="quick-entry-link">
-                     <img src="img/index/icon2.png" />
-                     <span>奢饰品洗护</span>
-                 </a>
-                 <a class="quick-entry-link">
-                     <img src="img/index/icon3.png" />
-                     <span>熨烫服务</span>
-                 </a>
-                 <a class="quick-entry-link" href="/shoes.html">
-                     <img src="img/index/icon4.png" />
-                     <span>精致鞋护</span>
-                 </a>
-                 <a class="quick-entry-link" href="/home.html">
-                     <img src="img/index/icon5.png" />
-                     <span>家居洗涤</span>
-                 </a>
-                 <a class="quick-entry-link" href="/car.html">
-                     <img src="img/index/icon6.png" />
-                     <span>车饰清洗</span>
-                 </a>
-                 <a class="quick-entry-link">
-                     <img src="img/index/icon7.png" />
-                     <span>帮衣纺</span>
-                 </a>
-                 <a class="quick-entry-link">
-                     <img src="img/index/icon8.png"/>
-                     <span>周周洗</span>
-                 </a> -->
-             </nav>
-         </div>
-         <div class="floor-item m10">
-             <div class="headlines">
-                 <span class="hdlines-tt"><img src="img/index/scrollTT.png" /></span>
-                 <div class="hdlines-box" id="hdlinesBox" ng-controller="ads6Ctrl">
-                     <ul>
-                         <li ng-repeat="ad in ads6"><a href="#">{{ad.NAME}}</a></li>
-                     </ul>
-                </div>
-             </div>
-             <div class="module-con" ng-controller="ads7Ctrl">
-                <li ng-repeat="ad in ads7">
-                    <a href="/">
-                        <img src="{{ad.PICTURE_URL}}" alt="" />
-                    </a>
-                </li>
-             </div>
-         </div>
-    </div>
-<!--ft start-->
-<div class="ft">
-    <dl class="active">
-        <a href="/index.html">
-        <dt class="ftIco1"></dt>
-        <dd>首页</dd>
-        </a>
-    </dl>
-    <dl>
-        <a href="/order.html">
-        <dt class="ftIco2"></dt>
-        <dd>订单</dd>
-        </a>
-    </dl>
-    <dl>
-        <a href="/userInfo.html">
-        <dt class="ftIco3"></dt>
-        <dd>我</dd>
-        </a>
-    </dl>
-</div>
-<!--ft end-->
-<!--regionSelection start-->
-<div class="city-container" ng-controller="cityCtrl" >
-  <div class="city">
-      <div class="city-list" ng-repeat="item in items">
-        <div class="city-letter" id="{{item.AREA_EN}}1">
-            <span>{{item.AREA_EN}}</span>
-            <span>{{item.AREA_NAME}}</span>
-        </div>
-        <div class="city-cn">
-            <p ng-click="selectArea($event)" data-id="{{list.AREA_ID}}" ng-repeat="list in item[item.AREA_EN]">{{list.COMMUNITY_NAME}}</p>
-        </div>
-  </div>
-  <div class="letter">
-    <ul>
-        <li ng-repeat="item in items"><a href="javascript:;">{{item.AREA_EN}}</a></li>
-    </ul>
-  </div>
-</div>
-</div>
-<!--regionSelection end-->
-<script type="text/javascript" src="js/jquery.1.11.min.js"></script>
-<script type="text/javascript" src="js/angular.min.js"></script>
-<script src="js/angular-animate.min.js"></script>
-<script src="js/angular-touch.min.js"></script>
-<script src="js/TweenMax.min.js"></script>
-
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/util/ngStorage.min.js"></script>
-<!-- <script type="text/javascript" src="js/util/ui-bootstrap.1.3.3.min.js"></script>
-<script type="text/javascript" src="js/util/ui-bootstrap-tpls.1.3.3.min.js"></script> -->
-<!-- <script type="text/javascript" src="js/swipe.js" ></script> -->
-<script type="text/javascript" src="js/util/Constants.js" ></script>
-<script type="text/javascript" src="js/util/DataGetter.js" ></script>
-<script type="text/javascript" src="js/index.js" ></script>
+<body>
+    <div ui-view></div>
+    <script type="text/javascript" src="js/jquery.1.11.min.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-ui-router.js"></script>
+    <script type="text/javascript" src="js/angular-animate.min.js"></script>
+    <script type="text/javascript" src="js/angular-touch.min.js"></script>
+    <script type="text/javascript" src="js/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/jquery.1.11.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/modal.js"></script>
+    <script type="text/javascript" src="js/util/ngStorage.min.js"></script>
+    <script type="text/javascript" src="controllers/index.js"></script>
+    <script type="text/javascript" src="controllers/login.js"></script>
+    <script type="text/javascript" src="controllers/myCenter.js"></script>
+    <script type="text/javascript" src="controllers/myOrder.js"></script>
+    <script type="text/javascript" src="js/route.js" ></script>
 </body>
 </html>

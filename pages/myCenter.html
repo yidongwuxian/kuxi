@@ -1,0 +1,84 @@
+	<div class="kuxi-page" ng-controller="usersCtrl">
+		<header>
+            <p>
+                <s class="back" onclick="history.go(-1);"></s>
+            </p>
+        </header>
+		<div class="user-hd">
+			<div class="user-nav">
+				<div class="user-icon"><img class="user-icon-pic" src="img/userCenter/touxiang.png" /></div>
+				<h3 class="user-tx" ng-model="user.USERNAME">{{user.USERNAME}}</h3>
+				<ul>
+					<li>
+						<div>
+							<p ng-model="data.ORDER_ITEM_COUNT">{{data.ORDER_ITEM_COUNT}}</p>
+							<p>已洗衣物</p>
+						</div>
+					</li>
+					<li>
+						<div>
+							<p ng-model="data.ORDER_ITEM_COUNT">{{data.ORDER_COUNT}}</p>
+							<p>已成功订单</p>
+						</div>
+					</li>
+					<li>
+						<div>
+							<p ng-model="data.FACE_VALUE"><span>￥</span>{{data.FACE_VALUE}}</p>
+							<p>获得优惠券金额</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<div class="user-item">
+			<ul>
+				<li class="first-item">
+					<a href="myOrder.html">我的订单</a>
+				</li>
+				<li>
+					<a href="myMoney.html">我的钱包</a>
+				</li>
+				<li>
+					<a href="coupon.html" >优惠券</a>
+				</li>
+				<li>
+					<a href="invite.html">邀请有奖</a>
+				</li>
+				<li>
+					<a href="address.html">地址管理</a>
+				</li>
+				<li>
+					<a href="message.html">消息中心</a>
+				</li>
+				<li>
+					<a href="exclusive.html">我的管家</a>
+				</li>
+				<li class="last-item">
+					<a href="more.html">更多</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--ft start-->
+	<div class="ft">
+	    <dl>
+	        <a href="index.html">
+	        <dt class="ftIco1"></dt>
+	        <dd>首页</dd>
+	        </a>
+	    </dl>
+	    <dl>
+	        <a href="myOrder.html">
+	        <dt class="ftIco2"></dt>
+	        <dd>订单</dd>
+	        </a>
+	    </dl>
+	    <dl class="active">
+	        <a href="userInfo.html">
+	        <dt class="ftIco3"></dt>
+	        <dd>我</dd>
+	        </a>
+	    </dl>
+	</div>
+	<!--ft end-->

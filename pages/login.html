@@ -1,0 +1,21 @@
+<div class="kuxi-page bdblue">
+	<div class="loginlogo"></div>
+	<div class="loginform" ng-controller="loginCtrl">
+		<form novalidate>
+			<div class="in">
+				<div class="div-phone">
+					<input type="text" id="phone" class="infos" ng-model="user.USERNAME" placeholder="手机号" ng-pattern="/^1\d{10}$/" required>
+				</div>
+				<div class="pr div-ranks">
+					<input type="text" id="ranks" class="infos" ng-model="user.CODE"  placeholder="验证码" required>
+					<a href="javascript:;" class="send1" ng-click="sendCode()" ng-bind="paracont" ng-disabled="user.USERNAME.$invalid">发送验证码</a>
+				</div>
+			</div>
+			<div class="div-conform">
+				<a href="#/" class="conform" ng-click="submitForm()">登录</a>
+			</div>
+		</form>
+	</div>
+	<p class="loginTip">点击登录,即表示您同意&nbsp;<a>用户协议</a></p>
+	<p class="loginDes">未收到验证码请拨打400-00000000</p>
+</div>

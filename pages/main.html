@@ -1,0 +1,96 @@
+<div class="kuxi-page">
+    <!--区域选择-->
+    <header>
+        <p class="pr regionSelection">
+            <s></s>
+            <span class="regionTx" data-id="">高碑店市高碑店社区1</span>
+            <i></i>
+        </p>
+    </header>
+    <div id="gallery" class="swipe" ng-controller="ads1Ctrl">
+        <div class="container slider" >
+            <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
+                 ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+                 ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.PICTURE_URL}}">
+            <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
+            <a class="arrow next" href="#" ng-click="prevSlide()"></a>
+            <nav class="nav">
+                <div class="wrapper">
+                    <ul class="dots">
+                        <li class="dot" ng-repeat="slide in slides">
+                            <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                               ng-click="setCurrentSlideIndex($index);">{{slide.NAME}}</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="gallery-mask"></div>
+     </div>
+     <div class="floor-item"  ng-controller="floorCtrl">
+         <nav class="quick-entry-nav pr" >
+             <a class="quick-entry-link" href="/clothes.html" ng-repeat="floor in floors">
+                 <img src="{{floor.SERVICE_IMG_URL}}" />
+                 <span>{{floor.GOODS_TYPE_NAME}}</span>
+             </a>
+         </nav>
+     </div>
+     <div class="floor-item m10">
+         <div class="headlines">
+             <span class="hdlines-tt"><img src="img/index/scrollTT.png" /></span>
+             <div class="hdlines-box" id="hdlinesBox" ng-controller="ads6Ctrl">
+                 <ul>
+                     <li ng-repeat="ad in ads6"><a href="#">{{ad.NAME}}</a></li>
+                 </ul>
+            </div>
+         </div>
+         <div class="module-con" ng-controller="ads7Ctrl">
+            <li ng-repeat="ad in ads7">
+                <a href="/">
+                    <img src="{{ad.PICTURE_URL}}" alt="" />
+                </a>
+            </li>
+         </div>
+     </div>
+</div>
+<!--ft start-->
+<div class="ft" >
+    <dl class="active">
+        <a ui-sref="/main">
+        <dt class="ftIco1"></dt>
+        <dd>首页</dd>
+        </a>
+    </dl>
+    <dl>
+        <a ui-sref="/kuxinew/MyOrder.html">
+        <dt class="ftIco2"></dt>
+        <dd>订单</dd>
+        </a>
+    </dl>
+    <dl>
+        <a ui-sref="/userinfo">
+        <dt class="ftIco3"></dt>
+        <dd>我</dd>
+        </a>
+    </dl>
+</div>
+<!--ft end-->
+<!--regionSelection start-->
+<div class="city-container" ng-controller="cityCtrl" >
+  <div class="city">
+      <div class="city-list" ng-repeat="item in items">
+        <div class="city-letter" id="{{item.AREA_EN}}1">
+            <span>{{item.AREA_EN}}</span>
+            <span>{{item.AREA_NAME}}</span>
+        </div>
+        <div class="city-cn">
+            <p ng-click="selectArea($event)" data-id="{{list.AREA_ID}}" ng-repeat="list in item[item.AREA_EN]">{{list.COMMUNITY_NAME}}</p>
+        </div>
+  </div>
+  <div class="letter">
+    <ul>
+        <li ng-repeat="item in items"><a href="javascript:;">{{item.AREA_EN}}</a></li>
+    </ul>
+  </div>
+</div>
+</div>
+<!--regionSelection end-->
