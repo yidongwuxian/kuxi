@@ -9,6 +9,7 @@ app.controller('loginCtrl', function($scope,$http,$interval,$localStorage) {
 				if(data.result){
 					$localStorage.USERNAME=data.result.USERNAME;
 					$localStorage.TOKEN=data.result.TOKEN;
+					$localStorage.AREA_ID=data.result.AREA_ID;
 					window.location = "index.html";
 					//$location.path('/');
 				}else{

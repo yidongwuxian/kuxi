@@ -55,9 +55,9 @@ $(function($localStorage){
 			
 			ads1CtrlFun();
 			//ads1Ctrl($scope,$http,$localStorage)
-			floorCtrl($scope, DataGetterService, index_floor_url);
-			ads7Ctrl($scope, DataGetterService, index_ads7_url);
-			ads6Ctrl($scope, DataGetterService, index_ads6_url);
+			floorCtrl($scope, DataGetterService, Constants);
+			ads7Ctrl($scope, DataGetterService, Constants);
+			ads6Ctrl($scope, DataGetterService, Constants);
 	    }
 	});
 //城市选择调用API代码 end
