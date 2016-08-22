@@ -13,8 +13,3 @@ left:6%;}
 .record-item li .cn p{ line-height: 38px; border-bottom: 1px solid #e5e5e5; overflow:hidden; }
 .record-item li .cn p span:first-child{ display: inline-block; height: 36px; margin-left:6%; color: #808080; font-size: 1.4rem; overflow: hidden; }
 .record-item li .cn p span:last-child{ display: inline-block; height: 36px; margin-right:6%; color: #eb1111; font-size: 1.4rem; text-align: right; overflow: hidden; }
-/*priceLists*/
-.priceItem{ width: 100%; }
-.priceItem .tab{}
-/*.priceItem .cn div{ display:none; }
-.priceItem .cn div:first-child{ display:block; }*/
