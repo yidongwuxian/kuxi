@@ -24,15 +24,27 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
       })
       .state('main.myCenter', {
               url: '/myCenter',
-              templateUrl: 'pages/myCenter.html',
+              views : {
+                "container@main": {
+                  templateUrl: 'pages/myCenter.html'
+                }
+              }
       })
       .state('main.index', {
               url: '/index',
-              templateUrl: 'pages/index.html',
+              views : {
+                "container@main": {
+                  templateUrl: 'pages/index.html'
+                }
+              }
       })
       .state('main.myOrder', {
               url: '/myOrder',
-              templateUrl: 'pages/myOrder.html',
+              views : {
+                "container@main": {
+                  templateUrl: 'pages/myOrder.html'
+                }
+              }
       })
       $urlRouterProvider.otherwise('/login');
 }]);
