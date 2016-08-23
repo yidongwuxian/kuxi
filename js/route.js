@@ -5,7 +5,17 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
       $stateProvider
       .state('main', {
           url: '/main',
-          templateUrl: 'pages/main.html'
+          views: {
+                "": {
+                    templateUrl: 'pages/main.html',
+                },
+                "container@main": {
+                    templateUrl: 'pages/index.html'
+                },
+                "ft@main": {
+                    templateUrl: 'pages/ft.html'
+                }
+          }
       })
       .state('login', {
               url: '/login',
