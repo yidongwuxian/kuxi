@@ -1,5 +1,4 @@
 var httpx = 'http://111.198.143.96:11211';
-var app = angular.module('myApp', ["ngStorage"]);
 app.controller('usersCtrl', function($scope,$http,$localStorage) {
 	//$scope.master = { TOKEN:$localStorage.TOKEN, USERNAME:$localStorage.USERNAME, REQ_TYPE: "01"};
 	$scope.master = { TOKEN:"daf740d0-15f3-4e3c-bfdd-29e6dd4541ce", USERNAME:"18001309176", REQ_TYPE: "01", ORDER_NO: "20160309214440494", ORDER_ID:"2264"};

@@ -1,4 +1,3 @@
-var app = angular.module('myApp', []);
 app.controller('orderTabCtrl', ['$scope', function ($scope) {
 	$scope.myTab = [{
 			title: '待支付',

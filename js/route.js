@@ -12,6 +12,18 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
               templateUrl: 'pages/login.html',
               controller:  'loginCtrl'
       })
+      .state('main.myCenter', {
+              url: '/myCenter',
+              templateUrl: 'pages/myCenter.html',
+      })
+      .state('main.index', {
+              url: '/index',
+              templateUrl: 'pages/index.html',
+      })
+      .state('main.myOrder', {
+              url: '/myOrder',
+              templateUrl: 'pages/myOrder.html',
+      })
       $urlRouterProvider.otherwise('/login');
 }]);
 //路由 end
