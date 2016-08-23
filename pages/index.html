@@ -28,7 +28,7 @@
      </div>
      <div class="floor-item"  ng-controller="floorCtrl">
          <nav class="quick-entry-nav pr" >
-             <a class="quick-entry-link" href="/clothes.html" ng-repeat="floor in floors">
+             <a class="quick-entry-link" ui-sref=".list{{floor.GOODS_TYPE_ID}}" ng-repeat="floor in floors">
                  <img ng-src="{{floor.SERVICE_IMG_URL}}" />
                  <span>{{floor.GOODS_TYPE_NAME}}</span>
              </a>

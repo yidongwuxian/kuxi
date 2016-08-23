@@ -17,6 +17,14 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                 }
           }
       })
+      .state('main.list', {
+              url: '/list/:name',
+              views: {
+                    'content@main': {
+                        templateUrl: getTemplateUrl
+                    }
+              }
+      })
       .state('login', {
               url: '/login',
               templateUrl: 'pages/login.html',
@@ -47,5 +55,9 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
               }
       })
       $urlRouterProvider.otherwise('/login');
+
+      function getTemplateUrl() {
+            return 'pages/' + $params.name + '.html';
+      }
 }]);
 //路由 end
