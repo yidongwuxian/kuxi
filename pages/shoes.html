@@ -1,0 +1,103 @@
+<div class="kuxi-page">
+		<header>
+            <p>
+                <s class="back" onclick="history.go(-1);"></s>
+				品质鞋护
+				<a class="serviceDes" href="/">服务说明</a>
+            </p>
+        </header>
+		<div id="myTab" ng-controller="shoesTabCtrl">
+			<ul class="nav nav-tabs">
+				<li ng-repeat="tab in myTab"
+ 				   ng-class="{active:isActiveTab(tab.url)}"
+ 				   ng-click="onClickTab(tab)">{{tab.title}}</li>
+			</ul>
+			<div id="mainView">
+				<div ng-include="currentTab"></div>
+			</div>
+		</div>
+		<script type="text/ng-template" id="shoe.tpl">
+			<div class="list-item">
+				 <dl>
+				   <dt class="ow">
+					   <a class="fl"><img src="img/list/chuangdan.png" /></a>
+					   <div class="fr details">
+						   <h3>床单</h3>
+						   <span>￥<b>15</b></span>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+				 <dl>
+				   <dt class="ow">
+					   <a class="fl"><img src="img/list/beizhao.png" /></a>
+					   <div class="fr details">
+						   <h3>被罩</h3>
+						   <span>￥<b>15</b></span>
+					   </div>
+				   </dt>
+				   <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				 </dl>
+			 </div>
+		</script>
+		<script type="text/ng-template" id="pishoe.tpl">
+			<div class="list-item">
+				<dl>
+				  <dt class="ow">
+					  <a class="fl"><img src="img/list/chuanglian.png" /></a>
+					  <div class="fr details">
+						  <h3>床单</h3>
+						  <span>￥<b>15</b></span>
+					  </div>
+				  </dt>
+				  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				</dl>
+			</div>
+		</script>
+		<script type="text/ng-template" id="maoshoe.tpl">
+			<div class="list-item">
+				<dl>
+				  <dt class="ow">
+					  <a class="fl"><img src="img/list/chuanglian.png" /></a>
+					  <div class="fr details">
+						  <h3>床单</h3>
+						  <span>￥<b>15</b></span>
+					  </div>
+				  </dt>
+				  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+				</dl>
+			</div>
+		</script>
+		<script type="text/ng-template" id="xue.tpl">
+			<div class="list-item">
+			  <dl>
+				<dt class="ow">
+					<a class="fl"><img src="img/list/ditan.png" /></a>
+					<div class="fr details">
+						<h3>地毯</h3>
+						<span>￥<b>16</b></span>
+					</div>
+				</dt>
+				<dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+			  </dl>
+			  <dl>
+				<dt class="ow">
+					<a class="fl"><img src="img/list/maotan.png" /></a>
+					<div class="fr details">
+						<h3>毛毯</h3>
+						<span>￥<b>17</b></span>
+					</div>
+				</dt>
+				<dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+			  </dl>
+		</script>
+		<!--list-ft start-->
+		<div class="list-ft">
+			<div class="tt">
+				<p>您已选择鞋子数量：xx双</p>
+				<p>需支付： <b>30元</b></p>
+			</div>
+			<a>点击确认</a>
+		</div>
+		<!--list-ft end-->
+	</div>

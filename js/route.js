@@ -20,6 +20,9 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
       .state('main.list', {
               url: '/list/:id',
               views: {
+                    "": {
+                        templateUrl: 'pages/list.html',
+                    },
                     'content@main': {
                         templateUrl: getTemplateUrl
                     }
@@ -60,7 +63,9 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
     	    var page = "";
     	    switch($routeParams.id){
     	    	case '7' : page = "clothes";break;
-    	    	case '8' : page = "clothes";break;
+    	    	case '10' : page = "shoes";break;
+            case '11' : page = "home";break;
+            case '12' : page = "car";break;
     	    }
             return 'pages/' + page + '.html';
       }

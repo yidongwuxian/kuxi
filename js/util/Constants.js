@@ -11,12 +11,13 @@ constantsApp.factory('Constants', function($localStorage){
 		index_ads6_url:'/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+19+'&AD_ZONE_ID=6&REQ_TYPE=01',
 		index_ads7_url:'/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+19+'&AD_ZONE_ID=7&REQ_TYPE=01',
 		loginOut_url:'/api/login_out.do?&callback=JSON_CALLBACK&&USERNAME='+$localStorage.USERNAME+'&TOKEN'+$localStorage.TOKEN+'&REQ_TYPE=01',
-		mycenter_url:'/api/user_info_center.do?&callback=JSON_CALLBACK&&'+ 'USERNAME='+$localStorage.USERNAME+ '&TOKEN='+$localStorage.TOKEN+ '&REQ_TYPE=01'
+		list_url: 'api/v2/index_goods_type_first_list_v1?&callback=JSON_CALLBACK&&AREA_ID='+25+''
 //		index_ads1_url:'/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+$localStorage.AREA_ID+'&AD_ZONE_ID=1&REQ_TYPE=01',
 //		index_floor_url:'/api/v2/index_goods_type_first_list_v2.do?callback=JSON_CALLBACK&&AREA_ID='+$localStorage.AREA_ID+'&REQ_TYPE=01',
 //		index_ads6_url:'/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+$localStorage.AREA_ID+'&AD_ZONE_ID=6&REQ_TYPE=01',
-//		index_ads7_url:'/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+$localStorage.AREA_ID+'&AD_ZONE_ID=7&REQ_TYPE=01'
+//		index_ads7_url:'/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+$localStorage.AREA_ID+'&AD_ZONE_ID=7&REQ_TYPE=01',
+//      loginOut_url:'/api/login_out.do?&callback=JSON_CALLBACK&&USERNAME='+$localStorage.USERNAME+'&TOKEN'+$localStorage.TOKEN+'&REQ_TYPE=01',
+//      list_url: 'api/v2/index_goods_type_first_list_v1?&callback=JSON_CALLBACK&&AREA_ID='+$localStorage.AREA_ID+''
 	}
 
 });
- 

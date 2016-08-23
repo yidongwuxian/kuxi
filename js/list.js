@@ -41,3 +41,10 @@ $(function(){
 	});
 	//限制textarea最多输入50个字 end
 });
+//商品列表API代码 start
+var app = angular.module('myApp', ['ui.router',"ngStorage",'ngService', "ngConts"]);
+	app.controller('listCtrl', listCtrl);
+	function listCtrl($scope, DataGetterService, Constants) {
+		DataGetterService.getData(function(data){$scope.list= data;}, Constants.list_url);
+	}
+//商品列表调用API代码 end
