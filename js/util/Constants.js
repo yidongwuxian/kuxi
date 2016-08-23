@@ -18,3 +18,4 @@ constantsApp.factory('Constants', function($localStorage){
 	}
 
 });
+ 
