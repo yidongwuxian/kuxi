@@ -1,21 +1,21 @@
 //头条新闻上下滚动 start
 function autoScroll(obj){
 	$(obj).find("ul").animate({
-		//marginTop : "-42px"
-		opaicty: 1
+		marginTop : "-42px"
+		//opaicty: 1
 	},500,function(){
 		$(this).css({
-			//marginTop : "0px"
-			opaicty: 0
+			marginTop : "0px"
+			//opaicty: 0
 		}).find("li:first").appendTo(this);
 	})
 }
 //头条新闻上下滚动 end
 
 $(function($localStorage){
-	
+
 	$localStorage.AREA_ID="23";//默认区域Id 23
-	
+
 	//顶部区域选择 start
 	//加载城市事件
 	$('body').on('click', '.regionTx', function () {
@@ -45,14 +45,14 @@ $(function($localStorage){
 //城市选择调用API代码 start
 	app.controller('cityCtrl', function($scope,DataGetterService,$localStorage,Constants) {
 		DataGetterService.getData(function(data){$scope.items= data;}, Constants.index_city_url);
-	    
+
 	    $scope.selectArea = function($event){
 	    	var $$this = $($event.target);
 	    	var type = $('.city-container').data('type');
 			$('.regionTx').html($$this.html()).attr('data-id', $$this.data('id'));
 			$localStorage.AREA_ID=$$this.data('id');
 			$('.city-container').hide();
-			
+
 			ads1CtrlFun();
 			//ads1Ctrl($scope,$http,$localStorage)
 			floorCtrl($scope, DataGetterService, Constants);
@@ -64,7 +64,7 @@ $(function($localStorage){
 
 //轮播图调用API代码 start
     function ads1CtrlFun() {
-    	app.controller('ads1Ctrl', function($scope,DataGetterService, Constants) {  
+    	app.controller('ads1Ctrl', function($scope,DataGetterService, Constants) {
 	 		var slides = $scope.slides = [];
 	 		DataGetterService.getData(function(data){$scope.slides= data;}, Constants.index_ads1_url);
 		    $scope.direction = 'left';
@@ -123,8 +123,8 @@ $(function($localStorage){
 	            }
 	        };
 	    });
-    } 
-	
+    }
+
 	ads1CtrlFun();
 
 //轮播图调用API代码 start
@@ -134,17 +134,17 @@ $(function($localStorage){
 	function floorCtrl($scope,DataGetterService, Constants) {
 		DataGetterService.getData(function(data){
 			$scope.floors= data;
-		}, Constants.list_url);
+		}, Constants.index_types_url);
 	}
 //首页分类调用API代码 start
-	
+
 //底部广告调用API代码 start
 	app.controller('ads7Ctrl', ads7Ctrl);
 	function ads7Ctrl($scope, DataGetterService, Constants) {
 		DataGetterService.getData(function(data){$scope.ads7= data;}, Constants.index_ads7_url);
 	}
 //底部广告调用API代码 start
-	
+
 //底部头条调用API代码 start
 	app.controller('ads6Ctrl', ads6Ctrl);
 	function ads6Ctrl($scope, DataGetterService, Constants) {

@@ -29,7 +29,7 @@
      <div class="floor-item"  ng-controller="floorCtrl">
          <nav class="quick-entry-nav pr" >
              <a class="quick-entry-link" ui-sref=".list({id:floor.GOODS_TYPE_ID})"  ng-repeat="floor in floors">
-                 <img ng-src="{{floor.SERVICE_IMG_URL}}" />
+                 <img ng-src="{{floor.GOODS_IMG_URL}}" />
                  <span>{{floor.GOODS_TYPE_NAME}}</span>
              </a>
          </nav>
@@ -72,3 +72,25 @@
 </div>
 </div>
 <!--regionSelection end-->
+<!--ft start-->
+<div class="ft" >
+    <dl class="active">
+        <a ui-sref=".index">
+        <dt class="ftIco1"></dt>
+        <dd>首页</dd>
+        </a>
+    </dl>
+    <dl>
+        <a ui-sref=".myOrder">
+        <dt class="ftIco2"></dt>
+        <dd>订单</dd>
+        </a>
+    </dl>
+    <dl>
+        <a ui-sref=".myCenter">
+        <dt class="ftIco3"></dt>
+        <dd>我</dd>
+        </a>
+    </dl>
+</div>
+<!--ft end-->
