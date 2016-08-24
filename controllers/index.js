@@ -134,7 +134,7 @@ $(function($localStorage){
 	function floorCtrl($scope,DataGetterService, Constants) {
 		DataGetterService.getData(function(data){
 			$scope.floors= data;
-		}, Constants.index_floor_url);
+		}, Constants.list_url);
 	}
 //首页分类调用API代码 start
 	

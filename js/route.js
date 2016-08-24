@@ -7,7 +7,7 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
           url: '/main',
           views: {
                 "": {
-                    templateUrl: 'pages/main.html',
+                    templateUrl: 'pages/main.html'
                 },
                 "container@main": {
                     templateUrl: 'pages/index.html'
@@ -21,10 +21,13 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
               url: '/list/:id',
               views: {
                     "": {
-                        templateUrl: 'pages/list.html',
+                        templateUrl: 'pages/list.html'
                     },
-                    'content@main': {
+                    'container@main': {
                         templateUrl: getTemplateUrl
+                    },
+                    "ft@main": {
+                        templateUrl: ''
                     }
               }
       })
@@ -59,14 +62,26 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
       })
       $urlRouterProvider.otherwise('/login');
 
-      function getTemplateUrl($routeParams) {
-    	    var page = "";
-    	    switch($routeParams.id){
-    	    	case '7' : page = "clothes";break;
-    	    	case '10' : page = "shoes";break;
-            case '11' : page = "home";break;
-            case '12' : page = "car";break;
-    	    }
+      function getTemplateUrl($scope, $routeParams) {
+          var page = "";
+          switch($routeParams.id){
+             case '7' :
+                      page = "clothes";  break;
+               case '8' :
+                      page = "";         break;
+               case '9' :
+                      page = "";         break;
+               case '10' :
+                      page = "shoes";    break;
+               case '11' :
+                      page = "home";     break;
+               case '12' :
+                      page = "car";      break;
+              case '13' :
+                      page = "bang";     break;
+              case '14' :
+                      page = "week";     break;
+          }
             return 'pages/' + page + '.html';
       }
 }]);
