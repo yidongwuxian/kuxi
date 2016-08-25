@@ -1,5 +1,5 @@
 var httpx = 'http://111.198.143.96:11211';
-var app = angular.module('myApp', ["ngStorage"]);
+//var app = angular.module('myApp', ["ngStorage"]);
 app.controller('messageCtrl', function($scope,$http,$localStorage) {
 	$scope.master = { TOKEN:$localStorage.TOKEN, USERNAME:$localStorage.USERNAME, REQ_TYPE: "01"};
 	$scope.user = angular.copy($scope.master);

@@ -1,0 +1,55 @@
+	<div class="kuxi-page">
+		<header>
+            <p>
+                <s class="back" onclick="history.go(-1);"></s>
+				我的钱包
+            </p>
+        </header>
+		<div class="guest-cn">
+    		<div class="bd">
+    			<div class="notice">
+		        	<div class="moneyIco"></div>
+					<p>账户</p>
+		        	<b>112.3</b>
+					<div id="rechargeBtn" class="my_bth1" data-toggle="modal" data-target="#rechargeModal"><span>充值</span></div>
+					<div class="my_bth2" href=""><span>消费记录</span></div>
+		        </div>
+    		</div>
+        </div>
+	</div>
+	<!-- 模态框（Modal） -->
+<div class="modal fade" id="rechargeModal" tabindex="-1" role="dialog" aria-labelledby="rechargeModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+
+         <div class="modal-body">
+            <div class="recharge-item">
+				<label>充值号</label>
+				<input type="text" value="" />
+			</div>
+			<div class="recharge-item">
+				<label>充值码</label>
+				<input type="text" value="" />
+			</div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-yellow"
+               data-dismiss="modal">取消
+            </button>
+            <button type="button" class="btn btn-yellow">
+               保存
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+	<script type="text/javascript">
+	$(function(){
+		$('#rechargeBtn').click(function(){
+		   $('#rechargeModal').modal({
+	 	      keyboard: true
+	 	   })
+		});
+	});
+	</script>

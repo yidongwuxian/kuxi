@@ -1,4 +1,3 @@
-var app = angular.module('myApp', []);
 app.controller('homeTabCtrl', ['$scope', function ($scope) {
 	$scope.myTab = [{
 			title: '床上用品',

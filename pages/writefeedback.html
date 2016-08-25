@@ -1,0 +1,12 @@
+<div class="kuxi-page" ng-controller="writefeedbackCtrl">
+	<header>
+        <p>
+            <s class="back" onclick="history.go(-1);"></s>
+            意见反馈
+        </p>
+    </header>
+	<form novalidate>
+		<textarea class="feedback-textarea" placeholder="请输入您的宝贵意见" ng-model="feedback.textarea"></textarea>
+		<input type="submit" class="my_bth_radius" value="提交" ng-click="submitFeedback()" />
+	</form>
+</div>

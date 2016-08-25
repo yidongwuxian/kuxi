@@ -1,4 +1,4 @@
-var app = angular.module('myApp', []);
+//var app = angular.module('myApp', []);
 app.controller('shoesTabCtrl', ['$scope', function ($scope) {
 	$scope.myTab = [{
 			title: '布鞋  ｜  旅游鞋',

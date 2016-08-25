@@ -11,7 +11,6 @@ app.controller('loginCtrl', function($scope,$http,$interval,$localStorage) {
 					$localStorage.TOKEN=data.result.TOKEN;
 					$localStorage.AREA_ID=data.result.AREA_ID;
 					window.location = "index.html";
-					//$location.path('/');
 				}else{
 					$localStorage.reset();
 					alert(data.resp_msg)

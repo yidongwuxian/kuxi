@@ -1,0 +1,17 @@
+<div class="kuxi-page" ng-controller="versionCtrl">
+	<header>
+        <p>
+            <s class="back" onclick="history.go(-1);"></s>
+            版本更新
+        </p>
+    </header>
+	<div class="feedback-item1">
+		<div>
+			<p>版本名：{{item.VERSION_NAME}}</p>
+			<p>版本信息:{{item.VERSION_INFO}}</p>
+			<p>下载地址：<a href="{{item.VERSION_DOWNLOAD_URL}}"></a></p>
+			<p>感谢您对我们的产品的体验，我们根据您的意见，
+优化我们的产品！</p>
+		</div>
+	</div>
+</div>
