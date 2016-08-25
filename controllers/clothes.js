@@ -1,5 +1,5 @@
-var app = angular.module('myApp', []);
-app.controller('clothTabCtrl', ['$scope', function ($scope) {
+//var app = angular.module('myApp', []);
+app.controller('clothTabCtrl', ['$scope','$state', function ($scope, $state) {
 	$scope.myTab = [{
 			title: '上装外套',
 			url: 'Jacket.tpl'
@@ -16,5 +16,9 @@ app.controller('clothTabCtrl', ['$scope', function ($scope) {
 
 	$scope.isActiveTab = function(tabUrl) {
 		return tabUrl == $scope.currentTab;
+	}
+
+	$scope.goserviceInfo = function ($state) {
+		$state.go('pages/serviceInfo.html');
 	}
 }]);

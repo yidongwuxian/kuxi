@@ -1,0 +1,15 @@
+<div class="kuxi-page" ng-app="myApp" ng-controller="messageCtrl">
+	<header>
+        <p>
+            <s class="back" onclick="history.go(-1);"></s>
+            信息中心
+			<a class="serviceDes" href="/">编辑</a>
+        </p>
+    </header>
+	<div class="feedback-item1" ng-repeat="item in items">
+		<div>
+			<p class="cblack">系统信息：</p>
+			<p class="cgray">{{item.MESSAGE_CONTENT}}<span class="fr">{{item.ADD_TIME | date:'MM-dd'}}</span></p>
+		</div>
+	</div>
+</div>

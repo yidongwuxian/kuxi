@@ -1,0 +1,13 @@
+<div class="kuxi-page" ng-controller="feedbackCtrl">
+	<header>
+        <p>
+            <s class="back" onclick="history.go(-1);"></s>
+            意见反馈
+        </p>
+    </header>
+	<div class="feedback-item" ng-repeat="item in items">
+		<span class="fl">{{item.CONTENT}}</span>
+		<span class="fr">{{item.ADD_TIME | date: "yyyy/mm/dd" }}</span>
+	</div>
+	<a class="my_bth_radius" ui-sref="writefeedback">写一条</a>
+</div>

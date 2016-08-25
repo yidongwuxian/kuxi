@@ -7,10 +7,14 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
           url: '/main',
           views: {
                 "": {
-                    templateUrl: 'pages/main.html'
+                    templateUrl: 'pages/main.html',
+                    cache:'false'
                 },
                 "container@main": {
                     templateUrl: 'pages/index.html'
+                },
+                "ft@main": {
+                    templateUrl: 'pages/ft.html'
                 }
           }
       })
@@ -22,6 +26,10 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                         controller:  getCtrlUrl
                     }
               }
+      })
+      .state('main.serviceInfo', {
+              url: '/serviceInfo',
+              templateUrl: 'pages/serviceInfo.html'
       })
       .state('login', {
               url: '/login',
@@ -52,6 +60,54 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                 }
               }
       })
+      .state('myMoney', {
+              url: '/myMoney',
+              templateUrl: 'pages/myMoney.html',
+              controller:  ''
+      })
+      .state('coupon', {
+              url: '/coupon',
+              templateUrl: 'pages/coupon.html',
+              controller:  ''
+      })
+      .state('invite', {
+              url: '/invite',
+              templateUrl: 'pages/invite.html',
+              controller:  'inviteCtrl'
+      })
+      .state('address', {
+              url: '/address',
+              templateUrl: 'pages/address.html'
+      })
+      .state('message', {
+              url: '/message',
+              templateUrl: 'pages/message.html',
+              controller:  'messageCtrl'
+      })
+      .state('exclusive', {
+              url: '/exclusive',
+              templateUrl: 'pages/exclusive.html'
+      })
+      .state('more', {
+              url: '/more',
+              templateUrl: 'pages/more.html'
+      })
+      .state('writefeedback', {
+              url: '/writefeedback',
+              templateUrl: 'pages/writefeedback.html',
+              controller:  'writefeedbackCtrl'
+      })
+      .state('feedback', {
+              url: '/feedback',
+              templateUrl: 'pages/feedback.html',
+              cache:'false'
+      })
+      .state('version', {
+              url: '/version',
+              templateUrl: 'pages/version.html',
+              controller:  'versionCtrl'
+      })
+
       $urlRouterProvider.otherwise('/login');
 
       function getTemplateUrl($routeParams) {
