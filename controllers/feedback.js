@@ -8,7 +8,7 @@ app.config(function($httpProvider){
 
 app.controller('writefeedbackCtrl', function($scope,$http,$localStorage) {
 	$scope.submitFeedback = function(){
-		$scope.ajax=function(){
+		//$scope.ajax=function(){
 	         $scope.postData='CONTENT='+$scope.feedback.textarea +'&ACCOUNT_ID='+$localStorage.ACCOUNT_ID+'&TOKEN='+$localStorage.TOKEN+'&REQ_TYPE=01';   //注意拼接形式
 			 $http({
 		         url:'http://111.198.143.96:11211/api/commit_feedback.do?&callback=JSON_CALLBACK&&',
@@ -21,7 +21,7 @@ app.controller('writefeedbackCtrl', function($scope,$http,$localStorage) {
 	         .error(function(err){
 	             console.log(err);
 	         })
-		 }
+		 //}
 	}
 });
 
