@@ -1,0 +1,32 @@
+<div class="kuxi-page" ng-controller="addAddressCtrl">
+	<header>
+        <p class="addressSelection">
+            <s class="back" onclick="history.go(-1);"></s>
+            添加地址管理
+        </p>
+    </header>
+	<form name="addAddressForm">
+		<div class="address-item">
+			<label>收货人</label>
+			<input type="text" placeholder="请输入收货人姓名" name="ReceivingName" value="" id="ReceivingName" ng-model="consignee" />
+		</div>
+		<div class="address-item">
+			<label>手机号</label>
+			<input type="text"  placeholder="请输入收货人手机号" name="ReceivingPhone" value="" id="ReceivingPhone" ng-model="mobile" />
+		</div>
+		<div class="address-item">
+			<label>收货地址</label>
+			<input type="text" placeholder="小区/大厦/学校" name="ReceivingCommunity" value="" id="ReceivingCommunity" />
+		</div>
+		<div class="address-item">
+			<label></label>
+			<input type="text" placeholder="详细地址(如:门牌号等)" name="ReceivingNumber" value="" id="ReceivingNumber" ng-model="address"  />
+		</div>
+		<div class="Receiving_icon">
+			<p>
+				<span class="icon_address"><a href="javascript:;">默认地址</a></span>
+			</p>
+		</div>
+		<input type="submit" class="my_bth" value="保存" ng-click="sumbitAddress()" />
+	</form>
+</div>

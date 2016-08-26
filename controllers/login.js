@@ -1,5 +1,5 @@
 var httpx = 'http://111.198.143.96:11211';
-app.controller('loginCtrl', function($scope,$http,$interval,$localStorage) {
+app.controller('loginCtrl', function($scope,$http,$interval,$localStorage,$state) {
 	$scope.master = { TYPE:1, REQ_TYPE: "01"};
 	$scope.user1 = angular.copy($scope.master);
 
@@ -10,8 +10,8 @@ app.controller('loginCtrl', function($scope,$http,$interval,$localStorage) {
 					$localStorage.USERNAME=data.result.USERNAME;
 					$localStorage.TOKEN=data.result.TOKEN;
 					$localStorage.AREA_ID=data.result.AREA_ID;
-					window.location = "index.html";
-					//$location.path('/');
+					$localStorage.ACCOUNT_ID = data.result.ACCOUNT_ID;
+					$state.go("main", {}, { reload: true });
 				}else{
 					$localStorage.reset();
 					alert(data.resp_msg)

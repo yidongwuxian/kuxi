@@ -7,10 +7,14 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
           url: '/main',
           views: {
                 "": {
-                    templateUrl: 'pages/main.html'
+                    templateUrl: 'pages/main.html',
+                    cache:'false'
                 },
                 "container@main": {
                     templateUrl: 'pages/index.html'
+                },
+                "ft@main": {
+                    templateUrl: 'pages/ft.html'
                 }
           }
       })
@@ -18,10 +22,13 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
               url: '/list/:id',
               views: {
                     'container@main': {
-                        templateUrl: getTemplateUrl,
-                        controller:  getCtrlUrl
+                        templateUrl: getTemplateUrl
                     }
               }
+      })
+      .state('main.serviceInfo', {
+              url: '/serviceInfo',
+              templateUrl: 'pages/serviceInfo.html'
       })
       .state('login', {
               url: '/login',
@@ -52,11 +59,81 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                 }
               }
       })
+      .state('myMoney', {
+              url: '/myMoney',
+              templateUrl: 'pages/myMoney.html',
+              controller:  'moneyCtrl'
+      })
+      .state('coupon', {
+              url: '/coupon',
+              templateUrl: 'pages/coupon.html',
+              controller:  'couponCtrl'
+      })
+      .state('invite', {
+              url: '/invite',
+              templateUrl: 'pages/invite.html',
+              controller:  'inviteCtrl'
+      })
+      .state('address', {
+              url: '/address',
+              templateUrl: 'pages/address.html',
+              cache:'false'
+      })
+      .state('addAddress', {
+              url: '/addAddress',
+              templateUrl: 'pages/addAddress.html'
+      })
+      .state('message', {
+              url: '/message',
+              templateUrl: 'pages/message.html',
+              controller:  'messageCtrl'
+      })
+      .state('exclusive', {
+              url: '/exclusive',
+              templateUrl: 'pages/exclusive.html'
+      })
+      .state('more', {
+              url: '/more',
+              templateUrl: 'pages/more.html'
+      })
+      .state('writefeedback', {
+              url: '/writefeedback',
+              templateUrl: 'pages/writefeedback.html',
+              controller:  'writefeedbackCtrl'
+      })
+      .state('feedback', {
+              url: '/feedback',
+              templateUrl: 'pages/feedback.html',
+              cache:'false'
+      })
+      .state('version', {
+              url: '/version',
+              templateUrl: 'pages/version.html',
+              controller:  'versionCtrl'
+      })
+      .state('orderSubmit', {
+              url: '/orderSubmit',
+              templateUrl: 'pages/orderSubmit.html',
+              controller:  'orderSubmitCtrl'
+      })
+      .state('orderDetails', {
+              url: '/orderDetails',
+              templateUrl: 'pages/orderDetails.html'
+      })
+      .state('orderPayment', {
+              url: '/orderPayment',
+              templateUrl: 'pages/orderPayment.html'
+      })
+      .state('orderPaymentWeek', {
+              url: '/orderPaymentWeek',
+              templateUrl: 'pages/orderPaymentWeek.html'
+      })
+
       $urlRouterProvider.otherwise('/login');
 
-      function getTemplateUrl($routeParams) {
+      function getTemplateUrl($stateParams) {
           var page = "";
-          switch($routeParams.id){
+          switch($stateParams.id){
                 case '7' :
                      page = "clothes";  break;
                 case '8' :
@@ -75,29 +152,6 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                       page = "week";    break;
           }
             return 'pages/' + page + '.html';
-      }
-
-      function getCtrlUrl($routeParams) {
-          var controllerName = "";
-          switch($routeParams.id){
-                case '7' :
-                     controllerName = "clothTabCtrl";    break;
-                case '8' :
-                      controllerName = "";               break;
-                case '9' :
-                      controllerName = "";               break;
-               case '10' :
-                      controllerName = "shoesTabCtrl";   break;
-               case '11' :
-                      controllerName = "homeTabCtrl";    break;
-               case '12' :
-                      controllerName = "carCtrl";        break;
-               case '13' :
-                      controllerName = "bangCtrl";       break;
-               case '14' :
-                      controllerName = "weekTabCtrl";    break;
-          }
-            return  controllerName;
       }
 
 }]);

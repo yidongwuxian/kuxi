@@ -60,9 +60,10 @@
     text-align: center;
 }
 /*弹出层*/
-.modal-content{ width:286px; margin:50% auto; background-color: #f5f6f1; }
-.modal-content label{ width: 25%; font-size: 1.2rem; color:#1d202f; text-align: center; }
-.modal-content input{ width:70%; height:1.9rem; border:1px solid #d1ac51; border-radius: 4px; text-indent: 0.5rem; }
+#rechargeModal .modal-body{ padding:15px; }
+#rechargeModal .modal-content{ width:286px; margin:50% auto; background-color: #f5f6f1; }
+#rechargeModal .modal-content label{ width: 25%; font-size: 1.2rem; color:#1d202f; text-align: center; }
+#rechargeModal .modal-content input{ width:70%; height:1.9rem; border:1px solid #d1ac51; border-radius: 4px; text-indent: 0.5rem; }
 .recharge-item{ margin-bottom: 10px; }
 .btn-yellow{ width:60px; line-height: 1; text-align:center; background-color: #d1ac51; color:#fff; margin-right:37%; }
 .modal-footer .btn+.btn { margin-right:9%; }

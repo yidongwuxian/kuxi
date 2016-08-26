@@ -131,8 +131,9 @@ $(function($localStorage){
 
 //首页分类调用API代码 start
 	app.controller('floorCtrl', floorCtrl);
-	function floorCtrl($scope,DataGetterService, Constants) {
+	function floorCtrl($scope,DataGetterService,$localStorage, Constants) {
 		DataGetterService.getData(function(data){
+			$localStorage.GOODS_TYPE_ID = data.GOODS_TYPE_ID;
 			$scope.floors= data;
 		}, Constants.index_types_url);
 	}

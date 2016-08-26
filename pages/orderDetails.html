@@ -1,0 +1,173 @@
+	<div class="kuxi-page">
+		<!--header start-->
+		<header>
+            <p class="addressSelection">
+                <s class="back" onclick="history.go(-1);"></s>
+				我的订单
+            </p>
+        </header>
+		<!--header end-->
+		<div class="order-details-item">
+			<dl>
+				<dt>
+					<img src="img/userCenter/touxiang.png" />
+				</dt>
+				<dd>
+					<p><span>管家姓名:</span>王五</p>
+					<p><span>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</span>1736</p>
+					<p><span>管家电话:</span>18633230625</p>
+				</dd>
+			</dl>
+		</div>
+		<div class="line-fleshcolor"></div>
+		<div class="order-details-item">
+			<p><span>客户姓名:</span>张三</p>
+			<p><span>客户电话:</span>18633230625</p>
+			<p><span>客户地址:</span><b>北京市丰台区南四环西路188号总部基地一区19号楼六层</b></p>
+		</div>
+		<div class="line-fleshcolor"></div>
+		<div class="order-details-item">
+			<p><span>订单编号:</span>64737399</p>
+			<p><span>订单类型:</span>奢饰品护理</p>
+			<p><span>下单时间:</span>2015/09/02</p>
+			<p><span>服务时间:</span>2015/09/02/12:00</p>
+		</div>
+		<div class="line-fleshcolor"></div>
+		<div class="order-details-item">
+			<p><span>订单金额:</span>18元</p>
+			<p><span>实付:</span>18元</p>
+			<p><span>优惠方式:</span>无</p>
+			<p><span>支付方式:</span>微信支付</p>
+		</div>
+		<div class="line-fleshcolor"></div>
+		<div class="order-details-item w100" id="myTab" ng-app="myApp" ng-controller="orderDetailsTabCtrl">
+			<ul class="nav nav-tabs">
+				<li ng-repeat="tab in myTab"
+ 				   ng-class="{active:isActiveTab(tab.url)}"
+ 				   ng-click="onClickTab(tab)">{{tab.title}}</li>
+			</ul>
+			<div id="mainView">
+				<div ng-include="currentTab"></div>
+			</div>
+			<script type="text/ng-template" id="orderStatus.tpl">
+				<div class="order-submit-dl2">
+					<dl>
+						<dt class="fl">
+							<img src="img/list/bar.png" />
+						</dt>
+						<dd>
+							<div class="desc">
+								<p class="productName"><span>阿玛尼</span></p>
+								<p class="productAlias"><span>手提包（小）</span></p>
+								<p class="productSize"><span>尺寸：L&lt;200mm 黑色</span></p>
+								<p class="productDetail"><span>四角磨损</span></p>
+							</div>
+							<div class="priceNum">
+								<b><i>￥</i>200</b>
+							</div>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="fl">
+							<img src="img/list/bar.png" />
+						</dt>
+						<dd>
+							<div class="desc">
+								<p class="productName"><span>阿玛尼</span></p>
+								<p class="productAlias"><span>手提包（小）</span></p>
+								<p class="productSize"><span>尺寸：L&lt;200mm 黑色</span></p>
+								<p class="productDetail"><span>四角磨损</span></p>
+							</div>
+							<div class="priceNum">
+								<b><i>￥</i>200</b>
+							</div>
+						</dd>
+					</dl>
+				</div>
+				<div class="order-details-ol">
+					<ol>
+						<li>
+							<span class="tt">下单成功</span>
+							<span class="time">2015/09/03, 11:30</span>
+						</li>
+						<li>
+							<span class="tt">订单已生效</span>
+							<span class="time">2015/09/03, 12:00</span>
+						</li>
+						<li>
+							<span class="tt">您的衣物已入厂</span>
+							<span class="time">2015/09/04, 08:35</span>
+						</li>
+						<li>
+							<span class="tt">洗涤中</span>
+							<span class="time">2015/09/05, 08:30</span>
+						</li>
+						<li class="cur">
+							<span class="tt">已签收</span>
+							<span class="time">2015/09/05, 09:00</span>
+						</li>
+					</ol>
+				</div>
+			</script>
+			<script type="text/ng-template" id="clothDetails.tpl">
+				<div class="order-submit-dl2">
+					<dl>
+						<dt class="fl">
+							<img src="img/list/bar.png" />
+						</dt>
+						<dd>
+							<div class="desc">
+								<p class="productName"><span>阿玛尼</span></p>
+								<p class="productAlias"><span>手提包（小）</span></p>
+								<p class="productSize"><span>尺寸：L&lt;200mm 黑色</span></p>
+								<p class="productDetail"><span>四角磨损</span></p>
+							</div>
+							<div class="priceNum">
+								<b><i>￥</i>200</b>
+							</div>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="fl">
+							<img src="img/list/bar.png" />
+						</dt>
+						<dd>
+							<div class="desc">
+								<p class="productName"><span>阿玛尼</span></p>
+								<p class="productAlias"><span>手提包（小）</span></p>
+								<p class="productSize"><span>尺寸：L&lt;200mm 黑色</span></p>
+								<p class="productDetail"><span>四角磨损</span></p>
+							</div>
+							<div class="priceNum">
+								<b><i>￥</i>200</b>
+							</div>
+						</dd>
+					</dl>
+				</div>
+				<div class="order-details-ol">
+					<ol>
+						<li>
+							<span class="tt">下单成功</span>
+							<span class="time">2015/09/03, 11:30</span>
+						</li>
+						<li>
+							<span class="tt">订单已生效</span>
+							<span class="time">2015/09/03, 12:00</span>
+						</li>
+						<li>
+							<span class="tt">您的衣物已入厂</span>
+							<span class="time">2015/09/04, 08:35</span>
+						</li>
+						<li>
+							<span class="tt">洗涤中</span>
+							<span class="time">2015/09/05, 08:30</span>
+						</li>
+						<li class="cur">
+							<span class="tt">已签收</span>
+							<span class="time">2015/09/05, 09:00</span>
+						</li>
+					</ol>
+				</div>
+			</script>
+		</div>
+	</div>
