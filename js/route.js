@@ -113,8 +113,8 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
       })
       .state('orderSubmit', {
               url: '/orderSubmit',
-              templateUrl: 'pages/orderSubmit.html',
-              controller:  'orderSubmitCtrl'
+              templateUrl: 'pages/orderSubmit.html'
+              //controller:  'orderSubmitCtrl'
       })
       .state('orderDetails', {
               url: '/orderDetails',
