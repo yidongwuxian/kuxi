@@ -1,4 +1,4 @@
-app.controller('couponCtrl', function($scope, $http, DataGetterService,$localStorage,Constants){
+app.controller('couponCtrl', function($scope, $http, DataGetterService,$localStorage,Constants,$state){
 	//我的优惠券
 	DataGetterService.getData(function(data){
         if(data.effectlist){
@@ -28,6 +28,10 @@ app.controller('couponCtrl', function($scope, $http, DataGetterService,$localSto
 		);
 	}
 
-
+	//跳转到优惠券使用协议 start
+	$scope.couponAgLnk = function(){
+		$state.go("couponAgreement", {}, { reload: true });
+	}
+	//跳转到优惠券使用协议 end
 
 });

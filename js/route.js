@@ -128,6 +128,17 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
               url: '/orderPaymentWeek',
               templateUrl: 'pages/orderPaymentWeek.html'
       })
+      .state('userAgreement', {
+              url: '/userAgreement',
+              templateUrl: 'pages/userAgreement.html',
+              cache:'false'
+      })
+      .state('couponAgreement', {
+              url: '/couponAgreement',
+              templateUrl: 'pages/couponAgreement.html',
+              cache:'false'
+      })
+
 
       $urlRouterProvider.otherwise('/login');
 
