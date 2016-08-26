@@ -1,23 +1,23 @@
-	<div class="kuxi-page" ng-controller="addressCtrl">
-		<header>
-            <p class="pr addressSelection">
-                <s class="back" onclick="history.go(-1);"></s>
-                地址管理
-            </p>
-        </header>
-		<ul class="Receiving_ul">
-			<li ng-repeat="item in items">
-				<div class="Receiving_divOne">
-					<p>{{item.CONSIGNEE}}{{item.MOBILE}}</p>
-					<p>{{item.ADDRESS}}</p>
-				</div>
-				<div class="Receiving_icon">
-					<p>
-						<span id="icon_default" class="icon_address"><a href="javascript:;">默认地址</a></span>
-						<span><a href="javascript:;" ng-click="delAddress()">删除</a></span>
-					</p>
-				</div>
-			</li>
-		</ul>
-		<a class="my_bth" href="javascript:;" ng-click="addAddress()"><span>添加新的地址</span></a>
-	</div>
+<div class="kuxi-page" ng-controller="addressCtrl">
+	<header>
+        <p class="pr addressSelection">
+            <s class="back" onclick="history.go(-1);"></s>
+            地址管理
+        </p>
+    </header>
+	<ul class="Receiving_ul">
+		<li ng-repeat="item in items">
+			<div class="Receiving_divOne">
+				<p>{{item.CONSIGNEE}}{{item.MOBILE}}</p>
+				<p>{{item.ADDRESS}}</p>
+			</div>
+			<div class="Receiving_icon">
+				<p>
+					<span id="icon_default" class="icon_address"><a href="javascript:;">默认地址</a></span>
+					<span><a href="javascript:;" ng-click="delAddress()">删除</a></span>
+				</p>
+			</div>
+		</li>
+	</ul>
+	<a class="my_bth" href="javascript:;" ng-click="addAddress()"><span>添加新的地址</span></a>
+</div>

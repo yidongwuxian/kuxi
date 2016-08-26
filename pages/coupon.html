@@ -1,34 +1,29 @@
-	<div class="kuxi-page" ng-controller="couponCtrl">
-		<header>
-            <p>
-                <s class="back" onclick="history.go(-1);"></s>
-				优惠券
-				<a class="serviceDes" href="/">优惠券须知</a>
-            </p>
-        </header>
-		<div class="bd-fleshcolor">
-			<form class="pr couponSelection">
-				<label>兑换码:</label>
-				<input type="text" class="tx" placeholder="请您输入兑换码" value="" ng-model="couponId" />
-				<input type="text" class="tx" placeholder="请您输入密码" value="" ng-model="couponVal" />
-				<input type="button" class="searchBtn" value="兑换" ng-click="submitCoupon" />
-			</form>
-			<ul class="couponBox bd-whitecolor">
-				<li class="pr" ng-repeat="item in items">
-					<div class="tt">
-						<p><i>￥</i><b>{{item.FACE_VALUE}}</b>元<strong>优惠券</strong></p>
-						<span class="tip">{{item.SHOW_WORDS}}</span>
-					</div>
-					<div class="cn">
-						<p>适用范围：{{item.GOODS_TYPE_NAME}}</p>
-						<p>有效期至：{{item.COUPON_CLOSE | date:'YYYY-MM-dd'}}</p>
-					</div>
-				</li>
-			</ul>
-		</div>
-
+<div class="kuxi-page" ng-controller="couponCtrl">
+	<header>
+        <p>
+            <s class="back" onclick="history.go(-1);"></s>
+			优惠券
+			<a class="serviceDes" href="/">优惠券须知</a>
+        </p>
+    </header>
+	<div class="bd-fleshcolor">
+		<form class="pr couponSelection">
+			<label>兑换码:</label>
+			<input type="text" class="tx" placeholder="请您输入兑换码" value="" ng-model="couponId" />
+			<input type="text" class="tx" placeholder="请您输入密码" value="" ng-model="couponVal" />
+			<input type="button" class="searchBtn" value="兑换" ng-click="submitCoupon" />
+		</form>
+		<ul class="couponBox bd-whitecolor">
+			<li class="pr" ng-repeat="item in items">
+				<div class="tt">
+					<p><i>￥</i><b>{{item.FACE_VALUE}}</b>元<strong>优惠券</strong></p>
+					<span class="tip">{{item.SHOW_WORDS}}</span>
+				</div>
+				<div class="cn">
+					<p>适用范围：{{item.GOODS_TYPE_NAME}}</p>
+					<p>有效期至：{{item.COUPON_CLOSE | date:'YYYY-MM-dd'}}</p>
+				</div>
+			</li>
+		</ul>
 	</div>
-	<script type="text/javascript" src="js/jquery.1.11.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
-</body>
-</html>
+</div>
