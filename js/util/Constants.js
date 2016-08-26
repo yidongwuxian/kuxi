@@ -13,7 +13,7 @@ constantsApp.factory('Constants', function($localStorage){
 		index_ads7_url:'/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+19+'&AD_ZONE_ID=7&REQ_TYPE=01',
 		loginOut_url:'/api/login_out.do?&callback=JSON_CALLBACK&&USERNAME='+$localStorage.USERNAME+'&TOKEN='+$localStorage.TOKEN+'&REQ_TYPE=01',
 		mycenter_url:'/api/user_info_center.do?&callback=JSON_CALLBACK&&'+ 'USERNAME='+$localStorage.USERNAME+ '&TOKEN='+$localStorage.TOKEN+ '&REQ_TYPE=01',
-		list_url:'/api/v2/goods_list_1?&callback=JSON_CALLBACK&&AREA_ID='+25+'&GOODS_TYPE_ID='+7+'&REQ_TYPE=01',
+		list_url:'/api/v2/goods_list_1?&callback=JSON_CALLBACK&&AREA_ID='+23+'&GOODS_TYPE_ID='+7+'&REQ_TYPE=01',
 		feedback_url: '/api/feedback_list.do?&callback=JSON_CALLBACK&&TOKEN='+$localStorage.TOKEN+'&USERNAME='+$localStorage.USERNAME+'&REQ_TYPE=01',
 		version_url: '/api/get_version_update.do??&callback=JSON_CALLBACK&&REQ_TYPE=01&APP_USE_ROLE=0&VERSION_CODE=12&VERSION_NAME=1.1.1&TERMINALT_TYPE=00',
 		money_url: '/api/account_balance.do?&callback=JSON_CALLBACK&&TOKEN='+$localStorage.TOKEN+'&USERNAME='+$localStorage.USERNAME,

@@ -15,55 +15,18 @@
 		<div id="myTabContent" class="tab-content">
 		   <div class="tab-pane fade in active" id="Jacket">
 			   <div class="list-item">
-	 	  			<dl class="pr">
+	 	  			<dl class="pr" ng-repeat="list in lists">
 	 	  			  <dt class="ow">
-	 	  				  <a class="fl"><img src="img/list/chuangdan.png" /></a>
+	 	  				  <a class="fl"><img ng-src="{{list.GOODS_IMG_URL}}" /></a>
 	 	  				  <div class="fr details">
-	 	  					  <h3>床单</h3>
-	 	  					  <span>￥<b>15</b></span>
+	 	  					  <h3>{{list.GOODS_NAME}}</h3>
+	 	  					  <span>￥<b>{{list.GOODS_PRICE}}</b></span>
 	 	  				  </div>
 	 	  			  </dt>
-	 	  			  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+	 	  			  <dd>{{list.GOODS_MARK}}</dd>
 					  <div class="selecteBtn cur"></div>
 	 	  			</dl>
-	 	  			<dl class="pr">
-	 	  			  <dt class="ow">
-	 	  				  <a class="fl"><img src="img/list/beizhao.png" /></a>
-	 	  				  <div class="fr details">
-	 	  					  <h3>被罩</h3>
-	 	  					  <span>￥<b>15</b></span>
-	 	  				  </div>
-	 	  			  </dt>
-	 	  			  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-					  <div class="selecteBtn"></div>
-	 	  			</dl>
 				</div>
-		   </div>
-		   <div class="tab-pane fade" id="Culotte">
-			   <div class="list-item">
- 				   <dl class="pr">
- 					 <dt class="ow">
- 						 <a class="fl"><img src="img/list/chuangdan.png" /></a>
- 						 <div class="fr details">
- 							 <h3>床单</h3>
- 							 <span>￥<b>16</b></span>
- 						 </div>
- 					 </dt>
- 					 <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-					 <div class="selecteBtn cur"></div>
- 				   </dl>
- 				   <dl class="pr">
- 					 <dt class="ow">
- 						 <a class="fl"><img src="img/list/beizhao.png" /></a>
- 						 <div class="fr details">
- 							 <h3>被罩</h3>
- 							 <span>￥<b>17</b></span>
- 						 </div>
- 					 </dt>
- 					 <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-					 <div class="selecteBtn"></div>
- 				   </dl>
- 			   </div>
 		   </div>
 		</div>
 		<!--list-ft start-->

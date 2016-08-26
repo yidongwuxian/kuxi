@@ -10,8 +10,7 @@
 		<form class="pr couponSelection">
 			<label>兑换码:</label>
 			<input type="text" class="tx" placeholder="请您输入兑换码" value="" ng-model="couponId" />
-			<input type="text" class="tx" placeholder="请您输入密码" value="" ng-model="couponVal" />
-			<input type="button" class="searchBtn" value="兑换" ng-click="submitCoupon" />
+			<input type="button" class="searchBtn" value="兑换" id="couponBtn" ng-click="submitCouponId()" />
 		</form>
 		<ul class="couponBox bd-whitecolor">
 			<li class="pr" ng-repeat="item in items">
@@ -27,3 +26,34 @@
 		</ul>
 	</div>
 </div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="couponModal" tabindex="-1" role="dialog" aria-labelledby="couponModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+	  <div class="modal-content">
+		 <div class="modal-body">
+			<div class="recharge-item">
+				<input type="text" class="tx" placeholder="请输入兑换密码" value="" ng-model="couponVal" />
+			</div>
+		 </div>
+		 <div class="modal-footer">
+			<button type="button" class="btn btn-yellow"
+			   data-dismiss="modal">取消
+			</button>
+			<button type="button" class="btn btn-yellow" ng-click="submitCoupon()">
+			   保存
+			</button>
+		 </div>
+	  </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</div>
+<script type="text/javascript">
+$(function(){
+	$('#couponBtn').click(function(){
+	//var 	$('.couponSelection .tx').val();
+	   $('#couponModal').modal({
+		  keyboard: true
+	   })
+	});
+});
+</script>

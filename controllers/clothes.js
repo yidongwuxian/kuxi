@@ -24,5 +24,5 @@
 // }]);
 app.controller('clothTabCtrl', clothTabCtrl);
 function clothTabCtrl($scope, DataGetterService, Constants) {
-	DataGetterService.getData(function(data){$scope.list= data;}, Constants.list_url);
+	DataGetterService.getData(function(data){$scope.lists= data.goodsList;}, Constants.list_url);
 }

@@ -42,8 +42,9 @@
     color: #1d202f;
 }
 /*dialog*/
-#activityModal .modal-dialog{ margin: 0; }
+#activityModal .modal-dialog, #couponModal .modal-dialog{ margin: 0; }
 #activityModal .modal-content{ margin:50% auto; width:750px; height:862px; background:url(../img/order/shai.png) no-repeat; background-size: 50%; border: none; box-shadow: 0 0 0 transparent;}
+#couponModal .modal-content{ margin:50% auto;}
 #activityModal .modal-content .close{ position: absolute; width: 35px; height: 35px; float: none; right: 53%; text-indent:9999em; }
 #activityModal .modal-content .shaiLnk{ position: absolute; min-width: 320px; height: 70px; top: 40%; text-indent:9999em;}
 
@@ -116,7 +117,7 @@
 .commitBox textarea{ display: block; width: 90%; margin:3% auto 0; height:6rem; border: none; background-color: #f9f6f2; padding:10px 13px; overflow: hidden; }
 .tipBox{ margin:5% auto; }
 .tipBox h3{ font-size: 1.4rem; text-indent: 1em;}
-.tipBox p{ text-indent: 1em; color: #1d202f; }
+.tipBox p{ color: #1d202f; }
 #orderSubmitForm .my_bth_radius1{ display: block; width: 90%; height:3rem; line-height:3rem; background: #d1ac51; color: #fff; font-size:1.4rem; border:none; margin:5% auto 0; padding:0; text-align: center; border-radius: 5px; position:relative; left:0;}
 
 /*order-details-item*/

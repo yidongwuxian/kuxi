@@ -45,7 +45,7 @@
 .commitBox textarea{ width: 100%; margin:3% auto 0; height:10rem; border: 1px solid #e5e5e5; padding:10px 13px; overflow: hidden; }
 .tipBox{ margin:5% auto; }
 .tipBox h3{ font-size: 1.4rem; text-indent: 1em;}
-.tipBox p{ text-indent: 1em; color: #1d202f; }
+.tipBox p{ color: #1d202f; }
 .my_bth_radius1{ display: block; width: 90%; height:3rem; line-height:3rem; background: #d1ac51; color: #fff; font-size:1.4rem; border:none; margin:50px auto 0; padding:0; text-align: center; border-radius: 5px; position: fixed; bottom:5%;
 left:6%;}
 

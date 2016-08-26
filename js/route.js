@@ -153,6 +153,5 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
           }
             return 'pages/' + page + '.html';
       }
-
 }]);
 //路由 end
