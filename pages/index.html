@@ -11,7 +11,7 @@
         <div class="container slider" >
             <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
                  ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
-                 ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.PICTURE_URL}}">
+                 ng-hide="!isCurrentSlideIndex($index)" lazy-src="{{slide.PICTURE_URL}}">
             <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
             <a class="arrow next" href="#" ng-click="prevSlide()"></a>
             <nav class="nav">
@@ -29,7 +29,7 @@
      <div class="floor-item"  ng-controller="floorCtrl">
          <nav class="quick-entry-nav pr" >
              <a class="quick-entry-link" ui-sref=".list({id:floor.GOODS_TYPE_ID})"  ng-repeat="floor in floors">
-                 <img ng-src="{{floor.GOODS_IMG_URL}}" />
+                 <img lazy-src="{{floor.GOODS_IMG_URL}}" />
                  <span>{{floor.GOODS_TYPE_NAME}}</span>
              </a>
          </nav>
@@ -46,7 +46,7 @@
          <div class="module-con" ng-controller="ads7Ctrl">
             <li ng-repeat="ad in ads7">
                 <a href="/">
-                    <img ng-src="{{ad.PICTURE_URL}}" alt="" />
+                    <img lazy-src="{{ad.PICTURE_URL}}" alt="" />
                 </a>
             </li>
          </div>
@@ -72,25 +72,3 @@
 </div>
 </div>
 <!--regionSelection end-->
-<!--ft start-->
-<div class="ft" >
-    <dl class="active">
-        <a ui-sref=".index">
-        <dt class="ftIco1"></dt>
-        <dd>首页</dd>
-        </a>
-    </dl>
-    <dl>
-        <a ui-sref=".myOrder">
-        <dt class="ftIco2"></dt>
-        <dd>订单</dd>
-        </a>
-    </dl>
-    <dl>
-        <a ui-sref=".myCenter">
-        <dt class="ftIco3"></dt>
-        <dd>我</dd>
-        </a>
-    </dl>
-</div>
-<!--ft end-->
