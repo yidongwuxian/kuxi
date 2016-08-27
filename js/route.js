@@ -44,14 +44,6 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                 }
               }
       })
-      .state('main.index', {
-              url: '/index',
-              views : {
-                "container@main": {
-                  templateUrl: 'pages/index.html'
-                }
-              }
-      })
       .state('main.myOrder', {
               url: '/myOrder',
               views : {
