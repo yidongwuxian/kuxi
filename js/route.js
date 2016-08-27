@@ -26,9 +26,10 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                     }
               }
       })
-      .state('main.serviceInfo', {
+      .state('serviceInfo', {
               url: '/serviceInfo',
-              templateUrl: 'pages/serviceInfo.html'
+              templateUrl: 'pages/serviceInfo.html',
+              cache:'false'
       })
       .state('login', {
               url: '/login',

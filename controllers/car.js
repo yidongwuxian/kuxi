@@ -1,4 +1,5 @@
-//var app = angular.module('myApp', []);
-app.controller('carCtrl', ['$scope', function ($scope) {
-
-}]);
+app.controller('carsCtrl', function ($scope, $state) {
+	$scope.goserviceInfo = function(){
+		$state.go("serviceInfo", {}, { reload: true });
+	}
+});

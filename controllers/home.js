@@ -1,4 +1,4 @@
-app.controller('homeTabCtrl', ['$scope', function ($scope) {
+app.controller('homeTabCtrl', ['$scope', '$state', function ($scope, $state) {
 	$scope.myTab = [{
 			title: '床上用品',
 			url: 'house.tpl'
@@ -21,5 +21,8 @@ app.controller('homeTabCtrl', ['$scope', function ($scope) {
 
 	$scope.isActiveTab = function(tabUrl) {
 		return tabUrl == $scope.currentTab;
+	}
+	$scope.goserviceInfo = function(){
+		$state.go("serviceInfo", {}, { reload: true });
 	}
 }]);
