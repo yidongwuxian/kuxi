@@ -23,6 +23,9 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
               views: {
                     'container@main': {
                         templateUrl: getTemplateUrl
+                    },
+                    "ft@main": {
+                        templateUrl: ''
                     }
               }
       })
