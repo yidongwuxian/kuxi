@@ -6,39 +6,55 @@
 		<a class="serviceDes" href="javascript:;" ng-click="goserviceInfo()">服务说明</a>
     </p>
 </header>
-<ul id="myTab" class="nav nav-tabs nav-tab2">
-   <li class="active">
-	   <a href="#Jacket" data-toggle="tab">上装外套</a>
-   </li>
-   <li><a href="#Culotte" data-toggle="tab">下装裤裙</a></li>
-</ul>
-<div id="myTabContent" class="tab-content">
-   <div class="tab-pane fade in active" id="Jacket">
-	   <div class="list-item">
-	  			<dl class="pr" ng-repeat="list in lists" ng-if="list.GOODS_CATEGORY_ID ==16 ">
- 	  			  <dt class="ow">
- 	  				  <a class="fl"><img lazy-src="{{list.GOODS_IMG_URL}}" /></a>
- 	  				  <div class="fr details">
- 	  					  <h3>{{list.GOODS_NAME}}</h3>
- 	  					  <span>￥<b>{{list.GOODS_PRICE}}</b></span>
- 	  				  </div>
- 	  			  </dt>
- 	  			  <dd>{{list.GOODS_MARK}}</dd>
-				  <input type="checkbox" ng-model="checked"  class="selecteBtn"></div>
-			</dl>
-		</div>
-   </div>
-	<!--list-ft start-->
-	<div class="list-ft">
-		<div class="tt">
-			<p>您已选择衣物数量：xx件</p>
-			<p>需支付： <b>75元</b></p>
-		</div>
-		<a>点击确认</a>
-	</div>
-	<!--list-ft end-->
+<div class="mui-content">
+    <div style="padding:10px">
+        <div class="mui-segmented-control">
+    			<a class="mui-control-item mui-active" href="#item1">上装外套</a>
+    			<a class="mui-control-item" href="#item2">下装裤裙</a>
+    	</div>
+    </div>
+    <div>
+		    <div id="item1" class="mui-control-content list-item mui-active">
+                    <dl class="pr" ng-repeat="list in lists" ng-if="list.GOODS_CATEGORY_ID ==16 ">
+              			  <dt class="ow">
+              				  <a class="fl"><img lazy-src="{{list.GOODS_IMG_URL}}" /></a>
+              				  <div class="fr details">
+              					  <h3>{{list.GOODS_NAME}}</h3>
+              					  <span><b class="goodsPrice">{{list.GOODS_PRICE | currency:  "￥" }}</b></span>
+              				  </div>
+              			  </dt>
+              			  <dd>{{list.GOODS_MARK}}</dd>
+            		      <div class="selecteBtn"></div>
+        			</dl>
+            </div>
+            <div id="item2" class="mui-control-content list-item">
+                    <dl class="pr" ng-repeat="list in lists" ng-if="list.GOODS_CATEGORY_ID ==17 ">
+              			  <dt class="ow">
+              				  <a class="fl"><img lazy-src="{{list.GOODS_IMG_URL}}" /></a>
+              				  <div class="fr details">
+              					  <h3>{{list.GOODS_NAME}}</h3>
+              					  <span><b class="goodsPrice">{{list.GOODS_PRICE | currency: "￥" }}</b></span>
+              				  </div>
+              			  </dt>
+              			  <dd>{{list.GOODS_MARK}}</dd>
+                          <div class="selecteBtn"></div>
+        			</dl>
+		    </div>
+    </div>
+    <!--list-ft start-->
+    <div class="list-ft">
+        <div class="tt">
+            <p>您已选择衣物数量：<span id="totalNum"></span> 件</p>
+            <p>需支付： <b>元</b></p>
+        </div>
+        <a>点击确认</a>
+    </div>
+    <!--list-ft end-->
 </div>
 <script>
+mui.init({
+	swipeBack:true //启用右滑关闭功能
+});
 $(function(){
     //动态检测屏幕高度 start
 	var documentHeight = $(document).height();
