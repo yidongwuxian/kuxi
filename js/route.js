@@ -71,6 +71,11 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
               templateUrl: 'pages/myMoney.html',
               controller:  'moneyCtrl'
       })
+      .state('record', {
+              url: '/record',
+              templateUrl: 'pages/record.html',
+              cache:'false'
+      })
       .state('coupon', {
               url: '/coupon',
               templateUrl: 'pages/coupon.html',

@@ -1,0 +1,17 @@
+<div class="kuxi-page" ng-controller="recordCtrl">
+	<header>
+        <p>
+            <s class="back" onclick="history.go(-1);"></s>
+            消费记录
+        </p>
+    </header>
+	<ul class="record-item">
+		<li ng-repeat="item in items">
+			<div class="tt">{{item.ADD_TIME | date:'YYYY-MM-dd'}}</div>
+			<div class="cn">
+				<p ng-if="item.type == 2"><span class="fl">45646456464654646[消费]</span><span class="fr">-0.10</span></p>
+				<p ng-if="item.type == 1"><span class="fl">[充值成功]</span><span class="fr">+100.00</span></p>
+			</div>
+		</li>
+	</ul>
+</div>
