@@ -32,6 +32,14 @@
                  <img lazy-src="{{floor.GOODS_IMG_URL}}" />
                  <span>{{floor.GOODS_TYPE_NAME}}</span>
              </a>
+             <a class="quick-entry-link" ui-sref=".week"  ng-repeat="floor in floors" ng-if="floor.IS_WEEKLY ==2 && floor.GOODS_TYPE_STATUS == 1">
+                 <img lazy-src="{{floor.GOODS_IMG_URL}}" />
+                 <span>{{floor.GOODS_TYPE_NAME}}</span>
+             </a>
+             <a class="quick-entry-link" href="javascript:;"  ng-repeat="floor in floors" ng-if="floor.IS_WEEKLY ==1 && floor.GOODS_TYPE_STATUS == 1">
+                 <img lazy-src="{{floor.GOODS_IMG_URL}}" />
+                 <span>{{floor.GOODS_TYPE_NAME}}</span>
+             </a>
          </nav>
      </div>
      <div class="floor-item m10">

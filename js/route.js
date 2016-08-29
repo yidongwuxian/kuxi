@@ -29,6 +29,17 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                     }
               }
       })
+      .state('main.week', {
+              url: '/week',
+              views: {
+                    'container@main': {
+                        templateUrl: 'pages/week.html'
+                    },
+                    "ft@main": {
+                        templateUrl: ''
+                    }
+              }
+      })
       .state('serviceInfo', {
               url: '/serviceInfo',
               templateUrl: 'pages/serviceInfo.html',
@@ -135,7 +146,6 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
               cache:'false'
       })
 
-
       $urlRouterProvider.otherwise('/login');
 
       function getTemplateUrl($stateParams) {
@@ -155,8 +165,8 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                       page = "car";     break;
                case '13' :
                       page = "bang";    break;
-               case '14' :
-                      page = "week";    break;
+            //    case '14' :
+            //           page = "week";    break;
           }
             return 'pages/' + page + '.html';
       }
