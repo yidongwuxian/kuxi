@@ -79,7 +79,7 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
       .state('coupon', {
               url: '/coupon',
               templateUrl: 'pages/coupon.html',
-              controller:  'couponCtrl'
+              cache:'false'
       })
       .state('invite', {
               url: '/invite',

@@ -9,11 +9,21 @@
 	<div class="bd-fleshcolor">
 		<form class="pr couponSelection">
 			<label>兑换码:</label>
-			<input type="text" class="tx" placeholder="请您输入兑换码" value="" ng-model="couponId" />
-			<input type="button" class="searchBtn" value="兑换" id="couponBtn" ng-click="submitCouponId()" />
+			<input type="text" class="tx" placeholder="请您输入兑换码" value="" ng-model="couponCode" />
+			<input type="button" class="searchBtn" value="兑换" id="couponBtn" ng-click="submitCouponCode()" />
 		</form>
-		<ul class="couponBox bd-whitecolor">
-			<li class="pr" ng-repeat="item in items">
+		<ul class=" bd-whitecolor">
+			<li class="couponBox pr" ng-repeat="item in items" ng-if="item.IS_USED ==0">
+				<div class="tt">
+					<p><i>￥</i><b>{{item.FACE_VALUE}}</b>元<strong>优惠券</strong></p>
+					<span class="tip">{{item.SHOW_WORDS}}</span>
+				</div>
+				<div class="cn">
+					<p>适用范围：{{item.GOODS_TYPE_NAME}}</p>
+					<p>有效期至：{{item.COUPON_CLOSE | date:'YYYY-MM-dd'}}</p>
+				</div>
+			</li>
+			<li class="couponBox1 pr" ng-repeat="item in items" ng-if="item.IS_USED == 1 ">
 				<div class="tt">
 					<p><i>￥</i><b>{{item.FACE_VALUE}}</b>元<strong>优惠券</strong></p>
 					<span class="tip">{{item.SHOW_WORDS}}</span>
