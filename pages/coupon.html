@@ -50,10 +50,13 @@
 <script type="text/javascript">
 $(function(){
 	$('#couponBtn').click(function(){
-	//var 	$('.couponSelection .tx').val();
 	   $('#couponModal').modal({
 		  keyboard: true
 	   })
 	});
+	//动态检测屏幕高度 start
+	var documentHeight = $(document).height();
+	$('.kuxi-page').css('height', documentHeight);
+    //动态检测屏幕高度 end
 });
 </script>

@@ -1,42 +1,48 @@
-	<div class="kuxi-page" ng-controller="clothTabCtrl">
-		<header>
-            <p>
-                <s class="back" onclick="history.go(-1);"></s>
-				精致洗衣
-				<a class="serviceDes" href="javascript:;" ng-click="goserviceInfo()">服务说明</a>
-            </p>
-        </header>
-		<ul id="myTab" class="nav nav-tabs nav-tab2">
-		   <li class="active">
-			   <a href="#Jacket" data-toggle="tab">上装外套</a>
-		   </li>
-		   <li><a href="#Culotte" data-toggle="tab">下装裤裙</a></li>
-		</ul>
-		<div id="myTabContent" class="tab-content">
-		   <div class="tab-pane fade in active" id="Jacket">
-			   <div class="list-item">
-		 	  			<dl class="pr" ng-repeat="list in lists">
-			 	  			  <dt class="ow">
-			 	  				  <a class="fl"><img lazy-src="{{list.GOODS_IMG_URL}}" /></a>
-			 	  				  <div class="fr details">
-			 	  					  <h3>{{list.GOODS_NAME}}</h3>
-			 	  					  <span>￥<b>{{list.GOODS_PRICE}}</b></span>
-			 	  				  </div>
-			 	  			  </dt>
-			 	  			  <dd>{{list.GOODS_MARK}}</dd>
-							  <input type="checkbox" ng-model="checked" ng-init="checked=false" class="selecteBtn"></div>
-						</dl>
-
-				</div>
-		   </div>
+<div class="kuxi-page" ng-controller="clothTabCtrl">
+<header>
+    <p>
+        <s class="back" onclick="history.go(-1);"></s>
+		精致洗衣
+		<a class="serviceDes" href="javascript:;" ng-click="goserviceInfo()">服务说明</a>
+    </p>
+</header>
+<ul id="myTab" class="nav nav-tabs nav-tab2">
+   <li class="active">
+	   <a href="#Jacket" data-toggle="tab">上装外套</a>
+   </li>
+   <li><a href="#Culotte" data-toggle="tab">下装裤裙</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+   <div class="tab-pane fade in active" id="Jacket">
+	   <div class="list-item">
+	  			<dl class="pr" ng-repeat="list in lists" ng-if="list.GOODS_CATEGORY_ID ==16 ">
+ 	  			  <dt class="ow">
+ 	  				  <a class="fl"><img lazy-src="{{list.GOODS_IMG_URL}}" /></a>
+ 	  				  <div class="fr details">
+ 	  					  <h3>{{list.GOODS_NAME}}</h3>
+ 	  					  <span>￥<b>{{list.GOODS_PRICE}}</b></span>
+ 	  				  </div>
+ 	  			  </dt>
+ 	  			  <dd>{{list.GOODS_MARK}}</dd>
+				  <input type="checkbox" ng-model="checked"  class="selecteBtn"></div>
+			</dl>
 		</div>
-		<!--list-ft start-->
-		<div class="list-ft">
-			<div class="tt" ng-if="checked">
-				<p>您已选择衣物数量：xx件</p>
-				<p>需支付： <b>75元</b></p>
-			</div>
-			<a>点击确认</a>
+   </div>
+	<!--list-ft start-->
+	<div class="list-ft">
+		<div class="tt">
+			<p>您已选择衣物数量：xx件</p>
+			<p>需支付： <b>75元</b></p>
 		</div>
-		<!--list-ft end-->
+		<a>点击确认</a>
 	</div>
+	<!--list-ft end-->
+</div>
+<script>
+$(function(){
+    //动态检测屏幕高度 start
+	var documentHeight = $(document).height();
+	$('.kuxi-page').css('height', documentHeight);
+    //动态检测屏幕高度 end
+});
+</script>

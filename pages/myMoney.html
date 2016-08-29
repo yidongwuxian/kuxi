@@ -45,12 +45,14 @@
 	   </div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 </div>
-	<script type="text/javascript">
-	$(function(){
-		$('#rechargeBtn').click(function(){
-		   $('#rechargeModal').modal({
-	 	      keyboard: true
-	 	   })
-		});
+<script type="text/javascript">
+$(function(){
+	$('#rechargeBtn').click(function(){
+	   $('#rechargeModal').modal({
+ 	      keyboard: true
+ 	   })
 	});
-	</script>
+	var documentHeight = $(document).height();
+	$('.kuxi-page').css('height', documentHeight);
+});
+</script>

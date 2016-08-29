@@ -1,62 +1,68 @@
-	<div class="kuxi-page" ng-controller="usersCtrl">
-		<header>
-            <p>
-                <s class="back" onclick="history.go(-1);"></s>
-            </p>
-        </header>
-		<div class="user-hd">
-			<div class="user-nav">
-				<div class="user-icon"><img class="user-icon-pic" src="img/userCenter/touxiang.png" /></div>
-				<h3 class="user-tx" ng-model="user.USERNAME">{{data.USERNAME}}</h3>
-				<ul>
-					<li>
-						<div>
-							<p ng-model="data.ORDER_ITEM_COUNT">{{data.ORDER_ITEM_COUNT}}</p>
-							<p>已洗衣物</p>
-						</div>
-					</li>
-					<li>
-						<div>
-							<p ng-model="data.ORDER_ITEM_COUNT">{{data.ORDER_COUNT}}</p>
-							<p>已成功订单</p>
-						</div>
-					</li>
-					<li>
-						<div>
-							<p ng-model="data.FACE_VALUE"><span>￥</span>{{data.FACE_VALUE}}</p>
-							<p>获得优惠券金额</p>
-						</div>
-					</li>
-				</ul>
-			</div>
-
-		</div>
-		<div class="user-item">
+<div class="kuxi-page" ng-controller="usersCtrl">
+	<header>
+        <p>
+            <s class="back" onclick="history.go(-1);"></s>
+        </p>
+    </header>
+	<div class="user-hd">
+		<div class="user-nav">
+			<div class="user-icon"><img class="user-icon-pic" src="img/userCenter/touxiang.png" /></div>
+			<h3 class="user-tx" ng-model="user.USERNAME">{{data.USERNAME}}</h3>
 			<ul>
-				<li class="first-item">
-					<a ui-sref="myOrder">我的订单</a>
+				<li>
+					<div>
+						<p ng-model="data.ORDER_ITEM_COUNT">{{data.ORDER_ITEM_COUNT}}</p>
+						<p>已洗衣物</p>
+					</div>
 				</li>
 				<li>
-					<a ui-sref="myMoney">我的钱包</a>
+					<div>
+						<p ng-model="data.ORDER_ITEM_COUNT">{{data.ORDER_COUNT}}</p>
+						<p>已成功订单</p>
+					</div>
 				</li>
 				<li>
-					<a ui-sref="coupon" >优惠券</a>
-				</li>
-				<li>
-					<a ui-sref="invite">邀请有奖</a>
-				</li>
-				<li>
-					<a ui-sref="address">地址管理</a>
-				</li>
-				<li>
-					<a ui-sref="message">消息中心</a>
-				</li>
-				<li>
-					<a ui-sref="exclusive">我的管家</a>
-				</li>
-				<li class="last-item">
-					<a ui-sref="more">更多</a>
+					<div>
+						<p ng-model="data.FACE_VALUE"><span>￥</span>{{data.FACE_VALUE}}</p>
+						<p>获得优惠券金额</p>
+					</div>
 				</li>
 			</ul>
 		</div>
+
 	</div>
+	<div class="user-item">
+		<ul>
+			<li class="first-item">
+				<a ui-sref="myOrder">我的订单</a>
+			</li>
+			<li>
+				<a ui-sref="myMoney">我的钱包</a>
+			</li>
+			<li>
+				<a ui-sref="coupon" >优惠券</a>
+			</li>
+			<li>
+				<a ui-sref="invite">邀请有奖</a>
+			</li>
+			<li>
+				<a ui-sref="address">地址管理</a>
+			</li>
+			<li>
+				<a ui-sref="message">消息中心</a>
+			</li>
+			<li>
+				<a ui-sref="exclusive">我的管家</a>
+			</li>
+			<li class="last-item">
+				<a ui-sref="more">更多</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<script>
+$(function(){
+	var documentHeight = $(document).height();
+	$('.kuxi-page').css('height', documentHeight);
+});
+</script>

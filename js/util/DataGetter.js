@@ -1,4 +1,4 @@
-var serviceApp = angular.module('ngService', ["ngStorage","ngConts",'me-lazyload']);
+var serviceApp = angular.module('ngService', ["ngStorage","ngConts",'me-lazyload','angular-iscroll']);
 serviceApp.service('DataGetterService', function($localStorage, $http, Constants){
 	return {
 		getData:function(call_back_param, request_url){

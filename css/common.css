@@ -1,4 +1,5 @@
-body { background: #f7f7f7; font-size: 62.5%; }
+*{ -webkit-box-sizing: border-box; box-sizing: border-box; -webkit-user-select: none; outline: 0; -webkit-tap-highlight-color: transparent;}
+body { background: #f7f7f7; font-size: 62.5%; -webkit-overflow-scrolling:touch; }
 body,div,p,ul,li,ol,a,h1,h2,h3,h4,h5,h6{ margin:0; padding: 0; }
 ul,li,ol{ list-style: none; }
 .clear{ clear:both; }
@@ -17,7 +18,7 @@ ul,li,ol{ list-style: none; }
 img { border:0; background-color: transparent; }
 input, img { vertical-align: middle; }
 /*整体框架*/
-.kuxi-page{ position: relative; min-width: 320px; height:1000em; background-color: white; overflow: hidden; }
+.kuxi-page{ position: relative; min-width: 320px; background-color: white; }
 /*公共头部*/
 header{ width:100%; margin:0 auto; height:40px; line-height:40px; text-align: center; background: #181a26; font-size:1.6rem; color:#d1ac51; }
 header p{ font-size: 1.6rem; }

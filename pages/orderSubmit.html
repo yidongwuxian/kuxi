@@ -1,3 +1,22 @@
+<style>
+  .mui-btn {
+  font-size: 16px;
+  padding: 8px;
+  margin: 3px;
+  }
+  h5.mui-content-padded {
+  margin-left: 3px;
+  margin-top: 20px !important;
+  }
+  h5.mui-content-padded:first-child {
+  margin-top: 12px !important;
+  }
+  .ui-alert {
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 16px;
+  }
+ </style>
 <div class="kuxi-page">
 	<!--header start-->
 	<header>
@@ -78,9 +97,9 @@
 						<span>下单后半小时内上门</span>
 					</div>
 					<div class="mui-input-row mui-checkbox mui-left">
+						<input name="checkbox" value="Item 2" type="checkbox" id="unopenTime">
 						<label>预约时间</label>
-						<input name="checkbox" value="Item 2" type="checkbox">
-						<span></span>
+						<span id="upoenResult" class="ui-alert"></span>
 					</div>
 				</form>
 			</div>
@@ -93,3 +112,26 @@
 		<input type="submit" class="my_bth_radius1" value="提交订单" />
 	</form>
 </div>
+<script>
+(function($, doc) {
+	$.init();
+	$.ready(function() {
+		var cityPicker = new $.PopPicker({
+			layer: 5
+		});
+		cityPicker.setData(yearArray);
+		var showCityPickerButton = doc.getElementById('unopenTime');
+		var cityResult = doc.getElementById('upoenResult');
+		showCityPickerButton.addEventListener('tap', function(event) {
+			cityPicker.show(function(items) {
+				cityResult.innerText = (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text + (items[3] || {}).text + " " + (items[4] || {}).text;
+
+			});
+		}, false);
+	});
+})(mui, document);
+$(function(){
+	var documentHeight = $(document).height();
+	$('.kuxi-page').css('height', documentHeight);
+});
+</script>
