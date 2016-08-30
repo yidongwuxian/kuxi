@@ -95,6 +95,10 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
               url: '/addAddress',
               templateUrl: 'pages/addAddress.html'
       })
+      .state('searchAddress', {
+              url: '/searchAddress',
+              templateUrl: 'pages/searchAddress.html'
+      })
       .state('message', {
               url: '/message',
               templateUrl: 'pages/message.html',
@@ -126,7 +130,6 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
       .state('orderSubmit', {
               url: '/orderSubmit',
               templateUrl: 'pages/orderSubmit.html'
-              //controller:  'orderSubmitCtrl'
       })
       .state('orderDetails', {
               url: '/orderDetails',
@@ -170,8 +173,6 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                       page = "car";     break;
                case '13' :
                       page = "bang";    break;
-            //    case '14' :
-            //           page = "week";    break;
           }
             return 'pages/' + page + '.html';
       }

@@ -1,12 +1,10 @@
 //头条新闻上下滚动 start
 function autoScroll(obj){
 	$(obj).find("ul").animate({
-		marginTop : "-42px"
-		//opaicty: 1
-	},500,function(){
+		marginTop: "-42px"
+	},1000,function(){
 		$(this).css({
-			marginTop : "0px"
-			//opaicty: 0
+			marginTop: 0
 		}).find("li:first").appendTo(this);
 	})
 }
@@ -15,7 +13,6 @@ function autoScroll(obj){
 $(function($localStorage){
 
 	$localStorage.AREA_ID="23";//默认区域Id 23
-
 	//顶部区域选择 start
 	//加载城市事件
 	$('body').on('click', '.regionTx', function () {
@@ -36,7 +33,6 @@ $(function($localStorage){
 	});
 	//顶部区域选择 end
 
-
     //头条新闻上下滚动调用代码 start
 	setInterval('autoScroll(".hdlines-box")', 3000);
    //头条新闻上下滚动调用代码 end
@@ -49,18 +45,40 @@ $(function($localStorage){
 	    $scope.selectArea = function($event){
 	    	var $$this = $($event.target);
 	    	var type = $('.city-container').data('type');
-			$('.regionTx').html($$this.html()).attr('data-id', $$this.data('id'));
-			$localStorage.AREA_ID=$$this.data('id');
+			$('.regionTx').html($$this.html()).attr('data-id', $$this.data('id')).attr('data-tableid', $$this.data('tableid'));
+			$localStorage.AREA_ID =$$this.data('id');
+			$localStorage.TABLE_ID=$$this.data('tableid');
 			$('.city-container').hide();
 
 			ads1CtrlFun();
-			//ads1Ctrl($scope,$http,$localStorage)
 			floorCtrl($scope, DataGetterService, Constants);
 			ads7Ctrl($scope, DataGetterService, Constants);
 			ads6Ctrl($scope, DataGetterService, Constants);
 	    }
 	});
 //城市选择调用API代码 end
+
+//版本更新调用API代码 start
+
+app.controller('versionUpdateCtrl', function($scope, DataGetterService,$localStorage,Constants){
+
+	$scope.VERSION_CODE = 12;
+	$scope.flag = false;
+
+	DataGetterService.getData(function(data){
+		$scope.items= data;
+		if(data.VERSION_CODE > $scope.VERSION_CODE){
+			$scope.flag = true;
+		}
+	}, Constants.version_url);
+
+	$scope.closeBtn = function(){
+		
+	}
+
+});
+//版本更新调用API代码 end
+
 
 //轮播图调用API代码 start
     function ads1CtrlFun() {

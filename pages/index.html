@@ -1,9 +1,12 @@
+<link rel="stylesheet" href="css/mui.min.css" />
+<link rel="stylesheet" href="css/app.css" />
+<script type="text/javascript" src="js/mui.min.js"></script>
 <div class="kuxi-page">
     <!--区域选择-->
     <header>
         <p class="pr regionSelection">
             <s></s>
-            <span class="regionTx" data-id="">高碑店市高碑店社区1</span>
+            <span class="regionTx" data-id="" data-tableid="">高碑店市高碑店社区1</span>
             <i></i>
         </p>
     </header>
@@ -19,7 +22,7 @@
                     <ul class="dots">
                         <li class="dot" ng-repeat="slide in slides">
                             <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
-                               ng-click="setCurrentSlideIndex($index);">{{slide.NAME}}</a></li>
+                               ng-click="setCurrentSlideIndex($index);" ng-bind="slide.NAME"></a></li>
                     </ul>
                 </div>
             </nav>
@@ -30,15 +33,15 @@
          <nav class="quick-entry-nav pr" >
              <a class="quick-entry-link" ui-sref=".list({id:floor.GOODS_TYPE_ID})"  ng-repeat="floor in floors">
                  <img lazy-src="{{floor.GOODS_IMG_URL}}" />
-                 <span>{{floor.GOODS_TYPE_NAME}}</span>
+                 <span ng-bind="floor.GOODS_TYPE_NAME"></span>
              </a>
              <a class="quick-entry-link" ui-sref=".week"  ng-repeat="floor in floors" ng-if="floor.IS_WEEKLY ==2 && floor.GOODS_TYPE_STATUS == 1">
                  <img lazy-src="{{floor.GOODS_IMG_URL}}" />
-                 <span>{{floor.GOODS_TYPE_NAME}}</span>
+                 <span ng-bind="floor.GOODS_TYPE_NAME"></span>
              </a>
              <a class="quick-entry-link" href="javascript:;"  ng-repeat="floor in floors" ng-if="floor.IS_WEEKLY ==1 && floor.GOODS_TYPE_STATUS == 1">
                  <img lazy-src="{{floor.GOODS_IMG_URL}}" />
-                 <span>{{floor.GOODS_TYPE_NAME}}</span>
+                 <span ng-bind="floor.GOODS_TYPE_NAME"></span>
              </a>
          </nav>
      </div>
@@ -47,7 +50,7 @@
              <span class="hdlines-tt"><img src="img/index/scrollTT.png" /></span>
              <div class="hdlines-box" id="hdlinesBox" ng-controller="ads6Ctrl">
                  <ul>
-                     <li ng-repeat="ad in ads6"><a href="#">{{ad.NAME}}</a></li>
+                     <li ng-repeat="ad in ads6"><a href="#" ng-bind="ad.NAME"></a></li>
                  </ul>
             </div>
          </div>
@@ -69,7 +72,7 @@
             <span>{{item.AREA_NAME}}</span>
         </div>
         <div class="city-cn">
-            <p ng-click="selectArea($event)" data-id="{{list.AREA_ID}}" ng-repeat="list in item[item.AREA_EN]">{{list.COMMUNITY_NAME}}</p>
+            <p ng-click="selectArea($event)" data-id="{{list.AREA_ID}}" data-tableid="{{list.TABLE_ID}}"  ng-repeat="list in item[item.AREA_EN]">{{list.COMMUNITY_NAME}}</p>
         </div>
   </div>
   <div class="letter">
@@ -80,7 +83,27 @@
 </div>
 </div>
 <!--regionSelection end-->
+<div ng-controller="versionUpdateCtrl">
+    <div ng-if="flag == true">
+        <div class="mui-popup mui-popup-in">
+            <div class="mui-popup-inner">
+                <div class="mui-popup-title">有新版本发布啦!{{items.VERSION_NAME}}</div>
+                <div class="mui-popup-text" ng-bind="items.VERSION_INFO"></div>
+            </div>
+            <div class="mui-popup-buttons">
+                <span class="mui-popup-button" ng-click="closeBtn()">稍后再说</span>
+                <a href="{{items.VERSION_DOWNLOAD_URL}}" class="mui-popup-button mui-popup-button-bold">前往更新</a>
+            </div>
+        </div>
+        <div class="mui-popup-backdrop mui-active"></div>
+    </div>
+    <div ng-if="flag == false"></div>
+</div>
 <script>
+mui.init({
+	swipeBack:true //启用右滑关闭功能
+});
+
 $(function(){
     //动态检测屏幕高度 start
 	var documentHeight = $(document).height();
