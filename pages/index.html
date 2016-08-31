@@ -66,18 +66,18 @@
 <!--regionSelection start-->
 <div class="city-container" ng-controller="cityCtrl" >
   <div class="city">
-      <div class="city-list" ng-repeat="item in items">
-        <div class="city-letter" id="{{item.AREA_EN}}1">
-            <span>{{item.AREA_EN}}</span>
-            <span>{{item.AREA_NAME}}</span>
+      <div class="city-list" ng-repeat="city in citys">
+        <div class="city-letter" id="{{city.AREA_EN}}1">
+            <span>{{city.AREA_EN}}</span>
+            <span>{{city.AREA_NAME}}</span>
         </div>
         <div class="city-cn">
-            <p ng-click="selectArea($event)" data-id="{{list.AREA_ID}}" data-tableid="{{list.TABLE_ID}}"  ng-repeat="list in item[item.AREA_EN]">{{list.COMMUNITY_NAME}}</p>
+            <p ng-click="selectArea($event)" data-id="{{list.AREA_ID}}" data-tableid="{{list.TABLE_ID}}"  ng-repeat="list in city[city.AREA_EN]">{{list.COMMUNITY_NAME}}</p>
         </div>
   </div>
   <div class="letter">
     <ul>
-        <li ng-repeat="item in items"><a href="javascript:;">{{item.AREA_EN}}</a></li>
+        <li ng-repeat="city in citys"><a href="javascript:;">{{city.AREA_EN}}</a></li>
     </ul>
   </div>
 </div>
@@ -87,12 +87,12 @@
     <div ng-if="flag == true">
         <div class="{{versionFirm}}">
             <div class="mui-popup-inner">
-                <div class="mui-popup-title">有新版本发布啦!{{items.VERSION_NAME}}</div>
-                <div class="mui-popup-text" ng-bind="items.VERSION_INFO"></div>
+                <div class="mui-popup-title">有新版本发布啦!{{versions.VERSION_NAME}}</div>
+                <div class="mui-popup-text" ng-bind="versions.VERSION_INFO"></div>
             </div>
             <div class="mui-popup-buttons">
                 <span class="mui-popup-button" ng-click="closeBtn()">稍后再说</span>
-                <a href="{{items.VERSION_DOWNLOAD_URL}}" class="mui-popup-button mui-popup-button-bold">前往更新</a>
+                <a href="{{versions.VERSION_DOWNLOAD_URL}}" class="mui-popup-button mui-popup-button-bold">前往更新</a>
             </div>
         </div>
         <div class="{{versionMask}}"></div>

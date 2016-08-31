@@ -40,7 +40,7 @@ $(function($localStorage){
 
 //城市选择调用API代码 start
 	app.controller('cityCtrl', function($scope,DataGetterService,$localStorage,Constants) {
-		DataGetterService.getData(function(data){$scope.items= data;}, Constants.index_city_url);
+		DataGetterService.getData(function(data){$scope.citys= data;}, Constants.index_city_url);
 
 	    $scope.selectArea = function($event){
 	    	var $$this = $($event.target);
@@ -51,7 +51,7 @@ $(function($localStorage){
 			$('.city-container').hide();
 
 			ads1CtrlFun();
-			floorCtrl($scope, DataGetterService, Constants);
+			//floorCtrl($scope, DataGetterService, Constants);
 			ads7Ctrl($scope, DataGetterService, Constants);
 			ads6Ctrl($scope, DataGetterService, Constants);
 	    }
@@ -67,7 +67,7 @@ app.controller('versionUpdateCtrl', function($scope, DataGetterService,$localSto
 	$scope.versionMask = "mui-popup-backdrop mui-active";
 
 	DataGetterService.getData(function(data){
-		$scope.items= data;
+		$scope.versions= data;
 		if(data.VERSION_CODE > $scope.VERSION_CODE){
 			$scope.flag = true;
 		}
@@ -75,7 +75,7 @@ app.controller('versionUpdateCtrl', function($scope, DataGetterService,$localSto
 
 	$scope.closeBtn = function(){
 		$scope.versionFirm = "mui-popup mui-popup-out";
-		$scope.versionMask = "mui-popup-backdrop";
+		$scope.versionMask = "";
 	}
 
 });
@@ -153,8 +153,8 @@ app.controller('versionUpdateCtrl', function($scope, DataGetterService,$localSto
 	app.controller('floorCtrl', floorCtrl);
 	function floorCtrl($scope,DataGetterService,$localStorage, Constants) {
 		DataGetterService.getData(function(data){
-			$localStorage.GOODS_TYPE_ID = data.GOODS_TYPE_ID;
 			$scope.floors= data;
+			$localStorage.GOODS_TYPE_ID = data.GOODS_TYPE_ID;
 		}, Constants.index_types_url);
 	}
 //首页分类调用API代码 start
