@@ -85,7 +85,7 @@
 <!--regionSelection end-->
 <div ng-controller="versionUpdateCtrl">
     <div ng-if="flag == true">
-        <div class="mui-popup mui-popup-in">
+        <div class="{{versionFirm}}">
             <div class="mui-popup-inner">
                 <div class="mui-popup-title">有新版本发布啦!{{items.VERSION_NAME}}</div>
                 <div class="mui-popup-text" ng-bind="items.VERSION_INFO"></div>
@@ -95,7 +95,7 @@
                 <a href="{{items.VERSION_DOWNLOAD_URL}}" class="mui-popup-button mui-popup-button-bold">前往更新</a>
             </div>
         </div>
-        <div class="mui-popup-backdrop mui-active"></div>
+        <div class="{{versionMask}}"></div>
     </div>
     <div ng-if="flag == false"></div>
 </div>

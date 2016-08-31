@@ -59,11 +59,12 @@ $(function($localStorage){
 //城市选择调用API代码 end
 
 //版本更新调用API代码 start
-
 app.controller('versionUpdateCtrl', function($scope, DataGetterService,$localStorage,Constants){
 
 	$scope.VERSION_CODE = 12;
 	$scope.flag = false;
+	$scope.versionFirm = "mui-popup mui-popup-in";
+	$scope.versionMask = "mui-popup-backdrop mui-active";
 
 	DataGetterService.getData(function(data){
 		$scope.items= data;
@@ -73,7 +74,8 @@ app.controller('versionUpdateCtrl', function($scope, DataGetterService,$localSto
 	}, Constants.version_url);
 
 	$scope.closeBtn = function(){
-		
+		$scope.versionFirm = "mui-popup mui-popup-out";
+		$scope.versionMask = "mui-popup-backdrop";
 	}
 
 });
