@@ -71,8 +71,8 @@ left:6%;}
 .week-banner img{ display: block; width: 100%; vertical-align: middle; }
 .weekBox{ width:100%; border-top: 1px solid #eee; }
 .week-tab{ float: left; width: 90px; }
-.week-tab li{ height: 33px; line-height: 33px; text-align: center; background-color: #faf6f3; border-bottom: 1px solid #eee; overflow: hidden; }
-.week-tab li a{ color: #1d202f; font-size: 1.5rem;}
+.week-tab a{ height: 33px; line-height: 33px; text-align: center; background-color: #faf6f3; border-bottom: 1px solid #eee; overflow: hidden; color: #1d202f; font-size: 1.5rem;}
+.week-tab .mui-control-item{ width:auto; display:block; }
 .week-tab li.cur{ background-color: #d1ac51; }
 #myTab li.active{ color: #fff; }
 .week-list-item{ width: 75%; float:left; }

@@ -1,31 +1,37 @@
-//var app = angular.module('myApp', []);
-app.controller('weekTabCtrl', ['$scope', function ($scope) {
-	$scope.myTab = [
-		{
-			title: '精致洗衣',
-			url: 'laundry.tpl'
-		}, {
-			title: '品质洗鞋',
-			url: 'culotte.tpl'
-		},{
-			title: '家居洗涤',
-			url: 'house.tpl'
-		}, {
-			title: '车饰清洗',
-			url: 'car.tpl'
-		}, {
-			title: '其他',
-			url: 'others.tpl'
-		}
-	];
+app.controller('weekCtrl', weekCtrl);
+function weekCtrl($scope, DataGetterService, Constants) {
+	DataGetterService.getData(function(data){
+	   $scope.lists = data;
+    }, Constants.week_url);
 
-	$scope.currentTab = 'laundry.tpl';
+	DataGetterService.getData(function(data){
+	   $scope.cloths = data;
+	}, Constants.week_cloth_url);
 
-	$scope.onClickTab = function (tab) {
-		$scope.currentTab = tab.url;
-	}
+	DataGetterService.getData(function(data){
+		$scope.homes = data;
+	}, Constants.week_home_url);
 
-	$scope.isActiveTab = function(tabUrl) {
-		return tabUrl == $scope.currentTab;
-	}
-}]);
+	DataGetterService.getData(function(data){
+		$scope.cars = data;
+	}, Constants.week_car_url);
+
+   // $scope.weekClothTab = function(){
+   //  DataGetterService.getData(function(data){
+   // 	      $scope.cloths = data;
+   //     }, Constants.week_cloth_url);
+   // }
+
+   // $scope.weekHomeTab = function(){
+   // ataGetterService.getData(function(data){
+   // $scope.homes = data;
+   // 	 }, Constants.week_home_url);
+   // }
+
+   // $scope.weekCarTab = function(){
+   // ataGetterService.getData(function(data){
+   // $scope.cars = data;
+   // 	 }, Constants.week_car_url);
+   // }
+
+}
