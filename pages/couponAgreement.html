@@ -1,5 +1,11 @@
 <div ng-controller="couponAgreeCtrl">
-	{{items.SERVICE_AGREEMENT_MARK}}
+	<header>
+	    <p>
+	        <s class="back" onclick="history.go(-1);"></s>
+			优惠券使用协议
+	    </p>
+	</header>
+	<div ng-bind-html="couponAgHtml" style="padding:20px;background-color:white;"></div>
 </div>
 <script>
 $(function(){
