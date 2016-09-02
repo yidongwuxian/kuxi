@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
@@ -7,11 +7,15 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <title>精致洗衣</title>
 <link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/mui.min.css" />
+<link rel="stylesheet" href="css/mui.picker.css"  />
+<link rel="stylesheet" href="css/mui.poppicker.css"  />
+<link rel="stylesheet" href="css/app.css" />
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/list.css" />
 </head>
 <body>
-	<div class="kuxi-page">
+	<div class="kuxi-page" ng-controller="clothTabCtrl">
 		<header>
             <p>
                 <s class="back" onclick="history.go(-1);"></s>
@@ -28,53 +32,31 @@
 		<div id="myTabContent" class="tab-content">
 		   <div class="tab-pane fade in active" id="Jacket">
 			   <div class="list-item">
-	 	  			<dl class="pr">
+	 	  			<dl class="pr" ng-repeat="item in items">
 	 	  			  <dt class="ow">
 	 	  				  <a class="fl"><img src="img/list/chuangdan.png" /></a>
 	 	  				  <div class="fr details">
-	 	  					  <h3>床单</h3>
-	 	  					  <span>￥<b>15</b></span>
+	 	  					  <h3>{{item.title}}</h3>
+	 	  					  <span>￥<b>{{item.price}}</b></span>
 	 	  				  </div>
 	 	  			  </dt>
-	 	  			  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-					  <div class="selecteBtn cur"></div>
-	 	  			</dl>
-	 	  			<dl class="pr">
-	 	  			  <dt class="ow">
-	 	  				  <a class="fl"><img src="img/list/beizhao.png" /></a>
-	 	  				  <div class="fr details">
-	 	  					  <h3>被罩</h3>
-	 	  					  <span>￥<b>15</b></span>
-	 	  				  </div>
-	 	  			  </dt>
-	 	  			  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-					  <div class="selecteBtn"></div>
+	 	  			  <dd>{{item.desc}}</dd>
+					  <div class="{{selectedStyle}}" ng-click="buy($index)"></div>
 	 	  			</dl>
 				</div>
 		   </div>
 		   <div class="tab-pane fade" id="Culotte">
 			   <div class="list-item">
- 				   <dl class="pr">
+ 				   <dl class="pr" ng-repeat="item in items">
  					 <dt class="ow">
  						 <a class="fl"><img src="img/list/chuangdan.png" /></a>
  						 <div class="fr details">
- 							 <h3>床单</h3>
- 							 <span>￥<b>16</b></span>
- 						 </div>
- 					 </dt>
- 					 <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-					 <div class="selecteBtn cur"></div>
- 				   </dl>
- 				   <dl class="pr">
- 					 <dt class="ow">
- 						 <a class="fl"><img src="img/list/beizhao.png" /></a>
- 						 <div class="fr details">
- 							 <h3>被罩</h3>
- 							 <span>￥<b>17</b></span>
- 						 </div>
- 					 </dt>
- 					 <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-					 <div class="selecteBtn"></div>
+	 	  					  <h3>{{item.title}}</h3>
+	 	  					  <span>￥<b>{{item.price}}</b></span>
+	 	  				  </div>
+	 	  			  </dt>
+	 	  			  <dd>{{item.desc}}</dd>
+					 <div class="{{selectedStyle}}" ng-click="buy($index)"></div>
  				   </dl>
  			   </div>
 		   </div>
@@ -82,15 +64,56 @@
 		<!--list-ft start-->
 		<div class="list-ft">
 			<div class="tt">
-				<p>您已选择衣物数量：xx件</p>
-				<p>需支付： <b>75元</b></p>
+				<p>您已选择衣物数量：{{item.$index+1}}件</p>
+				<p>需支付： <b>元</b></p>
 			</div>
 			<a>点击确认</a>
 		</div>
 		<!--list-ft end-->
 	</div>
 	<script type="text/javascript" src="js/jquery.1.11.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script type="text/javascript" src="js/list.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mui.picker.js"></script>
+	<script type="text/javascript" src="js/mui.poppicker.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-ui-router.js"></script>
+    <script type="text/javascript" src="js/angular-animate.min.js"></script>
+    <script type="text/javascript" src="js/angular-touch.min.js"></script>
+    <script type="text/javascript" src="js/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+	<!--<script type="text/javascript" src="js/clothes.js"></script>-->
+	<script>
+	var app = angular.module("myApp", []);
+
+        app.controller("clothTabCtrl", function($scope) {
+
+        	$scope.items = [{
+                    "title": "床单",
+                    "price": 15,
+                    "desc": "衣物的特殊说明如：长短收费一样特殊面料不能洗涤"
+                }, {
+                    "title": "老干妈",
+                    "price": 7.5,
+                    "desc": "衣物的特殊说明如：长短收费一样特殊面料不能洗涤"
+                }, {
+                    "title": "臭豆腐",
+                    "price": 7.32,
+                    "desc": "衣物的特殊说明如：长短收费一样特殊面料不能洗涤"
+                }, {
+                    "title": "饼干",
+                    "price": 22,
+                    "desc": "衣物的特殊说明如：长短收费一样特殊面料不能洗涤"
+            }];
+
+            $scope.selectedStyle = "selecteBtn";
+			
+			$scope.buy = function($index) {
+                    $scope.varlist.itemNum[$index]++;
+                    getTotal();
+                }
+
+        });
+	
+	</script>
 </body>
 </html>

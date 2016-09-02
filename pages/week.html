@@ -25,7 +25,7 @@
             	   <a class="fl"><img lazy-src="{{cloth.GOODS_IMG_URL}}" /></a>
             	   <div class="fl details">
             		   <h3>{{cloth.GOODS_NAME}}</h3>
-            		   <strong class="fr">￥<b>{{cloth.GOODS_PRICE | currency: "￥" }}</b></strong>
+            		   <strong class="fr">￥<b>{{cloth.GOODS_PRICE | number:2 }}</b></strong>
             		   <p>
             			   <span>{{cloth.GOODS_DESC}}</span>
             			   <span>支付立减{{cloth.DEDUCTION}}元</span>
@@ -41,7 +41,7 @@
             	   <a class="fl"><img lazy-src="{{home.GOODS_IMG_URL}}" /></a>
             	   <div class="fl details">
                        <h3>{{home.GOODS_NAME}}</h3>
-            		   <strong class="fr">￥<b>{{home.GOODS_PRICE | currency: "￥"  }}</b></strong>
+            		   <strong class="fr">￥<b>{{home.GOODS_PRICE | number:2 }}</b></strong>
             		   <p>
             			   <span>{{home.GOODS_DESC}}</span>
             			   <span>支付立减{{home.DEDUCTION}}元</span>
@@ -57,7 +57,7 @@
             	   <a class="fl"><img lazy-src="{{car.GOODS_IMG_URL}}" /></a>
             	   <div class="fl details">
                        <h3>{{car.GOODS_NAME}}</h3>
-            		   <strong class="fr">￥<b>{{car.GOODS_PRICE | currency: "￥" }}</b></strong>
+            		   <strong class="fr">￥<b>{{car.GOODS_PRICE | number:2 }}</b></strong>
             		   <p>
             			   <span>{{car.GOODS_DESC}}</span>
             			   <span>支付立减{{car.DEDUCTION}}元</span>

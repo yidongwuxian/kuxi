@@ -12,9 +12,6 @@ app.controller('addressCtrl', function($scope,DataGetterService,$localStorage,Co
 });
 
 app.controller('addAddressCtrl', function($scope,$http,DataGetterService,$localStorage,Constants){
-	//地图api调取
-	var search = new AMap.CloudDataSearch($localStorage.TABLE_ID);
-	console.log(search);
 
 	//填写收货地址以及相关信息，提交
 	$scope.sumbitAddress = function(){
@@ -33,7 +30,11 @@ app.controller('addAddressCtrl', function($scope,$http,DataGetterService,$localS
 
 
 app.controller('searchAddressCtrl', function($scope,$http,DataGetterService,$localStorage,Constants){
-	//
+
+	//地图api调取
+	var search = new AMap.CloudDataSearch($localStorage.TABLE_ID);
+	console.log(search);
+
 	$scope.sumbitAddress = function(){
 		$scope.searchTx;
 	}

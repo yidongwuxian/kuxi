@@ -11,7 +11,7 @@ app.controller('moneyCtrl', function($scope, $http, DataGetterService,$localStor
 		$http.jsonp('http://111.198.143.96:11211/api/account_recharge.do?&callback=JSON_CALLBACK&&RECHARGE_CODE='+encodeURI($scope.rechareId)+ '&RECHARGE_PASSWORD='+encodeURI($scope.rechareVal) + '&ACCOUNT_ID='+$localStorage.ACCOUNT_ID +'&USERNAME='+$localStorage.USERNAME +'&TOKEN='+$localStorage.TOKEN +'&REQ_TYPE=01').success(
 		　　function(data){
 				if(data.result){
-
+					$state.go("myMoney", {}, { reload: true });
 				}else{
 					$localStorage.reset();
 					alert(data.resp_msg)

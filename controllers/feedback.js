@@ -20,16 +20,3 @@ app.controller('writefeedbackCtrl', function($scope,$http,$localStorage,$state) 
 		);
 	}
 });
-
-//  $scope.postData='CONTENT='+$scope.feedback.textarea+'&ACCOUNT_ID='+$localStorage.ACCOUNT_ID+'&TOKEN='+$localStorage.TOKEN+'&REQ_TYPE=01';
-//  $http({
-//      url:'http://111.198.143.96:11211/api/commit_feedback.do?&callback=JSON_CALLBACK&&',
-//      method:'post',
-//      data: $scope.postData
-//  })
-//  .success(function(data){
-//      $scope.items=data.result;
-//  })
-//  .error(function(err){
-//      console.log(err);
-//  })

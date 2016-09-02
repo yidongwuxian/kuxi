@@ -19,6 +19,18 @@ app.controller('loginCtrl', function($scope,$http,$interval,$localStorage,$state
 		　　}
 		);
 	}
+    //跳转到用户注册协议 start
+	$scope.userAgLnk = function(){
+		$state.go("userAgreement", {}, { reload: true });
+	}
+	//跳转到用户注册协议 end
+
+	//点击返回上一步，跳转回首页 start
+	$scope.logingoIndex = function(){
+		$state.go("main", {}, { reload: true });
+	}
+	//点击返回上一步，跳转回首页 end
+
 	$scope.paracont = "获取验证码";
 	$scope.paraclass = "but_null";
 	$scope.paraevent = true;

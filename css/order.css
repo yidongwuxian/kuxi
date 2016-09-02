@@ -53,7 +53,7 @@
 .couponSelection label{ display: inline-block; line-height:25px; color: black; text-align: center; margin:0 2rem; }
 .couponSelection input.tx{ display: inline-block; width: 50%; line-height: 25px; margin:0 auto; text-indent: 1em; border:1px solid #e5e5e5; color: #b2b2b2; font-size: 1.2rem; }
 .couponSelection input.searchBtn{ position: absolute; right:15px; background-color: #d1ac51; color: #fff; width:5rem; line-height: 25px; text-align: center; border: none; border-radius: 5px; }
-.couponBox{ margin-top: 8px; overflow:hidden; }
+/*.couponBox{ margin-top: 8px; overflow:hidden; }
 .couponBox li{ width:313px; height:130px; background: url(../img/order/Coupon.png) no-repeat; background-size: 100%; margin: 1.4rem auto; }
 .couponBox .tt{ margin:4% auto 0; overflow: hidden; }
 .couponBox .tt p{ width:85%; margin:-10px auto 0; font-size: 3.2rem; color: #7e6000;  font-family: "Microsoft Yahei";  }
@@ -72,7 +72,27 @@
 .couponBox1 .tt p strong{ display: inline-block;  font-size:3.2rem; color: #878889; font-weight: normal; }
 .couponBox1 .tt .tip{ position: absolute; top:20px; right:99px; font-size: 1.4rem; color: #525354; font-family: "Microsoft Yahei"; }
 .couponBox1 .cn{ width: 90%; margin:0 auto; overflow: hidden;}
+.couponBox1 .cn p{ line-height: 18px; color: #525354; }*/
+.couponBox{  width:313px; height:130px; background: url(../img/order/Coupon.png) no-repeat; background-size: 100%; margin: 1.4rem auto; }
+.couponBox .tt{ margin:4% auto 0; overflow: hidden; }
+.couponBox .tt p{ width:85%; margin:-10px auto 0; font-size: 3.2rem; color: #7e6000;  font-family: "Microsoft Yahei";  }
+.couponBox .tt p i{ display: inline-block; font-size:2.1rem; color: #7e6000; font-style: normal; font-family: "Microsoft Yahei"; }
+.couponBox .tt p b{ display: inline-block; height:100px; font-size:8rem; color: #7e6000; font-family:"SimSun"; margin-right: 10px; vertical-align:sub; }
+.couponBox .tt p strong{ display: inline-block;  font-size:3.2rem; color: #ff6600; font-weight: normal; }
+.couponBox .tt .tip{ position: absolute; top:20px; right:99px; font-size: 1.4rem; color: #7e6000; font-family: "Microsoft Yahei"; }
+.couponBox .cn{ width: 90%; margin:0 auto; overflow: hidden;}
+.couponBox .cn p{ line-height: 18px; color: #7e6000; }
+
+.couponBox1{  width:313px; height:130px; background: url(../img/order/expressCoupon.png) no-repeat; background-size: 100%; margin: 1.4rem auto; }
+.couponBox1 .tt{ margin:4% auto 0; overflow: hidden; }
+.couponBox1 .tt p{ width:85%; margin:-10px auto 0; font-size: 3.2rem; color: #878889;  font-family: "Microsoft Yahei";  }
+.couponBox1 .tt p i{ display: inline-block; font-size:2.1rem; color: #525354; font-style: normal; font-family: "Microsoft Yahei"; }
+.couponBox1 .tt p b{ display: inline-block; height:100px; font-size:8rem; color: #525354; font-family:"SimSun"; margin-right: 10px; vertical-align:sub; }
+.couponBox1 .tt p strong{ display: inline-block;  font-size:3.2rem; color: #878889; font-weight: normal; }
+.couponBox1 .tt .tip{ position: absolute; top:20px; right:99px; font-size: 1.4rem; color: #525354; font-family: "Microsoft Yahei"; }
+.couponBox1 .cn{ width: 90%; margin:0 auto; overflow: hidden;}
 .couponBox1 .cn p{ line-height: 18px; color: #525354; }
+
 
 /*order-submit-item*/
 .order-submit-item{ width: 100%; margin:0 auto;}

@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="css/jquery-ui.min.css" />
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=c0c021344b7983155fae9496b51489ca&plugin=AMap.CloudDataSearch"></script>
+<div class="kuxi-page" ng-controller="searchAddressCtrl">
+	<header>
+        <p class="addressSelection">
+            <s class="back" onclick="history.go(-1);"></s>
+			<input type="text" class="searchTx" placeholder="小区名/大厦/学校" value="{{scope.searchTx}}" />
+			<input type="button" class="searchBtn" value="搜索" />
+        </p>
+    </header>
+	<div id="container"></div>
+</div>
+<script>
+$(function(){
+	var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( ".searchTx" ).autocomplete({
+      source: availableTags
+    });
+	$(".searchBtn").click(function() {
+		$(".searchTx").search()
+	});
+});
+</script>
