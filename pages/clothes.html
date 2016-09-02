@@ -1,3 +1,12 @@
+<link rel="stylesheet" href="css/mui.min.css" />
+<link rel="stylesheet" href="css/mui.picker.css"  />
+<link rel="stylesheet" href="css/mui.poppicker.css"  />
+<link rel="stylesheet" href="css/app.css" />
+<style type="text/css">
+  .selected{
+    background-color: lightgreen;
+  }
+</style>
 <div class="kuxi-page" ng-controller="clothTabCtrl">
 <header>
     <p>
@@ -14,47 +23,53 @@
     	</div>
     </div>
     <div>
-		    <div id="item1" class="mui-control-content list-item mui-active">
-                    <dl class="pr" ng-repeat="list in lists" ng-if="list.GOODS_CATEGORY_ID ==16 ">
-              			  <dt class="ow">
-              				  <a class="fl"><img lazy-src="{{list.GOODS_IMG_URL}}" /></a>
-              				  <div class="fr details">
-              					  <h3>{{list.GOODS_NAME}}</h3>
-              					  <span><b class="goodsPrice">{{list.GOODS_PRICE | currency:  "￥" }}</b></span>
-              				  </div>
-              			  </dt>
-              			  <dd>{{list.GOODS_MARK}}</dd>
-            		      <div class="selecteBtn"></div>
-        			</dl>
-            </div>
-            <div id="item2" class="mui-control-content list-item">
-                    <dl class="pr" ng-repeat="list in lists" ng-if="list.GOODS_CATEGORY_ID ==17 ">
-              			  <dt class="ow">
-              				  <a class="fl"><img lazy-src="{{list.GOODS_IMG_URL}}" /></a>
-              				  <div class="fr details">
-              					  <h3>{{list.GOODS_NAME}}</h3>
-              					  <span><b class="goodsPrice">{{list.GOODS_PRICE | currency: "￥" }}</b></span>
-              				  </div>
-              			  </dt>
-              			  <dd>{{list.GOODS_MARK}}</dd>
-                          <div class="selecteBtn"></div>
-        			</dl>
-		    </div>
+	    <div id="item1" class="mui-control-content list-item mui-active">
+            <dl ng-repeat="item in items" ng-if="item.GOODS_CATEGORY_ID ==16" data-item-id="{{item.GOODS_BASE_ID}}">
+      			  <dt class="ow">
+      				  <a class="fl"><img lazy-src="{{item.GOODS_IMG_URL}}" /></a>
+      				  <div class="fr details">
+      					  <h3>{{item.GOODS_NAME}}</h3>
+      					  <span><b class="goodsPrice">{{item.GOODS_PRICE | currency:  "￥" }}</b></span>
+      				  </div>
+      			  </dt>
+      			  <dd>{{item.GOODS_MARK}}</dd>
+                   <!-- <input type="checkbox" ng-true-value="1" ng-model="hobby" ng-class="{disabled: $index}" ng-change="handleCheckbox($event)" ng-checked="hobby" /> -->
+                   <!-- <input type="checkbox" ng-checked="hobby" ng-click="buyAction($event)"
+　　　　　　　　　　　　　　price="{{item.GOODS_PRICE}}" item-id="{{item.GOODS_BASE_ID}}" /> -->
+                   <input type="checkbox" ng-checked="hobby" price="{{item.GOODS_PRICE}}" item-id="{{item.GOODS_BASE_ID}}" ng-click="buyAction($event)" />
+            </dl>
+        </div>
+        <div id="item2" class="mui-control-content list-item">
+            <dl class="pr" ng-repeat="item in items" ng-if="item.GOODS_CATEGORY_ID ==17 " ng-class='{selected:$index==selectedRow}' ng-click='selectedWhich($index)'>
+      			  <dt class="ow">
+      				  <a class="fl"><img lazy-src="{{item.GOODS_IMG_URL}}" /></a>
+      				  <div class="fr details">
+      					  <h3>{{item.GOODS_NAME}}</h3>
+      					  <span><b class="goodsPrice">{{item.GOODS_PRICE | currency: "￥" }}</b></span>
+      				  </div>
+      			  </dt>
+      			  <dd>{{item.GOODS_MARK}}</dd>
+			</dl>
+	    </div>
     </div>
     <!--list-ft start-->
     <div class="list-ft">
-        <div class="tt">
-            <p>您已选择衣物数量：<span id="totalNum"></span> 件</p>
-            <p>需支付： <b>元</b></p>
+        <div class="tt" ng-repeat="value in boughtList" item-id="{{value.GOODS_BASE_ID}}">
+            <p>您已选择衣物数量:{{num}}件</p>
+            <p ng-init="0">需支付： <b>{{total}}</b>元</p>
         </div>
-        <a>点击确认</a>
+        <a ng-click="submitListData()">点击确认</a>
     </div>
     <!--list-ft end-->
 </div>
+<script type="text/javascript" src="js/mui.min.js"></script>
 <script>
 mui.init({
 	swipeBack:true //启用右滑关闭功能
 });
+
+var boughtList = {};
+
 $(function(){
     //动态检测屏幕高度 start
 	var documentHeight = $(document).height();
