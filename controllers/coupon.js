@@ -11,15 +11,15 @@ app.controller('couponCtrl', function($scope, $http, DataGetterService,$localSto
 		$httpProvider.defaults.headers.post['Content-Type']='application/x-www-form-urlencoded;charset=utf-8';
 	});
 
-	$scope.submitCouponId = function(){
-		$localStorage.couponId = $scope.couponId;
+	$scope.submitCouponCode = function(){
+		$localStorage.couponCode = $scope.couponCode;
 	}
 
 	$scope.submitCoupon = function(){
-		$http.jsonp('http://111.198.143.96:11211/api/exchange_coupon.do?&callback=JSON_CALLBACK&&RECHARGE_CODE='+encodeURI($localStorage.couponId)+ '&PASSWORD='+encodeURI($scope.couponVal) +'&USERNAME='+$localStorage.USERNAME +'&TOKEN='+$localStorage.TOKEN +'&REQ_TYPE=01').success(
+		$http.jsonp('http://111.198.143.96:11211/api/exchange_coupon.do?&callback=JSON_CALLBACK&&RECHARGE_CODE='+encodeURI($localStorage.couponCode)+ '&PASSWORD='+encodeURI($scope.couponVal) +'&USERNAME='+$localStorage.USERNAME +'&TOKEN='+$localStorage.TOKEN +'&REQ_TYPE=01').success(
 		　　function(data){
 				if(data.result){
-
+					$state.go("coupon", {}, { reload: true });
 				}else{
 					$localStorage.reset();
 					alert(data.resp_msg)

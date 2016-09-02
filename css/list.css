@@ -22,8 +22,8 @@
 
 /*加减数量*/
 .yunBox{ clear: both; margin-top: 28px; }
-.yunBox span{ display: inline-block !important; float:left; margin: 0 5px; font-size: 1rem; color: #1d202f; opacity: 0; }
-#listBox .reduceBtn{ display: none; float:left; width:13px; height:13px; background: url(../img/list/reduce.png) no-repeat; background-size: 13px; margin-top: 5px; }
+.yunBox span{ display: inline-block !important; float:left; margin: 0 5px; font-size: 1rem; color: #1d202f; }
+#listBox .reduceBtn{ float:left; width:13px; height:13px; background: url(../img/list/reduce.png) no-repeat; background-size: 13px; margin-top: 5px; }
 #listBox .plusBtn{ display: inline-block; float:left; width:13px; height:13px; background: url(../img/list/plus.png) no-repeat; background-size: 13px; margin-top: 5px; }
 
 /*选取衣服*/

@@ -6,127 +6,42 @@
     </p>
 </header>
 <div class="list-item" id="listBox">
-	<dl>
+    <tri-state-checkbox checkboxes="listelements" class="select-all-cb">
+    </tri-state-checkbox>
+
+    <input ng-model="signup.mode" ng-class="{'active': signup.mode == 'person'}" type="checkbox" value="person" id="person-radio">
+<!-- <label for="person-radio">个人用户</label> -->
+
+<input ng-model="signup.mode"
+       ng-class="{'active': signup.mode == 'company'}"
+       type="checkbox"
+       value="company"
+       id="company-radio">
+<!-- <label for="company-radio">企业用户</label> -->
+	<dl ng-repeat="bang in bangs">
 	  <dt class="ow">
-		  <a class="fl"><img lazy-src="img/list/kuzi.png" /></a>
+		  <a class="fl"><img lazy-src="{{bang.GOODS_IMG_URL}}" /></a>
 		  <div class="fr details">
-			  <h3>裤子</h3>
+			  <h3 ng-bind="bang.GOODS_NAME"></h3>
 			  <div class="yunBox">
-				  <i class="reduceBtn"></i>
-				  <span></span>
-				  <i class="plusBtn"></i>
+				  <i class="reduceBtn" ng-click="minus($index)"></i>
+				  <span ng-model="varlist.itemNum[$index]">0</span>
+				  <i class="plusBtn" ng-click="add($index)"></i>
 			  </div>
 		  </div>
 	  </dt>
-	  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-	</dl>
-	<dl>
-	  <dt class="ow">
-		  <a class="fl"><img src="img/list/qunzi.png" /></a>
-		  <div class="fr details">
-			  <h3>裙子</h3>
-			  <div class="yunBox">
-				  <i class="reduceBtn"></i>
-				  <span></span>
-				  <i class="plusBtn"></i>
-			  </div>
-		  </div>
-	  </dt>
-	  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-	</dl>
-	<dl>
-	  <dt class="ow">
-		  <a class="fl"><img src="img/list/yurongfu.png" /></a>
-		  <div class="fr details">
-			  <h3>羽绒服<br />羊绒大衣</h3>
-			  <div class="yunBox">
-				  <i class="reduceBtn"></i>
-				  <span></span>
-				  <i class="plusBtn"></i>
-			  </div>
-		  </div>
-	  </dt>
-	  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-	</dl>
-	<dl>
-	  <dt class="ow">
-		  <a class="fl"><img src="img/list/t-shirt.png" /></a>
-		  <div class="fr details">
-			  <h3>衬衣<br />T恤</h3>
-			  <div class="yunBox">
-				  <i class="reduceBtn"></i>
-				  <span></span>
-				  <i class="plusBtn"></i>
-			  </div>
-		  </div>
-	  </dt>
-	  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-	</dl>
-	<dl>
-	  <dt class="ow">
-		  <a class="fl"><img src="img/list/xifu.png" /></a>
-		  <div class="fr details">
-			  <h3>西服</h3>
-			  <div class="yunBox">
-				  <i class="reduceBtn"></i>
-				  <span></span>
-				  <i class="plusBtn"></i>
-			  </div>
-		  </div>
-	  </dt>
-	  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-	</dl>
-	<dl>
-		<dt class="ow">
-			  <a class="fl"><img src="img/list/jiake.png" /></a>
-			  <div class="fr details">
-				  <h3>夹克<br />风衣</h3>
-				  <div class="yunBox">
-					  <i class="reduceBtn"></i>
-					  <span></span>
-					  <i class="plusBtn"></i>
-				  </div>
-			  </div>
-		  </dt>
-		  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-	</dl>
-	<dl>
-		<dt class="ow">
-			  <a class="fl"><img src="img/list/piyi.png" /></a>
-			  <div class="fr details">
-				  <h3>皮衣<br />裘衣</h3>
-				  <div class="yunBox">
-					  <i class="reduceBtn"></i>
-					  <span></span>
-					  <i class="plusBtn"></i>
-				  </div>
-			  </div>
-		  </dt>
-		  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
-	</dl>
-	<dl>
-		<dt class="ow">
-			  <a class="fl"><img src="img/list/bar.png" /></a>
-			  <div class="fr details">
-				  <h3>杂货</h3>
-				  <div class="yunBox">
-					  <i class="reduceBtn"></i>
-					  <span></span>
-					  <i class="plusBtn"></i>
-				  </div>
-			  </div>
-		  </dt>
-		  <dd>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</dd>
+	  <dd ng-bind="bang.GOODS_MARK"></dd>
+      <!--list-ft start-->
+      <div class="list-ft">
+      	<div class="tt">
+      		<p>您已选择了<b>{{varlist.total}}</b>件</p>
+      	</div>
+      	<a>选好了</a>
+      </div>
+      <!--list-ft end-->
 	</dl>
 </div>
-<!--list-ft start-->
-<div class="list-ft">
-	<div class="tt">
-		<p>您已选择了<b>1</b>件</p>
-	</div>
-	<a>选好了</a>
-</div>
-<!--list-ft end-->
+
 <script>
 $(function(){
     //动态检测屏幕高度 start
