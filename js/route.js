@@ -24,11 +24,11 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
       .state('main.list', {
                 url: '/list/:id',
                 views: {
+                      "hd@main": {
+                          templateUrl: 'pages/list-hd.html'
+                      },
                       'container@main': {
                           templateUrl: getTemplateUrl
-                      },
-                      "ft@main": {
-                          templateUrl: ''
                       }
                 }
       })
@@ -141,6 +141,11 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
               templateUrl: 'pages/couponAgreement.html',
               cache:'false'
       })
+      .state('writecommit', {
+              url: '/writecommit',
+              templateUrl: 'pages/writecommit.html',
+              cache:'false'
+      })
 
       $urlRouterProvider.otherwise('/login');
 
@@ -148,21 +153,22 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
           var page = "";
           switch($stateParams.id){
                 case '7' :
-                     page = "clothes";  break;
+                     page = "list";    break;
                 case '8' :
-                      page = "";        break;
+                      page = "";       break;
                 case '9' :
-                      page = "";        break;
+                      page = "";       break;
                case '10' :
-                      page = "shoes";   break;
+                      page = "list";   break;
                case '11' :
-                      page = "home";    break;
+                      page = "list";   break;
                case '12' :
-                      page = "car";     break;
+                      page = "list";   break;
                case '13' :
-                      page = "bang";    break;
+                      page = "bang";   break;
           }
             return 'pages/' + page + '.html';
       }
+
 }]);
 //路由 end

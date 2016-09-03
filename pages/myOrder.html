@@ -24,7 +24,7 @@
 							<li ng-repeat="topaid in topaids">
 								<a>
 									<img class="fl" ng-src="{{topaid.SERVICE_IMG_URL}}" />
-									<div class="fr details">
+									<div class="details">
 									   <p>订单编号：<span>{{topaid.ORDER_NO}}</span></p>
 									   <p>订单状态：<b>未支付</b></p>
 									   <p>
@@ -49,7 +49,7 @@
 							<li ng-repeat="payment in paymenting">
 								<a>
 									<img class="fl" ng-src="{{payment.SERVICE_IMG_URL}}"  />
-									<div class="fr details">
+									<div class="details">
 									   <p>订单编号：<span>{{payment.ORDER_NO}}</span></p>
 									   <p>订单状态：<b>{{payment.ORDER_STATUS}}</b></p>
 									   订单类型：
@@ -73,13 +73,14 @@
 							<li ng-repeat="complete in completed">
 								<a>
 									<img class="fl" ng-src="{{complete.SERVICE_IMG_URL}}" />
-									<div class="fr details">
+									<div class="details">
 									   <p>订单编号：<span>{{complete.ORDER_NO}}</span></p>
 									   <p>订单状态：<b>已签收/{{complete.IS_VALUATE}}</b></p>
 									   <p>下单时间：<span>{{complete.ORDER_TIME | date: 'yyyy/MM/dd' }}</span></p>
 									   <p>管家： <span>{{complete.guanjiainfo}}</span></p>
 								   </div>
 								</a>
+								<button ng-click="goCommit()">去评价</button>
 							</li>
 						</ul>
 					</div>

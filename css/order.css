@@ -1,11 +1,12 @@
 /*order-item*/
 .order-item{ width:100%; background-color: white; border-top: 1px solid #ececec; overflow: hidden; }
-.order-item li{ padding:10px auto; border-bottom: 1px solid #ececec; overflow: hidden;}
-.order-item li img{ display: inline-block; float: left; width:61px; height:61px; margin:20px; }
-.order-item li .details{ display: inline-block;  width:70%; margin:10px 0; }
-.order-item li .details p{  color: #1d202f; }
+.order-item li{ position:relative; padding:10px auto; border-bottom: 1px solid #ececec; overflow: hidden;}
+.order-item li img{ display: inline-block; float: left; width:51px; height:51px; margin:20px; }
+.order-item li .details{ display: inline-block;  width:60%; margin:10px 0; }
+.order-item li .details p{ margin:0; color: #1d202f; }
 .order-item li .details p span{ display: inline-block; font-size: 1.3rem; color:#7b7b7b;}
 .order-item li .details p b{ color:#ff4800; }
+.order-item li button{ position: absolute; right:10px; top:11px; width:45px; height:18px; line-height: 18px; text-align: center; background-color: #d1ac51; color:#fff; font-size: 0.5rem; border-style: none; padding: 0;}
 
 /*guest-cn*/
 .guest-cn { background-color: white; }

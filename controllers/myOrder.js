@@ -1,5 +1,5 @@
 app.controller('orderCtrl', orderCtrl);
-function orderCtrl($scope, DataGetterService, Constants) {
+function orderCtrl($scope, DataGetterService, Constants, $state) {
 	DataGetterService.getData(function(data){
 	   $scope.topaids = data;
    }, Constants.order_topaids_url);
@@ -11,6 +11,10 @@ function orderCtrl($scope, DataGetterService, Constants) {
 	DataGetterService.getData(function(data){
 		$scope.completed = data;
 	}, Constants.order_completed_url);
+
+	$scope.goCommit = function(){
+		$state.go("writecommit", {}, { reload: true });
+	}
 };
 
 $(function(){
