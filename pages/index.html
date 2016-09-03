@@ -2,14 +2,7 @@
 <link rel="stylesheet" href="css/app.css" />
 <script type="text/javascript" src="js/mui.min.js"></script>
 <div class="kuxi-page">
-    <!--区域选择-->
-    <header>
-        <p class="pr regionSelection">
-            <s></s>
-            <span class="regionTx" data-id="" data-tableid="">高碑店市高碑店社区1</span>
-            <i></i>
-        </p>
-    </header>
+    <div ui-view="hd"></div>
     <div id="gallery" class="swipe" ng-controller="ads1Ctrl">
         <div class="container slider" >
             <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
@@ -35,7 +28,7 @@
                  <img lazy-src="{{floor.GOODS_IMG_URL}}" />
                  <span ng-bind="floor.GOODS_TYPE_NAME"></span>
              </a>
-             <a class="quick-entry-link" ui-sref=".week"  ng-repeat="floor in floors" ng-if="floor.IS_WEEKLY ==2 && floor.GOODS_TYPE_STATUS == 1">
+             <a class="quick-entry-link" ui-sref="week"  ng-repeat="floor in floors" ng-if="floor.IS_WEEKLY ==2 && floor.GOODS_TYPE_STATUS == 1">
                  <img lazy-src="{{floor.GOODS_IMG_URL}}" />
                  <span ng-bind="floor.GOODS_TYPE_NAME"></span>
              </a>
@@ -63,6 +56,7 @@
          </div>
      </div>
 </div>
+<div ui-view="ft"></div>
 <!--regionSelection start-->
 <div class="city-container" ng-controller="cityCtrl" >
   <div class="city">

@@ -34,6 +34,6 @@
 .hdlines-box li a{ display: block; height: 42px; line-height: 42px; text-indent: 20px; color: #b9b9b9; }
 /*module-con*/
 .module-con{ border-top: 1px solid #dbdbdb; }
-.module-con li{ width:50%; float:left; border-right: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb; }
+.module-con li{ float:left; border-right: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb; }
 .module-con li:nth-child(2n){ border-right: 1px solid #fff; }
 .module-con li img{ display: block; width: 100%; vertical-align: middle; }

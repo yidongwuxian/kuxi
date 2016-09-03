@@ -10,6 +10,9 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                     templateUrl: 'pages/main.html',
                     cache:'false'
                 },
+                "hd@main": {
+                    templateUrl: 'pages/hd.html'
+                },
                 "container@main": {
                     templateUrl: 'pages/index.html'
                 },
@@ -19,26 +22,19 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
           }
       })
       .state('main.list', {
-              url: '/list/:id',
-              views: {
-                    'container@main': {
-                        templateUrl: getTemplateUrl
-                    },
-                    "ft@main": {
-                        templateUrl: ''
-                    }
-              }
+                url: '/list/:id',
+                views: {
+                      'container@main': {
+                          templateUrl: getTemplateUrl
+                      },
+                      "ft@main": {
+                          templateUrl: ''
+                      }
+                }
       })
-      .state('main.week', {
+      .state('week', {
               url: '/week',
-              views: {
-                    'container@main': {
-                        templateUrl: 'pages/week.html'
-                    },
-                    "ft@main": {
-                        templateUrl: ''
-                    }
-              }
+              templateUrl: 'pages/week.html'
       })
       .state('serviceInfo', {
               url: '/serviceInfo',
@@ -50,21 +46,13 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
               templateUrl: 'pages/login.html',
               controller:  'loginCtrl'
       })
-      .state('main.myCenter', {
+      .state('myCenter', {
               url: '/myCenter',
-              views : {
-                "container@main": {
-                  templateUrl: 'pages/myCenter.html'
-                }
-              }
+              templateUrl: 'pages/myCenter.html'
       })
-      .state('main.myOrder', {
+      .state('myOrder', {
               url: '/myOrder',
-              views : {
-                "container@main": {
-                  templateUrl: 'pages/myOrder.html'
-                }
-              }
+              templateUrl: 'pages/myOrder.html'
       })
       .state('myMoney', {
               url: '/myMoney',
