@@ -3,8 +3,8 @@
 .order-item li{ padding:10px auto; border-bottom: 1px solid #ececec; overflow: hidden;}
 .order-item li img{ display: inline-block; float: left; width:61px; height:61px; margin:20px; }
 .order-item li .details{ display: inline-block;  width:70%; margin:10px 0; }
-.order-item li .details p{ font-size: 1.3rem; color:#7b7b7b; }
-.order-item li .details p span{ display: inline-block; width:80px;  color: #1d202f; text-align: right; }
+.order-item li .details p{  color: #1d202f; }
+.order-item li .details p span{ display: inline-block; font-size: 1.3rem; color:#7b7b7b;}
 .order-item li .details p b{ color:#ff4800; }
 
 /*guest-cn*/

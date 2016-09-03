@@ -1,4 +1,6 @@
-	<div class="kuxi-page">
+<link rel="stylesheet" href="css/mui.min.css" />
+<link rel="stylesheet" href="css/app.css" />
+	<div class="kuxi-page" ng-controller="orderCtrl">
 		<!--header start-->
 		<header>
             <p class="addressSelection">
@@ -7,203 +9,83 @@
             </p>
         </header>
 		<!--header end-->
-		<div id="myTab" ng-controller="orderTabCtrl">
-			<ul class="nav nav-tabs nav-tab1">
-			   <li ng-repeat="tab in myTab"
-	                ng-class="{active:isActiveTab(tab.url)}"
-	                ng-click="onClickTab(tab)">{{tab.title}}</li>
-			</ul>
-			<div id="mainView">
-				<div ng-include="currentTab"></div>
+		<div class="mui-content">
+		    <div style="padding:10px">
+		        <div class="mui-segmented-control">
+		    			<a class="mui-control-item mui-active" href="#item1">待支付</a>
+		    			<a class="mui-control-item" href="#item2">服务中</a>
+						<a class="mui-control-item" href="#item3">已完成</a>
+		    	</div>
+		    </div>
+		    <div>
+			    <div id="item1" class="mui-control-content list-item mui-active">
+					<div class="order-item">
+						<ul>
+							<li ng-repeat="topaid in topaids">
+								<a>
+									<img class="fl" ng-src="{{topaid.SERVICE_IMG_URL}}" />
+									<div class="fr details">
+									   <p>订单编号：<span>{{topaid.ORDER_NO}}</span></p>
+									   <p>订单状态：<b>未支付</b></p>
+									   <p>
+										  订单类型：<span ng-if="topaid.GOODS_TYPE_ID == 7  ">精致洗衣</span>
+										   <span ng-if="topaid.GOODS_TYPE_ID == 10 ">精致鞋护</span>
+										   <span ng-if="topaid.GOODS_TYPE_ID == 11 ">家庭洗涤</span>
+										   <span ng-if="topaid.GOODS_TYPE_ID == 12 ">车饰清洗</span>
+										   <span ng-if="topaid.GOODS_TYPE_ID == 13 ">衣物清洗</span>
+										   <span ng-if="topaid.GOODS_TYPE_ID == 14 ">周周洗</span>
+									   </p>
+									   <p>下单时间：<span>{{topaid.ORDER_TIME | date: 'yyyy/MM/dd' }}</span></p>
+									   <p>管家：   <span>{{topaid.guanjiainfo}}</span></p>
+								   </div>
+								</a>
+							</li>
+						</ul>
+					 </div>
+				</div>
+				<div id="item2" class="mui-control-content list-item">
+					<div class="order-item">
+						<ul>
+							<li ng-repeat="payment in paymenting">
+								<a>
+									<img class="fl" ng-src="{{payment.SERVICE_IMG_URL}}"  />
+									<div class="fr details">
+									   <p>订单编号：<span>{{payment.ORDER_NO}}</span></p>
+									   <p>订单状态：<b>{{payment.ORDER_STATUS}}</b></p>
+									   订单类型：
+									    <span ng-if="payment.GOODS_TYPE_ID == 7  ">精致洗衣</span>
+										<span ng-if="payment.GOODS_TYPE_ID == 10 ">精致鞋护</span>
+										<span ng-if="payment.GOODS_TYPE_ID == 11 ">家庭洗涤</span>
+										<span ng-if="payment.GOODS_TYPE_ID == 12 ">车饰清洗</span>
+										<span ng-if="payment.GOODS_TYPE_ID == 13 ">衣物清洗</span>
+										<span ng-if="payment.GOODS_TYPE_ID == 14 ">周周洗</span>
+									   <p>下单时间：<span>{{payment.ORDER_TIME | date: 'yyyy/MM/dd' }}</span></p>
+									   <p><span>管家：</span>{{payment.guanjiainfo}}</p>
+								   </div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="item3" class="mui-control-content list-item">
+					<div class="order-item">
+						<ul>
+							<li ng-repeat="complete in completed">
+								<a>
+									<img class="fl" ng-src="{{complete.SERVICE_IMG_URL}}" />
+									<div class="fr details">
+									   <p>订单编号：<span>{{complete.ORDER_NO}}</span></p>
+									   <p>订单状态：<b>已签收/{{complete.IS_VALUATE}}</b></p>
+									   <p>下单时间：<span>{{complete.ORDER_TIME | date: 'yyyy/MM/dd' }}</span></p>
+									   <p>管家： <span>{{complete.guanjiainfo}}</span></p>
+								   </div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
-		<script type="text/ng-template" id="notpaid.tpl">
-			<div class="order-item">
-				<ul>
-					<li>
-						<a>
-							<img class="fl" src="img/list/yi.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>未支付</b></p>
-							   <p><span>订单类型：</span>衣物清洗</p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：   </span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-				</ul>
-			 </div>
-		</script>
-		<script type="text/ng-template" id="inservice.tpl">
-			<div class="order-item">
-				<ul>
-					<li>
-						<a>
-							<img class="fl" src="img/list/yi.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>已入厂</b></p>
-							   <p><span>订单类型：</span>衣物清洗</p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-					<li>
-						<a>
-							<img class="fl" src="img/list/xie.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>配送中</b></p>
-							   <p><span>订单类型：</span>品质护鞋</p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-					<li>
-						<a>
-							<img class="fl" src="img/list/she.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>已出厂</b></p>
-							   <p><span>订单类型：</span>奢饰品洗护</p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</script>
-		<script type="text/ng-template" id="completed.tpl">
-			<div class="order-item">
-				<ul>
-					<li>
-						<a>
-							<img class="fl" src="img/list/yi.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>20160531171848439</p>
-							   <p><span>订单状态：</span><b>已签收/已评论</b></p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家： </span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-					<li>
-						<a>
-							<img class="fl" src="img/list/xie.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>20160531171848677</p>
-							   <p><span>订单状态：</span><b>已签收/未评论</b></p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-					<li>
-						<a>
-							<img class="fl" src="img/list/bang.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>已签收/未评论</b></p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-					<li>
-						<a>
-							<img class="fl" src="img/list/bang.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>已签收/未评论</b></p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-					<li>
-						<a>
-							<img class="fl" src="img/list/bang.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>已签收/未评论</b></p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-					<li>
-						<a>
-							<img class="fl" src="img/list/bang.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>已签收/未评论</b></p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-					<li>
-						<a>
-							<img class="fl" src="img/list/bang.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>已签收/未评论</b></p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-					<li>
-						<a>
-							<img class="fl" src="img/list/bang.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>已签收/未评论</b></p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-					<li>
-						<a>
-							<img class="fl" src="img/list/bang.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>已签收/未评论</b></p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-					<li>
-						<a>
-							<img class="fl" src="img/list/bang.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>已签收/未评论</b></p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-					<li>
-						<a>
-							<img class="fl" src="img/list/bang.png" />
-							<div class="fr details">
-							   <p><span>订单编号：</span>08302234</p>
-							   <p><span>订单状态：</span><b>已签收/未评论</b></p>
-							   <p><span>下单时间：</span>2015/09/02</p>
-							   <p><span>管家：</span>王五/18799096756</p>
-						   </div>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</script>
 		<!--activity-mask start-->
 		<!-- 模态框（Modal） -->
 		<div class="modal fade" id="activityModal" tabindex="-1" role="dialog" aria-labelledby="activityModalLabel" aria-hidden="true">
@@ -239,7 +121,11 @@
 	    </dl>
 	</div>
 	<!--ft end-->
+	<script type="text/javascript" src="js/mui.min.js"></script>
 	<script>
+	mui.init({
+		swipeBack:true //启用右滑关闭功能
+	});
 	$(function(){
 		var documentHeight = $(document).height();
 		$('.kuxi-page').css('height', documentHeight);

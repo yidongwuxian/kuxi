@@ -1,25 +1,17 @@
-app.controller('orderTabCtrl', ['$scope', function ($scope) {
-	$scope.myTab = [{
-			title: '待支付',
-			url: 'notpaid.tpl'
-		}, {
-			title: '服务中',
-			url: 'inservice.tpl'
-		}, {
-			title: '已完成',
-			url: 'completed.tpl'
-		}];
+app.controller('orderCtrl', orderCtrl);
+function orderCtrl($scope, DataGetterService, Constants) {
+	DataGetterService.getData(function(data){
+	   $scope.topaids = data;
+   }, Constants.order_topaids_url);
 
-	$scope.currentTab = 'notpaid.tpl';
+	DataGetterService.getData(function(data){
+		$scope.paymenting = data;
+	}, Constants.order_paymenting_url);
 
-	$scope.onClickTab = function (tab) {
-		$scope.currentTab = tab.url;
-	}
-
-	$scope.isActiveTab = function(tabUrl) {
-		return tabUrl == $scope.currentTab;
-	}
-}]);
+	DataGetterService.getData(function(data){
+		$scope.completed = data;
+	}, Constants.order_completed_url);
+};
 
 $(function(){
 	$('#myTab li:eq(2)').click(function(){
