@@ -24,50 +24,43 @@
             </p>
         </header>
 		<ul id="myTab" class="nav nav-tabs nav-tab2">
-		   <li class="active">
-			   <a href="#Jacket" data-toggle="tab">上装外套</a>
+		   <li ng-class="$index==0?'active':''" ng-repeat="category in categoryList">
+			   <a ng-href="#category_{{category.GOODS_CATEGORY_ID}}" data-toggle="tab">{{category.GOODS_CATEGORY_NAME}}</a>
 		   </li>
-		   <li><a href="#Culotte" data-toggle="tab">下装裤裙</a></li>
 		</ul>
 		<div id="myTabContent" class="tab-content">
-		   <div class="tab-pane fade in active" id="Jacket">
+		   <div ng-class="$index==0 ?'tab-pane fade in active':'tab-pane fade'" id="category_{{category.GOODS_CATEGORY_ID}}" ng-repeat="category in categoryList">
 			   <div class="list-item">
-	 	  			<dl class="pr" ng-repeat="item in items">
+	 	  			<dl class="pr" ng-repeat="item in result[category.GOODS_CATEGORY_ID]">
 	 	  			  <dt class="ow">
-	 	  				  <a class="fl"><img src="img/list/chuangdan.png" /></a>
+	 	  				  <a class="fl"><img ng-src="{{item.GOODS_IMG_URL}}" /></a>
 	 	  				  <div class="fr details">
-	 	  					  <h3>{{item.title}}</h3>
-	 	  					  <span>￥<b>{{item.price}}</b></span>
+	 	  					  <h3>{{item.GOODS_NAME}}</h3>
+	 	  					  <span>￥<b>{{item.GOODS_PRICE}}</b></span>
 	 	  				  </div>
 	 	  			  </dt>
-	 	  			  <dd>{{item.desc}}</dd>
-					  <div class="{{selectedStyle}}" ng-click="buy($index)"></div>
+	 	  			  <dd>{{item.GOODS_DESC}}</dd>
+
+					  <div ng-class="{{item.selectedStyle?'selectBtn':''}}">
+					  	<input ng-model="item.selectedStyle" 
+					  	ng-attr-goodsId='{{item.GOODS_ID}}' 
+					  	ng-value='{{item.GOODS_ID}}' 
+					  	ng-attr-id="label_{{item.GOODS_ID}}"
+					  	ng-attr-goodsPrice="{{item.GOODS_PRICE}}" type="checkbox"  
+					  	ng-click="selectItem($event,item.GOODS_PRICE, item.GOODS_ID,category.GOODS_CATEGORY_ID)">
+					  </div>
 	 	  			</dl>
+	 	  			
 				</div>
-		   </div>
-		   <div class="tab-pane fade" id="Culotte">
-			   <div class="list-item">
- 				   <dl class="pr" ng-repeat="item in items">
- 					 <dt class="ow">
- 						 <a class="fl"><img src="img/list/chuangdan.png" /></a>
- 						 <div class="fr details">
-	 	  					  <h3>{{item.title}}</h3>
-	 	  					  <span>￥<b>{{item.price}}</b></span>
-	 	  				  </div>
-	 	  			  </dt>
-	 	  			  <dd>{{item.desc}}</dd>
-					 <div class="{{selectedStyle}}" ng-click="buy($index)"></div>
- 				   </dl>
- 			   </div>
 		   </div>
 		</div>
 		<!--list-ft start-->
 		<div class="list-ft">
 			<div class="tt">
-				<p>您已选择衣物数量：{{item.$index+1}}件</p>
-				<p>需支付： <b>元</b></p>
+				<p>您已选择衣物数量：{{totalNum}}件</p>
+				<p>需支付： {{totalPrice}}<b>元</b></p>
 			</div>
-			<a>点击确认</a>
+			<a ng-click="submitForm()">点击确认</a>
 		</div>
 		<!--list-ft end-->
 	</div>
@@ -84,36 +77,69 @@
 	<!--<script type="text/javascript" src="js/clothes.js"></script>-->
 	<script>
 	var app = angular.module("myApp", []);
-
-        app.controller("clothTabCtrl", function($scope) {
-
-        	$scope.items = [{
-                    "title": "床单",
-                    "price": 15,
-                    "desc": "衣物的特殊说明如：长短收费一样特殊面料不能洗涤"
-                }, {
-                    "title": "老干妈",
-                    "price": 7.5,
-                    "desc": "衣物的特殊说明如：长短收费一样特殊面料不能洗涤"
-                }, {
-                    "title": "臭豆腐",
-                    "price": 7.32,
-                    "desc": "衣物的特殊说明如：长短收费一样特殊面料不能洗涤"
-                }, {
-                    "title": "饼干",
-                    "price": 22,
-                    "desc": "衣物的特殊说明如：长短收费一样特殊面料不能洗涤"
-            }];
-
-            $scope.selectedStyle = "selecteBtn";
+	var httpx = 'http://111.198.143.96:11211';
+        app.controller("clothTabCtrl", function($scope,$http) {
+        	$scope.totalPrice=0;
+        	$scope.totalNum=0;
+			$scope.categoryList = [];
+			$scope.goodsList = {};
+        	var xurl = httpx + "/api/v2/goods_list?AREA_ID=23&REQ_TYPE=01&GOODS_TYPE_ID=7&callback=JSON_CALLBACK";
+        	$http.jsonp(xurl).success(
+			　　function(data){
+				  $scope.result = data.result;
+				  $scope.categoryList = data.result.categoryList;
+				  for (var i = 0,ca; ca=$scope.categoryList[i++]; ) {
+				  		var key= ca.GOODS_CATEGORY_ID;
+				  		$scope.result[key].selectedStyle=false;
+				  };
+			　　}
+			);
+        	
 			
-			$scope.buy = function($index) {
-                    $scope.varlist.itemNum[$index]++;
-                    getTotal();
-                }
+			$scope.selectItem = function($event,price,goodsId, categoryId) {
+                    var ch = $event.target;
+                    if (ch.checked){
+                    	$scope.totalNum++;
+                    	$scope.totalPrice =accAdd($scope.totalPrice,price);
+                    	for(var i=0,goods;goods = $scope.result[categoryId][i++];){
+                    		if (goods.GOODS_ID = goodsId) {
+                    			$scope.goodsList[goodsId] = goods;
+                    			break;		
+                    		}
+                    	}
+                    	
+                    } else {
+                    	$scope.totalNum--;
+                    	$scope.totalPrice = Subtr($scope.totalPrice, price);
+                    	delete $scope.goodsList[goodsId];
+
+                    }
+                    console.log($scope.goodsList);
+            }
+            $scope.submitForm = function(){
+            	if ($scope.totalNum<1) {
+            		alert('请选择后提交');
+            	};
+            }
 
         });
-	
+		//加法   
+		function accAdd(arg1,arg2){   
+			var r1,r2,m;   
+			try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}   
+			try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}   
+			m=Math.pow(10,Math.max(r1,r2))   
+			return (arg1*m+arg2*m)/m   
+		}   
+		//减法   
+		function Subtr(arg1,arg2){  
+		    var r1,r2,m,n;  
+		    try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}  
+		    try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}  
+		    m=Math.pow(10,Math.max(r1,r2));  
+		    n=(r1>=r2)?r1:r2;  
+		    return ((arg1*m-arg2*m)/m).toFixed(n);  
+		}  	
 	</script>
 </body>
 </html>
