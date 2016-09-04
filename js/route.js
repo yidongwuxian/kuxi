@@ -153,17 +153,17 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
           var page = "";
           switch($stateParams.id){
                 case '7' :
-                     page = "list";    break;
+                     page = "clothes"; break;
                 case '8' :
                       page = "";       break;
                 case '9' :
                       page = "";       break;
                case '10' :
-                      page = "list";   break;
+                      page = "shoes";   break;
                case '11' :
-                      page = "list";   break;
+                      page = "home";   break;
                case '12' :
-                      page = "list";   break;
+                      page = "car";   break;
                case '13' :
                       page = "bang";   break;
           }
