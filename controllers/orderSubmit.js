@@ -51,6 +51,7 @@ function orderSubmitCtrl($scope, DataGetterService,$localStorage, Constants, $st
 		,paramArr
 	);
 
+	$scope.REQUESTMARK = new Random();
 	// 提交订单
 	$scope.orderSubmitForm = function(){
 		if (!$scope.address) {
@@ -78,18 +79,16 @@ function orderSubmitCtrl($scope, DataGetterService,$localStorage, Constants, $st
 		paramArr.ORDER_REMARK=$scope.ORDER_REMARK; //订单备注
 		paramArr.REQUESTMARK=5154988451515165;//验证是否重复提交参数	
 		paramArr.IS_WEEKLY=1;//是否周周洗订单1是2否
+		paramArr.REQUESTMARK=$scope.REQUESTMARK; //重复提交参数判断
 
 		DataGetterService.getData(
 			function(data){ 
-				var isDefault = data.length;
-				if ( isDefault ) {
-					$scope.address = data[0];
-				}
+				$state.go('myOrder', {}, {reload : true});
 			}
 			,"/api/server_time_array?REQ_TYPE=03&&callback=JSON_CALLBACK&&"
 			,paramArr
 			,function(){
-
+				$scope.REQUESTMARK = new Random();
 			}
 		);
 	}
