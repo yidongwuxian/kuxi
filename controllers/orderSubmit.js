@@ -11,14 +11,14 @@ function orderSubmitCtrl($scope, DataGetterService,$localStorage, Constants, $st
 	$scope.goodsList = Constants.OBJECT;
 
 	$scope.upNum = function (goodsId) {
-		var num = $scope.goodsList[goodsId].GOODS_NUM;
+		var num = $scope.goodsList[goodsId].NUM;
 		++num;
-		$scope.goodsList[goodsId].GOODS_NUM = num>10?10:num;
+		$scope.goodsList[goodsId].NUM = num>10?10:num;
 	};
 	$scope.downNum = function (goodsId) {
-		var num = $scope.goodsList[goodsId].GOODS_NUM;
+		var num = $scope.goodsList[goodsId].NUM;
 		--num;
-		$scope.goodsList[goodsId].GOODS_NUM = num<1?1:num;	
+		$scope.goodsList[goodsId].NUM = num<1?1:num;	
 	}
 	var paramArr = {};
 	paramArr.USERNAME=$localStorage.USERNAME;
@@ -39,53 +39,82 @@ function orderSubmitCtrl($scope, DataGetterService,$localStorage, Constants, $st
 	// 
 
 
+	$scope.selectDataMap = new Array();
 	// 获取预约时间 server_time_array
 	DataGetterService.getData(
 		function(data){ 
-			var isDefault = data.length;
-			if ( isDefault ) {
-				$scope.address = data[0];
+			if ( data.isNow == 1) {
+				// 可以立即下单
+			}
+
+			if ( data.isWork == 1) {
+				// 可以预约 时间
+			} else {
+				// 当日不可预约 时间
+			}
+			for (var i=0, dataTimeStr;dataTimeStr = data.time[i++];){
+				var dataNow = {str:"今天",str_date:"2016-09-04",ORDER_PICKUP_DATE:0,ORDER_PICKUP_TIME:dataTimeStr};
+				$scope.selectDataMap.push(dataNow);
+			}
+			var datax = new Array();
+			datax.push("07:00-09:00");
+			datax.push("09:00-11:00");
+			datax.push("11:00-13:00");
+			datax.push("13:00-15:00");
+			datax.push("15:00-17:00");
+			datax.push("17:00-19:00");
+			datax.push("19:00-21:00");
+			for (var i=0, dataTimeStr;dataTimeStr = datax[i++];){
+				$scope.selectDataMap.push({str:"明天",str_date:"2016-09-05",ORDER_PICKUP_DATE:1,ORDER_PICKUP_TIME:dataTimeStr});	
+			}
+			for (var i=0, dataTimeStr;dataTimeStr = datax[i++];){
+				$scope.selectDataMap.push({str:"后天",str_date:"2016-09-06",ORDER_PICKUP_DATE:2,ORDER_PICKUP_TIME:dataTimeStr});
 			}
 		}
 		,"/api/server_time_array?REQ_TYPE=03&&callback=JSON_CALLBACK&&"
 		,paramArr
 	);
+	$scope.changeSelectTime = function(event){
+		var sel = event.target;
+		opt = sel.options[sel.options.selectIndex];
+		console.log(opt);
+	}
 
-	$scope.REQUESTMARK = new Random();
+	$scope.REQUESTMARK = new Date().getTime();
+	
 	// 提交订单
 	$scope.orderSubmitForm = function(){
 		if (!$scope.address) {
 			alert( '请选择地址' );
 			return false;
 		};
-
-		if (!scope.address){
-
-		}
 		
 		paramArr.DELIVERY_ADDRESS_ID=$scope.address.DELIVERY_ADDRESS_ID,//地址id
-		paramArr.GOODS_LIST=[{
-		     "NUM":"5",//商品数量
-		     "GOODS_ID":"2",//商品id
-		     "GOODS_NAME":"长袖衬衣2",//商品名称    
-		}],
+		paramArr.GOODS_LIST=[];
+		for (key in $scope.goodsList){
+			var goods=$scope.goodsList[key];
+			var g = {NUM:goods.NUM+"",GOODS_ID:goods.GOODS_ID+"", GOODS_NAME:goods.GOODS_NAME};
+			paramArr.GOODS_LIST.push(g);
+		}
+		paramArr.GOODS_LIST = JSON.stringify(paramArr.GOODS_LIST);
+		
 		paramArr.MEMBER_ADDRESS_INFO_1 = $scope.address.ADDRESS;
 		paramArr.MEMBER_ADDRESS_INFO_2 = $scope.address.ADDRESS; //详细地址
 		paramArr.MEMBER_ADDRESS_TELEPHONE=$scope.address.MOBILE; //收货人电话
 		paramArr.MEMBER_ADDRESS_CONSIGNEE=$scope.address.CONSIGNEE; //收货人姓名
-		paramArr.ORDER_PICKUP_TYPE= 1; 取件类型（type）：1、默认，2、指定；
-		paramArr.ORDER_PICKUP_DATE= 0; 取件日期0今天　1明天　2后天
-		paramArr.ORDER_PICKUP_TIME="10:00-12:00"; 取件时间段
+		paramArr.ORDER_PICKUP_TYPE= $scope.ORDER_PICKUP_TYPE; //取件类型（type）：1、默认，2、指定；
+		paramArr.ORDER_PICKUP_DATE= $scope.ORDER_PICKUP.ORDER_PICKUP_DATE; //取件日期0今天　1明天　2后天
+		paramArr.ORDER_PICKUP_TIME= $scope.ORDER_PICKUP.ORDER_PICKUP_TIME; //取件时间段 "10:00-12:00"
 		paramArr.ORDER_REMARK=$scope.ORDER_REMARK; //订单备注
-		paramArr.REQUESTMARK=5154988451515165;//验证是否重复提交参数	
-		paramArr.IS_WEEKLY=1;//是否周周洗订单1是2否
+		paramArr.REQUESTMARK= $scope.REQUESTMARK;//验证是否重复提交参数	
+		paramArr.IS_WEEKLY= 2;//是否周周洗订单1是2否
 		paramArr.REQUESTMARK=$scope.REQUESTMARK; //重复提交参数判断
 
 		DataGetterService.getData(
 			function(data){ 
 				$state.go('myOrder', {}, {reload : true});
 			}
-			,"/api/server_time_array?REQ_TYPE=03&&callback=JSON_CALLBACK&&"
+			,"/api/order_submit?REQ_TYPE=03&&callback=JSON_CALLBACK&&"
 			,paramArr
 			,function(){
 				$scope.REQUESTMARK = new Random();

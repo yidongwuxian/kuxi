@@ -16,7 +16,7 @@ constantsApp.factory('Constants', function($localStorage){
 		index_ads7_url:'/api/ad_list.do?callback=JSON_CALLBACK&&AREA_ID='+19+'&AD_ZONE_ID=7&REQ_TYPE=01',
 		loginOut_url:'/api/login_out.do?&callback=JSON_CALLBACK&&USERNAME='+$localStorage.USERNAME+'&TOKEN='+$localStorage.TOKEN+'&REQ_TYPE=01',
 		mycenter_url:'/api/user_info_center.do?&callback=JSON_CALLBACK&'+ '&USERNAME='+$localStorage.USERNAME+'&TOKEN='+$localStorage.TOKEN+ '&REQ_TYPE=01',
-		list_url:'/api/v2/goods_list_1?&callback=JSON_CALLBACK&&AREA_ID='+23+'&GOODS_TYPE_ID='+7+'&REQ_TYPE=01',
+		list_url:'/api/v2/goods_list?&callback=JSON_CALLBACK&&AREA_ID='+23+'&GOODS_TYPE_ID='+7+'&REQ_TYPE=01',
 		bang_url:'/api/v2/goods_list_1?&callback=JSON_CALLBACK&&AREA_ID=23&REQ_TYPE=01&GOODS_TYPE_ID=13',
 		week_url:'/api/goods_type_list_weekly.do?&callback=JSON_CALLBACK&&REQ_TYPE=01&AREA_ID=19',
 		week_cloth_url: '/api/goods_list_weekly?&callback=JSON_CALLBACK&&AREA_ID=19&REQ_TYPE=01&GOODS_TYPE_ID=7',

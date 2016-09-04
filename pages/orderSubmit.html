@@ -63,7 +63,7 @@
     					<div class="priceNum">
     						<b><i>￥</i>{{goods.GOODS_PRICE}}</b>
                             <button class="mui-btn mui-btn--fab  mui-btn--small mui-btn--primary" ng-click="downNum({{goods.GOODS_ID}})">-</button>
-                                <span><input value="" ng-model="goodsList[goodsId].GOODS_NUM" ></span>
+                                <span><input value="" ng-model="goodsList[goodsId].NUM" ></span>
                             <button class="mui-btn mui-btn--fab mui-btn--small mui-btn--primary" ng-click="upNum({{goods.GOODS_ID}})">+</button>
     					</div>
     				</dd>
@@ -79,13 +79,15 @@
     				<form class="mui-input-group">
     					<div class="mui-input-row mui-radio mui-left">
     						<label>默认时间</label>
-    						<input name="radio1" value="Item 1" type="radio" >
+    						<input name="radio1" value="1" ng-model="ORDER_PICKUP_TYPE" type="radio" >
     						<span>下单后半小时内上门</span>
     					</div>
     					<div class="mui-input-row mui-radio mui-left">
     						<label>预约时间</label>
-                            <input name="radio1" value="Item 2" type="radio" id="unopenTime">
-    						<span id="upoenResult" class="ui-alert"></span>
+                            <input name="radio1" value="2" ng-model="ORDER_PICKUP_TYPE" type="radio" id="unopenTime">
+                            <span>{{ORDER_PICKUP.str}}</span>
+                            <select ng-model="ORDER_PICKUP" ng-options="x.ORDER_PICKUP_TIME group by x.str for x in selectDataMap">
+                            </select>
     					</div>
     				</form>
     			</div>
@@ -95,7 +97,7 @@
     			<p>主人，现在提交订单，并不需要您马上支付呦~~</p>
     			<p>支付的时候就可以使用优惠券啦！呼呼</p>
     		</div>
-    		<input type="submit" class="my_bth_radius1" value="提交订单" />
+    		<input type="submit" ng-click="orderSubmitForm()" class="my_bth_radius1" value="提交订单" />
     	</form>
 </div>
 <script type="text/javascript" src="js/mui.min.js"></script>

@@ -20,7 +20,7 @@ function clothTabCtrl($scope, DataGetterService,$localStorage, Constants, $state
         	$scope.totalPrice =accAdd($scope.totalPrice,price);
         	for(var i=0,goods;goods = $scope.result[categoryId][i++];){
         		if (goods.GOODS_ID == goodsId) {
-        			goods.GOODS_NUM=1;
+        			goods.NUM=1;
         			$scope.goodsList[goodsId] = goods;
         			break;		
         		}
