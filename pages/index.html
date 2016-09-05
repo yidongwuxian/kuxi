@@ -11,7 +11,7 @@
             <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
             <a class="arrow next" href="#" ng-click="prevSlide()"></a>
             <nav class="nav">
-                <div class="wrapper"> 
+                <div class="wrapper">
                     <ul class="dots">
                         <li class="dot" ng-repeat="slide in slides">
                             <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
@@ -57,6 +57,7 @@
      </div>
 </div>
 <div ui-view="ft"></div>
+<div ui-view="download"></div>
 <!--regionSelection start-->
 <div class="city-container" ng-controller="cityCtrl" >
   <div class="city">

@@ -1,6 +1,6 @@
 /*顶部地区选择*/
-.regionSelection s{ display:inline-block; width:20px; height:20px; background: url(../img/common/wz.png) no-repeat; background-size: 20px 20px; position: absolute; left: 83px; top: 10px; }
-.regionSelection i{ display:inline-block; width:20px; height:10px; background: url(../img/index/wz1.png) no-repeat; background-size: 10px 5px; position: absolute; right: 85px; top: 16px; }
+.regionSelection s{ display:inline-block; width:20px; height:20px; background: url(../img/common/wz.png) no-repeat; background-size: 20px 20px; position: absolute; left: 20%; top: 10px; }
+.regionSelection i{ display:inline-block; width:20px; height:10px; background: url(../img/index/wz1.png) no-repeat; background-size: 10px 5px; position: absolute; right: 20%; top: 16px; }
 .regionSelection span{ display:block; margin:0 auto; width:60%; max-width: 160px; height:30px; max-height:30px; overflow:hidden; }
 /*城市弹层*/
 .city-container{ display:none;width:100%;min-height:800px;position:absolute;top:40px;left:0;background-color:#ffffff;z-index:9999;}
@@ -17,7 +17,7 @@
 /*轮播图*/
 #gallery{clear:both; position:relative; margin:0 auto; width:100%; background: white; overflow:hidden; }
 #gallery img {display: inline-block; width:100%; max-height:187px; vertical-align: bottom; }
-.gallery-mask{ width:750px; height:45px; background: url(../img/index/hu.png) no-repeat; background-size: 50%; position:absolute; bottom:-25px; left:0; z-index: 99;}
+.gallery-mask{ width:100%; height:45px; background: url(../img/index/hu.png) no-repeat; background-size: 100%; position:absolute; bottom:-11%; z-index: 99;}
 #gallery slide{position:relative; float: left;}
 #gallery slide img {display: inline-block; width:100%; vertical-align: bottom; }
 /*频道图标*/
@@ -37,3 +37,13 @@
 .module-con li{ float:left; border-right: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb; }
 .module-con li:nth-child(2n){ border-right: 1px solid #fff; }
 .module-con li img{ display: block; width: 100%; vertical-align: middle; }
+/*app_download*/
+.kuxi-download-banner{position:fixed;left:0;bottom:0;width:100%;height:50px;background-color:rgba(0,0,0,.618)}.itz-download-p{position:absolute;left:58px;width:135px;top:0;height:100%}
+.kuxi-download-p { position: absolute; left: 58px; width: 135px; top: 0; height: 100%;}
+.kuxi-download-p span:first-child{display:inline-block;vertical-align:middle;width:1px;height:100%;background-color:transparent}
+.kuxi-download-p span{font-size:12px;color:#eee;vertical-align:middle;display:inline-block}
+.kuxi-download-b{position:absolute;right:50px;top:11px;padding:8px;border-radius:2px;background-color:#D53736;color:#fff;text-align:center;font-size:12px;line-height:1}
+.kuxi-download-c{position:absolute;right:0;top:0;width:49px;height:100%;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAAaVBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8G612AAAAI3RSTlMAzATCvQtioLAeqEGTNIpxXFc6KhBrI7cajnZQhEkVmX57LkKpZRkAAAIiSURBVDjLdZTZtoMgDEUJM6LirK1T2///yBuFeqW2eYKsTXISAiQy0VWlm/Jb/pTzayC/bKlcAofxfOzoN0xUOQMA1usk0Zpv66QwV844hpTOC1ubpcvGu+oRVVbEGM1WxFQxnFzVhCiTIuIsitOy+TydYhZ39m7cmtGr7pZH5EsBTIZ8MVpievmO0OQAeeCuJAduw0YyWGvyw2jLIO32ZZ0An4M3ZrzOGybfVw7gTn3tMgiIdlaD2hIaBTrzoRVLu1MZrBX76gFQeLV339QuhSDHu6Gk75D5QMQE7K0wU2+SFsi1oYEiBV1hPkiOkj3pOea5UEVJxgSmhUSk8Zw4vCOHlsgeWkpi0sUcqRJ4EMe3kmKSxdwmLycPjvnPVvVIPqPh6jbwGUUM9bLUkM+IbQ/ypFFI5DTA7UxmWDApNPY74lhrk5i0yBB0pibiMEEVk5KBJEMKPIs4jB+T9LFdnnAMCi+yQY7vXEx2ahsfWmlIB6+5Rw7PHGTYFH5scDDZ6E/m6uCQVLrcoy8rcBtucvVJzIueu2cbXwrHaXi/LSfIL8v08boqXJb0B2fW8LJDn/T8nRwwnTreR3NHcvyWvbsB6Ox07sGAt+YTE1YhZ6M/FGOCmodz/qZ26Eyqj8Ny/w7LemgEpVQsxt73eauvbUg5okw9ZVEWLtfbxv+EF0Vz2jP4N65dUH1FX+3ac4bGeTKNCyU/jYohm8tytHUjYuwPgbscH2h8aLcAAAAASUVORK5CYII=) no-repeat center center;background-size:20px;z-index:1}
+.kuxi-download-banner a{position:absolute;width:100%;height:100%;left:0;top:0}
+.kuxi-download-logop{top:7px;left:18px;position:absolute;height:36px;width:36px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAABJCAMAAABGrfvuAAAA81BMVEUAAACMWHS8UFupV2qDUGqWX3m5SFHWRkXWRkXWRkWtVmfWRkXWRkW4Li3WRkW4Li24Li3WRkXWRkXWRkW4Li28UFvWRkXWRkW4Li3////cSknPIyKzKCe1IiGtCgm7MzHz4N+uHRytERHTMzKoAgLVQUDUOjjRKyr35uajAADLPDvqxcWyGRj9+PjksrLZlJPOcXHLZmbcXVz88fH22dnturrro6LnlJTmiYjgcnHEU1K/Tk68QkK8PTz56+rw0dHus7PhrKzpm5rUgoLSe3veZmXFIiHwwsLVionjg4Lie3raVVTZQD/tqqrZnp7HMjG/Dw6twTI6AAAAF3RSTlMALGlEREQRMPCjNOjgbmzwu7qPz89VJL0EenwAAALlSURBVFjDpdiJVhoxFAZg7DK1KK61CZmZjE5mLSDIvooCUuvWvv/TlOrYKyaZHJL/Ab5z83NPgBQgVvHjpilaBS7fj3aRTo731jHrCGlnZ68A+bKLTHJo/Ye2kVmOM8raQaY5fJG+IvPsPZ8N5SZk9nPiKLd2SzUSs6Nmv/t49dgbIJuR/KHkdZPIJrN2Octll9i5TRXlUMxmtfKb1O7sEEmyXSicyCGUzQPpy6eyCh+kFUWtMpcmQ5JsySX7Z5nP+ZJsLMU3ZUFO3ZBsKtkzkdTCLiKbSlciKXHOMFAmUoVih6NUUlckLQIMlEnjl76LgTLZgjH1MEepJMLs6XtoFKwgoBQSUPHyaX0r8Qvk+pQG1H4gKgmo6M/46fS1oetRSldQlfp4eLGYN+Y3D0oJKLJM/cnFbf22MXJSij1M6WTRSV72YcSIWgILuX6QpmlAXe+fMzzPrpnpKPA9RDgpj8LYWwVjN/CHnXKWeRBgD2oHKZ9ysFOlFDcqr04ySV0PPkGFRFjMWBQxxmzqu+PGOVxWFZ9bhjwpvBs07wm5bw76vev22jKkfgYBBZJkw2s1AACqZhBQ+VK/LEwFIKDypV9CKPHhaEDpSOOsbJ6SSz0RVE8ziKfkUld4NhdjMSWX4o5AasDZOEomhawtGsnBWEZJpTDhpTmMxFMyKSKCpZxUsTwgqb8Ppj7WkETrVA+0pBkvXVAt6YqXhjqnC9lUVLiGFIWXgh8XrobE7gX3iY81pHjAS9dUR7L7oiXQkrq81NCYSXwTDHV6CqM2L42rGlKEWqIl0JBYU7gEGlJ8J1oCHcnuiZZAS+rw0kJnpjBKVHeKWoLCzSWoyVwKo5ZAulU2fiK4CJJTPnXFTJbofzBZ+mdccH72hf/Nw4ffZ+77OPnSgeS9gPxw8GYpwRuGGbVvwbuKGVWCtx4z6gDen8yobxa8iRlRByvoNZZBV/ulnLdDoNQHK8FAMFjxM59Pudl6w/wFMOjtAgJN/OkAAAAASUVORK5CYII=) no-repeat 0 0;background-size:36px}
+.hide{ display:none!important;}

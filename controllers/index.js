@@ -38,6 +38,15 @@ $(function($localStorage){
    //头条新闻上下滚动调用代码 end
 });
 
+//底部APP下载条 start
+app.controller('downloadCtrl', function($scope,DataGetterService,$localStorage,Constants) {
+	$scope.isShow = true;
+	$scope.showorhide = function(){
+		$scope.isShow = !$scope.isShow;
+	}
+});
+//底部APP下载条  end
+
 //城市选择调用API代码 start
 	app.controller('cityCtrl', function($scope,DataGetterService,$localStorage,Constants) {
 		DataGetterService.getData(function(data){$scope.citys= data;}, Constants.index_city_url);

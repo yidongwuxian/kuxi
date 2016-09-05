@@ -18,6 +18,9 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                 },
                 "ft@main": {
                     templateUrl: 'pages/ft.html'
+                },
+                "download@main": {
+                    templateUrl: 'pages/appDownload.html'
                 }
           }
       })
