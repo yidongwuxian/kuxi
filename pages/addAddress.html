@@ -16,26 +16,30 @@
 		</div>
 		<div class="address-item">
 			<label>收货地址</label>
-			<input type="text" placeholder="小区/大厦/学校" name="ReceivingCommunity" value="" id="ReceivingCommunity" />
+			<typeahead _name="_name" modeldisplay="valDis" modelret="GD_DATA" _address="_address"></typeahead>
 		</div>
 		<div class="address-item">
 			<label></label>
 			<input type="text" placeholder="详细地址(如:门牌号等)" name="ReceivingNumber" value="" id="ReceivingNumber" ng-model="address"  />
 		</div>
 		<div class="Receiving_icon">
-			<p>
-				<span class="icon_address"><a href="javascript:;">默认地址</a></span>
+			<label>设为默认地址</label>
+				<input type="checkbox" value="1" ng-model="IS_DEFAULT">
 			</p>
 		</div>
-		<input type="submit" class="my_bth" value="保存" ng-click="sumbitAddress()" />
+		<input type="button" class="my_bth" value="保存" ng-click="sumbitAddress()" />
 	</form>
 </div>
+<script src="http://webapi.amap.com/maps?v=1.3&key=3819e3b9a78101930026f02fa8ebac2b&plugin=AMap.Autocomplete,AMap.CloudDataSearch"></script>
+
+<script type="text/javascript" src="controllers/address.js"></script>
+
+
 <script>
 $(function(){
     //动态检测屏幕高度 start
 	var documentHeight = $(document).height();
 	$('.kuxi-page').css('height', documentHeight);
     //动态检测屏幕高度 end
-	
 });
 </script>
