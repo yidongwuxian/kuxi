@@ -13,7 +13,7 @@ app.controller('addressCtrl', function($scope,DataGetterService,$localStorage,Co
 });
 
 
-app.controller('addAddressCtrl',['$scope','$templateCache','$http','DataGetterService','$localStorage','Constants','$state'
+app.controller('addAddressCtrl',['$scope','$templateCache','$http','DataGetterService','$localStorage','Constants','$state',
  function($scope,$templateCache ,$http,DataGetterService,$localStorage,Constants,$state){
 	DataGetterService.isLogin();
 	//填写收货地址以及相关信息，提交
