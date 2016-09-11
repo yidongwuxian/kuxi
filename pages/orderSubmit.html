@@ -38,11 +38,11 @@
     						<p class="productDetail"><span>{{goods.GOODS_MARK}}</span></p>
     					</div>
     					<div class="priceNum">
-    						<b><i>￥</i>{{goods.GOODS_PRICE}}</b>
-                            <button class="mui-btn mui-btn--fab  mui-btn--small mui-btn--primary" ng-click="downNum({{goods.GOODS_ID}})">-</button>
-                                <span><input value="" ng-model="goodsList[goodsId].NUM" ></span>
-                            <button class="mui-btn mui-btn--fab mui-btn--small mui-btn--primary" ng-click="upNum({{goods.GOODS_ID}})">+</button>
-    					</div>
+                            <b><i>￥</i>{{goods.GOODS_PRICE}}</b>
+                            <button class="mui-btn mui-btn--fab  mui-btn--small mui-btn--primary fl reduceBtn" ng-click="downNum({{goods.GOODS_ID}})"></button>
+                            <span><input value="" ng-model="goodsList[goodsId].NUM" ></span>
+                            <button class="mui-btn mui-btn--fab mui-btn--small mui-btn--primary fr plusBtn" ng-click="upNum({{goods.GOODS_ID}})"></button>
+                        </div>
     				</dd>
     			</dl>
     		</div>
