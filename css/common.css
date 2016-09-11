@@ -39,7 +39,7 @@ header .back{ display:inline-block; width:109px; height:42px; background: url(..
 .ft dd{ margin-top:3%; color:#a3a3a4; font-size: .28rem; }
 .ft dl.active dd{ color:#d1ac51; }
 /*黄色按钮*/
-.my_bth{ display: block; width: 90%; height:3rem; line-height:3rem; background: #d1ac51; color: #fff; font-size:1.4rem; border:none; margin:50px auto 0; padding:0; text-align: center; }
+.my_bth{ display: block !important; width: 90%; height: 1.125rem; line-height: 1.125rem; background-color: #d1ac51 !important; color: #fff !important; font-size: .4rem; border: none !important; margin: 50px auto 0; padding: 0 !important; text-align: center; }
 /*tab切换*/
 .nav-tabs{ width: 87%; height: 2.8rem; line-height: 2.8rem; text-align: center; border:2px solid #d1ac51; border-radius: 5px; background-color:#f9f6f2; margin: 10px auto; overflow:hidden; }
 .nav-tabs li{ float:left; width: 25%;  background-color: white; border-right:2px solid #d1ac51;}

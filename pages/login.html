@@ -20,3 +20,11 @@
 	<p class="loginTip">点击登录,即表示您同意&nbsp;<a href="javascript:;" ng-click="userAgLnk()">用户协议</a></p>
 	<p class="loginDes">未收到验证码请拨打400-00000000</p>
 </div>
+<script>
+$(function(){
+    //动态检测屏幕高度 start
+	var documentHeight = $(document).height();
+	$('.kuxi-page').css('height', documentHeight);
+    //动态检测屏幕高度 end
+});
+</script>

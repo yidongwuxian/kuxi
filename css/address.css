@@ -22,11 +22,11 @@
 .my_bth {
     display: block;
     width: 90%;
-    height:3rem;
-    line-height:3rem;
+    height:1.125rem;
+    line-height:1.125rem;
     background: #d1ac51;
     color: #fff;
-    font-size:1.4rem;
+    font-size:.4rem;
     border:none;
     margin:50px auto 0;
     padding:0;
@@ -34,9 +34,10 @@
 }
 
 /*添加地址信息*/
-.address-item{ width:90%; height:4rem; line-height: 4rem; margin:0 auto; border-bottom: 1px solid #e2e4e5; font-size: 1.4rem; }
-.address-item label{ display: inline-block; width:100px; color:#000; margin-bottom:0; }
-.address-item input{ display: inline-block; width:70%; border: none; background: transparent;}
+.address-item{ width:90%; height:1.23rem; line-height: 1.23rem; margin:0 auto; border-bottom: 1px solid #e2e4e5; font-size: .375rem; }
+.address-item label{ display: inline-block; float:left; width:100px; color:#000; margin-bottom:0; }
+.address-item input,.address-item span{ display: inline-block; width: 70%; border: none; background: transparent; padding: 0; margin: 0; color: #b0b0b0; }
+.defaultSel{ float:left; display: inline-block; margin-right:10px !important;}
 /*搜索地址栏*/
 .searchTx{ width: 58%; height: 2.3rem; line-height: 2.3rem; text-indent: 0.5rem; background: white; border-radius: 4px; border: none; margin-left: 17px;}
 .searchBtn{ position: absolute; right:15px; border: none; background: transparent; }
