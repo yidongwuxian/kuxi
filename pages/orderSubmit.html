@@ -8,8 +8,8 @@
         </p>
     </header>
 	<!--header end-->
-
-    	<form class="order-submit-item" id="orderSubmitForm">
+    <div class="in1">
+		<form class="order-submit-item" id="orderSubmitForm">
     		<ul>
     			<li class="pr" ng-if="address != null">
     				<s class="positionIco"></s>
@@ -54,17 +54,19 @@
     			<div>
     				<i>上门时间：</i>
     				<form class="mui-input-group">
-    					<div class="mui-input-row mui-radio mui-left">
+    					<div class="mui-input-row mui-radio mui-left defaultTime">
     						<label>默认时间</label>
     						<input name="radio1" value="1" ng-model="ORDER_PICKUP_TYPE" type="radio" >
     						<span>下单后半小时内上门</span>
     					</div>
-    					<div class="mui-input-row mui-radio mui-left">
+    					<div class="mui-input-row mui-radio mui-left yuTime">
     						<label>预约时间</label>
                             <input name="radio1" value="2" ng-model="ORDER_PICKUP_TYPE" type="radio" id="unopenTime">
-                            <span>{{ORDER_PICKUP.str}}</span>
-                            <select ng-model="ORDER_PICKUP" ng-options="x.ORDER_PICKUP_TIME group by x.str for x in selectDataMap">
-                            </select>
+							<p class="yuTimeBox">
+								<span>{{ORDER_PICKUP.str}}</span>
+	                            <select ng-model="ORDER_PICKUP" ng-options="x.ORDER_PICKUP_TIME group by x.str for x in selectDataMap">
+	                            </select>
+							</p>
     					</div>
     				</form>
     			</div>
@@ -76,5 +78,6 @@
     		</div>
     		<input type="submit" ng-click="orderSubmitForm()" class="my_bth_radius1" value="提交订单" />
     	</form>
+	</div>
 </div>
 <script type="text/javascript" src="controllers/orderSubmit.js"></script>
