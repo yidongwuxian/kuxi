@@ -1,5 +1,5 @@
 app.controller('orderCtrl', orderCtrl);
-function orderCtrl($scope, DataGetterService, Constants, $state) {
+function orderCtrl($scope, DataGetterService, $localStorage, Constants, $state) {
 	DataGetterService.getData(function(data){
 	   $scope.topaids = data;
    }, Constants.order_topaids_url);
@@ -14,6 +14,10 @@ function orderCtrl($scope, DataGetterService, Constants, $state) {
 
 	$scope.goCommit = function(){
 		$state.go("writecommit", {}, { reload: true });
+	}
+	$scope.goOrderDetails = function(orderInfo) {
+		$localStorage.OBJECT= orderInfo;
+		$state.go('orderDetails', {} , { reload : true});
 	}
 };
 

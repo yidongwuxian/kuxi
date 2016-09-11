@@ -9,7 +9,7 @@
 	<!--header end-->
 	<div class="in1">
 		<div class="order-details-item">
-		<dl ng-repeat="guanjia in guanjiainfo">
+		<dl>
 			<dt>
 				<img ng-src="{{guanjia.GOODS_IMG_URL}}" />
 			</dt>
@@ -21,154 +21,69 @@
 		</dl>
 	</div>
 	<div class="line-fleshcolor"></div>
-	<div class="order-details-item" ng-repeat="orderinfo in orderinfos">
+	<div class="order-details-item">
 		<p><span>客户姓名:</span>{{orderinfo.MEMBER_ADDRESS_CONSIGNEE}}</p>
 		<p><span>客户电话:</span>{{orderinfo.MEMBER_ADDRESS_TELEPHONE}}</p>
 		<p><span>客户地址:</span><b>{{orderinfo.MEMBER_ADDRESS_INFO_2}}</b></p>
 	</div>
 	<div class="line-fleshcolor"></div>
-	<div class="order-details-item" ng-repeat="orderinfo in orderinfos">
+	<div class="order-details-item">
 		<p><span>订单编号:</span>{{orderinfo.ORDER_NO}}</p>
-		<p><span>订单类型:</span>{{orderinfo.GOODS_TYPE_NAME}}</p>
+		<p><span>订单类型:</span>
+			<b ng-show="orderinfo.GOODS_TYPE_ID == 7  ">精致洗衣</b>
+		   <b ng-show="orderinfo.GOODS_TYPE_ID == 10 ">精致鞋护</b>
+		   <b ng-show="orderinfo.GOODS_TYPE_ID == 11 ">家庭洗涤</b>
+		   <b ng-show="orderinfo.GOODS_TYPE_ID == 12 ">车饰清洗</b>
+		   <b ng-show="orderinfo.GOODS_TYPE_ID == 13 ">衣物清洗</b>
+		   <b ng-show="orderinfo.GOODS_TYPE_ID == 14 ">周周洗</b>
+		</p>
 		<p><span>下单时间:</span>{{orderinfo.ORDER_TIME | date:'yyyy/MM/dd'}}</p>
-		<p><span>服务时间:</span>{orderinfo.SHOULAN_TIME | date:'yyyy/MM/dd HH:mm'}}</p>
+		<p><span>服务时间:</span>{{orderinfo.ORDER_PICKUP_DATE | date:'yyyy/MM/dd'}} &nbsp; {{orderinfo.ORDER_PICKUP_TIME}}</p>
 	</div>
 	<div class="line-fleshcolor"></div>
-	<div class="order-details-item" ng-repeat="orderitem in orderitems">
-		<p><span>订单金额:</span>{{orderitem.GOODS_PRICE}}元</p>
-		<p><span>实付:</span>{{orderitem.ORDER_PAY_PRICE}}元</p>
+	<div class="order-details-item">
+		<p><span>订单金额:</span>{{orderinfo.ORDER_TOTAL_PRICE}}元</p>
+		<p><span>实付:</span>{{orderinfo.ORDER_PAY_PRICE}}元</p>
 		<p><span>优惠方式:</span>无</p>
 		<p><span>支付方式:</span>
-			<b ng-if="orderinfos.PAY_TYPE == 1">支付宝支付</b>
-			<b ng-if="orderinfos.PAY_TYPE == 2">微信支付</b>
-			<b ng-if="orderinfos.PAY_TYPE == 3">余额支付</b>
+			<b ng-if="orderinfo.PAY_TYPE == 1">支付宝支付</b>
+			<b ng-if="orderinfo.PAY_TYPE == 2">微信支付</b>
+			<b ng-if="orderinfo.PAY_TYPE == 3">余额支付</b>
 		</p>
 	</div>
 	<div class="line-fleshcolor"></div>
 	<div class="mui-content">
 		<div style="padding:10px">
 			<div class="mui-segmented-control">
-					<a class="mui-control-item mui-active" href="#item1">订单状态</a>
-					<a class="mui-control-item" href="#item2">衣物详情</a>
+					<a class="mui-control-item mui-active">订单状态</a>
+					<a class="mui-control-item" href="#">衣物详情</a>
 			</div>
 		</div>
 		<div>
 			<div id="item1" class="mui-control-content list-item mui-active">
 				<div class="order-submit-dl2">
-					<dl>
+					<dl ng-repeat="item in orderitem">
 						<dt class="fl">
-							<img src="img/list/bar.png" />
+							<img ng-src="{{item.GOODS_IMG_URL}}" />
 						</dt>
 						<dd>
 							<div class="desc">
-								<p class="productName"><span>阿玛尼</span></p>
-								<p class="productAlias"><span>手提包（小）</span></p>
-								<p class="productSize"><span>尺寸：L&lt;200mm 黑色</span></p>
-								<p class="productDetail"><span>四角磨损</span></p>
+								<p class="productName"><span>{{item.GOODS_NAME}}</span></p>
+								<!--<p class="productAlias"><span>手提包（小）</span></p> -->
+								<p class="productSize"><span>{{item.ORDER_ITEM_GOODS_REMARK}}</span></p>
+								<p class="productDetail"><span>{{item.ORDER_ITEM_ATTACHMENT_INFO}}</span></p>
 							</div>
 							<div class="priceNum">
-								<b><i>￥</i>200</b>
-							</div>
-						</dd>
-					</dl>
-					<dl>
-						<dt class="fl">
-							<img src="img/list/bar.png" />
-						</dt>
-						<dd>
-							<div class="desc">
-								<p class="productName"><span>阿玛尼</span></p>
-								<p class="productAlias"><span>手提包（小）</span></p>
-								<p class="productSize"><span>尺寸：L&lt;200mm 黑色</span></p>
-								<p class="productDetail"><span>四角磨损</span></p>
-							</div>
-							<div class="priceNum">
-								<b><i>￥</i>200</b>
+								<b><i>￥</i>{{item.GOODS_PRICE}}</b>
 							</div>
 						</dd>
 					</dl>
 				</div>
 				<div class="order-details-ol">
 					<ol>
-						<li>
-							<span class="tt">下单成功</span>
-							<span class="time">2015/09/03, 11:30</span>
-						</li>
-						<li>
-							<span class="tt">订单已生效</span>
-							<span class="time">2015/09/03, 12:00</span>
-						</li>
-						<li>
-							<span class="tt">您的衣物已入厂</span>
-							<span class="time">2015/09/04, 08:35</span>
-						</li>
-						<li>
-							<span class="tt">洗涤中</span>
-							<span class="time">2015/09/05, 08:30</span>
-						</li>
-						<li class="cur">
-							<span class="tt">已签收</span>
-							<span class="time">2015/09/05, 09:00</span>
-						</li>
-					</ol>
-				</div>
-			</div>
-			<div id="item2" class="mui-control-content list-item">
-				<div class="order-submit-dl2">
-					<dl>
-						<dt class="fl">
-							<img src="img/list/bar.png" />
-						</dt>
-						<dd>
-							<div class="desc">
-								<p class="productName"><span>阿玛尼</span></p>
-								<p class="productAlias"><span>手提包（小）</span></p>
-								<p class="productSize"><span>尺寸：L&lt;200mm 黑色</span></p>
-								<p class="productDetail"><span>四角磨损</span></p>
-							</div>
-							<div class="priceNum">
-								<b><i>￥</i>200</b>
-							</div>
-						</dd>
-					</dl>
-					<dl>
-						<dt class="fl">
-							<img src="img/list/bar.png" />
-						</dt>
-						<dd>
-							<div class="desc">
-								<p class="productName"><span>阿玛尼</span></p>
-								<p class="productAlias"><span>手提包（小）</span></p>
-								<p class="productSize"><span>尺寸：L&lt;200mm 黑色</span></p>
-								<p class="productDetail"><span>四角磨损</span></p>
-							</div>
-							<div class="priceNum">
-								<b><i>￥</i>200</b>
-							</div>
-						</dd>
-					</dl>
-				</div>
-				<div class="order-details-ol">
-					<ol>
-						<li>
-							<span class="tt">下单成功</span>
-							<span class="time">2015/09/03, 11:30</span>
-						</li>
-						<li>
-							<span class="tt">订单已生效</span>
-							<span class="time">2015/09/03, 12:00</span>
-						</li>
-						<li>
-							<span class="tt">您的衣物已入厂</span>
-							<span class="time">2015/09/04, 08:35</span>
-						</li>
-						<li>
-							<span class="tt">洗涤中</span>
-							<span class="time">2015/09/05, 08:30</span>
-						</li>
-						<li class="cur">
-							<span class="tt">已签收</span>
-							<span class="time">2015/09/05, 09:00</span>
+						<li ng-repeat="operater in operatetime">
+							<span class="tt">{{operater.MSG}}</span>
+							<span class="time">{{operater.TIME | date:'yyyy/MM/dd HH:mm:ss'}}</span>
 						</li>
 					</ol>
 				</div>
@@ -177,3 +92,4 @@
 	</div>
 	</div>
 </div>
+<script type="text/javascript" src="controllers/orderDetail.js"></script>

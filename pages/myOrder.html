@@ -27,7 +27,7 @@
 						<div class="order-item">
 							<ul>
 								<li ng-repeat="topaid in topaids">
-									<a href="javascript:;" ng-click="goOrderDetails()">
+									<a href="javascript:;" ng-click="goOrderDetails(topaid)">
 										<img class="fl" ng-src="{{topaid.SERVICE_IMG_URL}}" />
 										<div class="details">
 										   <p>订单编号：<span>{{topaid.ORDER_NO}}</span></p>
