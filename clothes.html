@@ -42,15 +42,15 @@
 	 	  			  <dd>{{item.GOODS_DESC}}</dd>
 
 					  <div ng-class="{{item.selectedStyle?'selectBtn':''}}">
-					  	<input ng-model="item.selectedStyle" 
-					  	ng-attr-goodsId='{{item.GOODS_ID}}' 
-					  	ng-value='{{item.GOODS_ID}}' 
+					  	<input ng-model="item.selectedStyle"
+					  	ng-attr-goodsId='{{item.GOODS_ID}}'
+					  	ng-value='{{item.GOODS_ID}}'
 					  	ng-attr-id="label_{{item.GOODS_ID}}"
-					  	ng-attr-goodsPrice="{{item.GOODS_PRICE}}" type="checkbox"  
+					  	ng-attr-goodsPrice="{{item.GOODS_PRICE}}" type="checkbox"
 					  	ng-click="selectItem($event,item.GOODS_PRICE, item.GOODS_ID,category.GOODS_CATEGORY_ID)">
 					  </div>
 	 	  			</dl>
-	 	  			
+
 				</div>
 		   </div>
 		</div>
@@ -94,8 +94,8 @@
 				  };
 			　　}
 			);
-        	
-			
+
+
 			$scope.selectItem = function($event,price,goodsId, categoryId) {
                     var ch = $event.target;
                     if (ch.checked){
@@ -104,10 +104,10 @@
                     	for(var i=0,goods;goods = $scope.result[categoryId][i++];){
                     		if (goods.GOODS_ID = goodsId) {
                     			$scope.goodsList[goodsId] = goods;
-                    			break;		
+                    			break;
                     		}
                     	}
-                    	
+
                     } else {
                     	$scope.totalNum--;
                     	$scope.totalPrice = Subtr($scope.totalPrice, price);
@@ -123,23 +123,23 @@
             }
 
         });
-		//加法   
-		function accAdd(arg1,arg2){   
-			var r1,r2,m;   
-			try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}   
-			try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}   
-			m=Math.pow(10,Math.max(r1,r2))   
-			return (arg1*m+arg2*m)/m   
-		}   
-		//减法   
-		function Subtr(arg1,arg2){  
-		    var r1,r2,m,n;  
-		    try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}  
-		    try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}  
-		    m=Math.pow(10,Math.max(r1,r2));  
-		    n=(r1>=r2)?r1:r2;  
-		    return ((arg1*m-arg2*m)/m).toFixed(n);  
-		}  	
+		//加法
+		function accAdd(arg1,arg2){
+			var r1,r2,m;
+			try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}
+			try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}
+			m=Math.pow(10,Math.max(r1,r2))
+			return (arg1*m+arg2*m)/m
+		}
+		//减法
+		function Subtr(arg1,arg2){
+		    var r1,r2,m,n;
+		    try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}
+		    try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}
+		    m=Math.pow(10,Math.max(r1,r2));
+		    n=(r1>=r2)?r1:r2;
+		    return ((arg1*m-arg2*m)/m).toFixed(n);
+		}
 	</script>
 </body>
 </html>
