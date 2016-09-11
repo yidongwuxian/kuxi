@@ -4,8 +4,8 @@
 .order-item li img{ display: inline-block; float: left; width:51px; height:51px; margin:20px; }
 .order-item li .details{ display: inline-block;  width:60%; margin:10px 0; }
 .order-item li .details p{ margin:0; color: #1d202f; }
-.order-item li .details p span{ display: inline-block; font-size: 1.3rem; color:#7b7b7b;}
-.order-item li .details p b{ color:#ff4800; }
+.order-item li .details p span{ display: inline-block; font-size: .4rem; color:#7b7b7b;}
+.order-item li .details p b{ color:#ff4800; font-size: .4rem;}
 .order-item li button{ position: absolute; right:10px; top:11px; width:45px; height:18px; line-height: 18px; text-align: center; background-color: #d1ac51; color:#fff; font-size: 0.5rem; border-style: none; padding: 0;}
 
 /*guest-cn*/
@@ -158,22 +158,22 @@
 .order-submit-dl2 dt{ display:inline-block; width: 60px; height:60px; margin:10px; border:1px solid #ececec; }
 .order-submit-dl2 dt img{ display: block; width: 100%; vertical-align: middle; }
 .order-submit-dl2 dd{ float: left; width:73%; margin-top: 10px; }
-.order-submit-dl2 dd .desc{ float:left; width: 75%; margin: 0px 3%; }
+.order-submit-dl2 dd .desc{ float:left; width: 70%; margin: 0px 3%; }
 .order-submit-dl2 dd .desc p{ line-height: 20px; }
-.order-submit-dl2 .productName{ font-size: 1.6rem; color: #1d202f; }
-.order-submit-dl2 .productAlias, .order-submit-dl2 .productSize, .order-submit-dl2 .productDetail{ font-size: 1.2rem; color: #7b7b7b; }
+.order-submit-dl2 .productName{ font-size: .34rem; color: #1d202f; }
+.order-submit-dl2 .productAlias, .order-submit-dl2 .productSize, .order-submit-dl2 .productDetail{ font-size: .34rem; color: #7b7b7b; }
 .order-submit-dl2 dd .priceNum{ float:right; }
-.order-submit-dl2 dd .priceNum b{ display: block; width:100%; text-align: right; color: #ff4800; font-size: 1.6rem; }
+.order-submit-dl2 dd .priceNum b{ display: block; width:100%; text-align: right; color: #ff4800; font-size: .75rem; }
 .order-submit-dl2 dd .priceNum p{ width: 100%; margin-top:32px; background-color: #f9f6f2; overflow:hidden; }
 .order-submit-dl2 dd .priceNum span{ display: inline-block; font-size: 1.6rem; color: #1d202f; vertical-align:middle; }
-.order-submit-dl2 dd .priceNum i{ font-style: normal; font-size:1rem; font-family:"Microsoft Yahei"; }
+.order-submit-dl2 dd .priceNum i{ font-style: normal; font-size:.31rem; font-family:"Microsoft Yahei"; }
 .order-details-item .nav-tabs{ width:50%; margin:0 0 10px 20px; height:2.4rem; line-height: 2.2rem; }
 .order-details-item .nav-tabs li{ width:50%; }
 .order-details-ol{ background-color: #f9f6f2; }
 .order-details-ol ol{ width:90%; margin:0 auto; overflow: hidden; }
 .order-details-ol li{ height:50px; background: url(../img/order/yuan-un.png) left center no-repeat; background-size: 25px 50px; }
 .order-details-ol li.cur{ height:50px; background: url(../img/order/yuan.png) left center no-repeat; background-size: 25px 50px; }
-.order-details-ol li span{ line-height: 50px; font-size: 1.2rem; color: #1d202f; }
+.order-details-ol li span{ line-height: 50px; font-size: .34rem; color: #1d202f; }
 .order-details-ol li span.tt{ float: left; margin-left:7%;}
 .order-details-ol li span.time{ float: right; }
 .order-details-item.w100{ width:100%; }
