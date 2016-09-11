@@ -15,30 +15,30 @@
     background: url(../img/money/money.png) no-repeat;
     background-size: 100px 100px;
 }
-.notice b {
+.notice1 b {
     display: block;
-    margin-top: 21px;
+    margin-top: 1.5rem;
     margin-left: auto;
     margin-right: auto;
     color: #000;
-    font-size: 4.8rem;
+    font-size: 1.43rem;
     text-align: center;
     font-weight: normal;
 }
-.notice p {
+.notice1 p {
     margin: 23px auto;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: .46rem;
     color: #000;
     font-weight:bold;
 }
 .my_bth1 {
     width: 90%;
-    height:2.9rem;
-    line-height:2.9rem;
+    height:1rem;
+    line-height:1rem;
     background: #d1ac51;
     color: #fff;
-    font-size:1.4rem;
+    font-size:.375rem;
     border:1px solid #d1ac51;
     border-radius: 4px;
     margin:50px auto 0;
@@ -47,11 +47,11 @@
 }
 .my_bth2 {
     width: 90%;
-    height:2.9rem;
-    line-height:2.9rem;
+    height:1rem;
+    line-height:1rem;
     background: transparent;
     color: #d1ac51;
-    font-size:1.4rem;
+    font-size:.375rem;
     border:none;
     margin:20px auto 0;
     padding:0;
@@ -60,10 +60,10 @@
     text-align: center;
 }
 /*弹出层*/
-#rechargeModal .modal-body{ padding:15px; }
+#rechargeModal .modal-body{ padding:15px 15px 5px; }
 #rechargeModal .modal-content{ width:286px; margin:50% auto; background-color: #f5f6f1; }
-#rechargeModal .modal-content label{ width: 25%; font-size: 1.2rem; color:#1d202f; text-align: center; }
-#rechargeModal .modal-content input{ width:70%; height:1.9rem; border:1px solid #d1ac51; border-radius: 4px; text-indent: 0.5rem; }
-.recharge-item{ margin-bottom: 10px; }
+#rechargeModal .modal-content label{ float: left; width: 25%; font-size: .375rem; color:#1d202f; text-align: center; margin:0; }
+#rechargeModal .modal-content input{ width:70%; height:.625rem; line-height:.625rem; border:1px solid #d1ac51; background: transparent; border-radius: 4px; text-indent: 0.5rem; margin: 0; }
+.recharge-item{ margin: 15px 0; overflow: hidden; }
 .btn-yellow{ width:60px; line-height: 1; text-align:center; background-color: #d1ac51; color:#fff; margin-right:37%; }
 .modal-footer .btn+.btn { margin-right:9%; }
