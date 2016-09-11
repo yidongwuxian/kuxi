@@ -1,98 +1,80 @@
-	<div class="kuxi-page">
-		<!--header start-->
-		<header>
-            <p class="addressSelection">
-                <s class="back" onclick="history.go(-1);"></s>
-				订单提交
-				<a class="serviceDes" href="/">编辑</a>
-            </p>
-        </header>
-		<!--header end-->
-		<div class="in1">
-			<form class="order-submit-item" action="">
-				<ul>
-					<li class="pr">
-						<s class="positionIco"></s>
-						<div>
-							<p><span class="fl">张三</span>
-							<span class="fr">18633230622</span></p>
-							<p>北京市海淀区西三环5号远洋小区98号楼301</p>
-						</div>
-					</li>
-				</ul>
-				<div class="line-freshcolor"></div>
-				<div class="order-submit-dl">
-					<dl>
-						<dt class="fl">
-							<img src="img/list/bar.png" />
-						</dt>
-						<dd>
-							<div class="desc">
-								<p class="productName"><span>阿玛尼</span></p>
-								<p class="productAlias"><span>手提包（小）</span></p>
-								<p class="productSize"><span>尺寸：L&lt;200mm </span></p>
-								<p class="productDetail"><span>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</span></p>
-							</div>
-							<div class="priceNum">
-								<b><i>￥</i>200</b>
-								<p>
-									<i class="reduceBtn"></i>
-	  						  		<span>2</span>
-	  						  		<i class="plusBtn"></i>
-						  		</p>
-							</div>
-						</dd>
-					</dl>
-					<dl>
-						<dt class="fl">
-							<img src="img/list/bar.png" />
-						</dt>
-						<dd>
-							<div class="desc">
-								<p class="productName"><span>阿玛尼</span></p>
-								<p class="productAlias"><span>手提包（小）</span></p>
-								<p class="productSize"><span>尺寸：L&lt;200mm </span></p>
-								<p class="productDetail"><span>衣物的特殊说明如：长短收费一样特殊面料不能洗涤</span></p>
-							</div>
-							<div class="priceNum">
-								<b><i>￥</i>200</b>
-								<p>
-									<i class="reduceBtn"></i>
-	  						  		<span>2</span>
-	  						  		<i class="plusBtn"></i>
-						  		</p>
-							</div>
-						</dd>
-					</dl>
-				</div>
-				<div class="commitBox">
-					<p>留言</p>
-					<textarea id="commitTextArea" placeholder=""></textarea>
-				</div>
-				<div class="serviceTime">
-					<div>
-						<i>上门时间：</i>
-						<p>
-							<input type="checkbox" class="Checkbtn cur" />
-							默认时间
-						</p>
-						<span>下单后半小时内上门</span>
-					</div>
-					<div>
-						<i></i>
-						<p>
-							<input type="checkbox" class="Checkbtn" />
-							预约时间
-						</p>
-						<span>08-30/10:00-12:00</span>
-					</div>
-				</div>
-				<div class="tipBox">
-					<s class="tipIco fl"></s>
-					<p>主人，现在提交订单，并不需要您马上支付呦~~</p>
-					<p>支付的时候就可以使用优惠券啦！呼呼</p>
-				</div>
-				<input type="submit" class="my_bth_radius1" value="提交订单" />
-			</form>
-		</div>
-	</div>
+	<div class="kuxi-page" ng-controller="orderSubmitCtrl">
+	<!--header start-->
+	<header>
+        <p class="addressSelection">
+            <s class="back" onclick="history.go(-1);"></s>
+			订单提交
+			<a class="serviceDes" href="/">编辑</a>
+        </p>
+    </header>
+	<!--header end-->
+
+    	<form class="order-submit-item" id="orderSubmitForm">
+    		<ul>
+    			<li class="pr" ng-if="address != null">
+    				<s class="positionIco"></s>
+    				<div>
+    					<p><span class="fl">{{address.MOBILE}}</span>
+    					<span class="fr">{{address.CONSIGNEE}}</span></p>
+    					<p>{{address.ADDRESS}}</p>
+    				</div>
+    			</li>
+                <li class="pr" ng-if="address === null">
+                    选择地址
+                </li>
+    		</ul>
+
+    		<div class="line-freshcolor"></div>
+    		<div class="order-submit-dl">
+    			<dl ng-repeat="(goodsId,goods) in goodsList">
+    				<dt class="fl" ng-attr="{{goodsList[goodsId]}}">
+    					<img ng-src="{{goods.GOODS_IMG_URL}}" />
+    				</dt>
+    				<dd>
+    					<div class="desc">
+    						<p class="productName"><span>{{goods.GOODS_NAME}}</span></p>
+    						<p class="productAlias"><span>{{goods.GOODS_DESC}}</span></p>
+    						<!--<p class="productSize"><span>尺寸：L&lt;200mm </span></p> -->
+    						<p class="productDetail"><span>{{goods.GOODS_MARK}}</span></p>
+    					</div>
+    					<div class="priceNum">
+    						<b><i>￥</i>{{goods.GOODS_PRICE}}</b>
+                            <button class="mui-btn mui-btn--fab  mui-btn--small mui-btn--primary" ng-click="downNum({{goods.GOODS_ID}})">-</button>
+                                <span><input value="" ng-model="goodsList[goodsId].NUM" ></span>
+                            <button class="mui-btn mui-btn--fab mui-btn--small mui-btn--primary" ng-click="upNum({{goods.GOODS_ID}})">+</button>
+    					</div>
+    				</dd>
+    			</dl>
+    		</div>
+    		<div class="commitBox">
+    			<p>留言</p>
+    			<textarea id="commitTextArea" ng-model="ORDER_REMARK" placeholder=""></textarea>
+    		</div>
+    		<div class="serviceTime">
+    			<div>
+    				<i>上门时间：</i>
+    				<form class="mui-input-group">
+    					<div class="mui-input-row mui-radio mui-left">
+    						<label>默认时间</label>
+    						<input name="radio1" value="1" ng-model="ORDER_PICKUP_TYPE" type="radio" >
+    						<span>下单后半小时内上门</span>
+    					</div>
+    					<div class="mui-input-row mui-radio mui-left">
+    						<label>预约时间</label>
+                            <input name="radio1" value="2" ng-model="ORDER_PICKUP_TYPE" type="radio" id="unopenTime">
+                            <span>{{ORDER_PICKUP.str}}</span>
+                            <select ng-model="ORDER_PICKUP" ng-options="x.ORDER_PICKUP_TIME group by x.str for x in selectDataMap">
+                            </select>
+    					</div>
+    				</form>
+    			</div>
+    		</div>
+    		<div class="tipBox">
+    			<s class="tipIco fl"></s>
+    			<p>主人，现在提交订单，并不需要您马上支付呦~~</p>
+    			<p>支付的时候就可以使用优惠券啦！呼呼</p>
+    		</div>
+    		<input type="submit" ng-click="orderSubmitForm()" class="my_bth_radius1" value="提交订单" />
+    	</form>
+</div>
+<script type="text/javascript" src="controllers/orderSubmit.js"></script>
