@@ -102,11 +102,9 @@
 .order-submit-item li div{ display: inline-block; width:80%; margin-left: 12%; }
 .order-submit-item li span:first-child{ width: 58%; }
 .order-submit-item li span:last-child{ width: 42%; }
-.order-submit-item li p{ line-height: 25px; }
+.order-submit-item li p{ line-height: 25px; font-size: .4rem; color: #1d202f; font-weight: normal;}
 .order-submit-item li s{ display: inline-block; width:25px; height:25px; margin-right:5px; position: absolute; top:28%; }
 .order-submit-item .positionIco{ background: url(../img/order/dq.png) no-repeat; background-size: 100%; }
-.order-submit-item dd  .priceNum{ font-size: 2rem; color: #ff4800; font-family: Arial; }
-.order-submit-item dd  .priceNum i{ margin-right:5px; font-style: normal; font-size:1rem; font-family:"Microsoft Yahei"; }
 
 .order-submit-dl{ margin-top:8px; background-color: white; overflow:hidden; }
 .order-submit-dl dl{ border-bottom: 1px solid #ececec; margin:0; padding-bottom:10px; overflow: hidden; }
@@ -116,11 +114,12 @@
 .order-submit-dl dd .desc{ float:left; width: 60%; margin:0 5%; }
 .order-submit-dl dd .desc p{ line-height: 20px; }
 .order-submit-dl .productName{ font-size: .5rem; color: #1d202f; }
-.order-submit-dl .productAlias, .order-submit-dl .productSize, .order-submit-dl .productDetail{ font-size: 1.2rem; color: #7b7b7b; }
-.order-submit-dl dd .priceNum{ float:right; }
-.order-submit-dl dd .priceNum b{ display: block; width:100%; text-align: right;}
+.order-submit-dl .productAlias, .order-submit-dl .productSize, .order-submit-dl .productDetail{ font-size: .4rem; color: #7b7b7b; }
+.order-submit-dl dd .priceNum{ float:right; color: #ff4800;}
+.order-submit-item dd  .priceNum i{ margin-right:5px; font-style: normal; font-size:.31rem; font-family:"Microsoft Yahei"; }
+.order-submit-dl dd .priceNum b{ display: block; width:100%; text-align: right; font-size: .75rem;  font-family: Arial;}
 .order-submit-dl dd .priceNum p{ width: 100%; margin-top:32px; background-color: #f9f6f2; overflow:hidden; }
-.order-submit-dl dd .priceNum span{ display: inline-block; font-size: 1.6rem; color: #1d202f; vertical-align:middle; }
+.order-submit-dl dd .priceNum span{ display: inline-block; font-size: .5rem; color: #1d202f; vertical-align:middle; }
 .order-submit-dl dd .priceNum .reduceBtn{ display: inline-block; width:25px; height:25px; background: url(../img/order/order-reduce.png) no-repeat; background-size: 25px; margin-right:0; vertical-align:text-bottom; }
 .order-submit-dl dd .priceNum .plusBtn{ display: inline-block; width:25px; height:25px; background: url(../img/order/order-plus.png) no-repeat; background-size: 25px; margin-right:0; vertical-align:text-bottom; }
 
@@ -130,16 +129,17 @@
 .order-submit-item .serviceTime div p{ display:inline-block; width:30%;}
 .order-submit-item .serviceTime div span{ display:inline-block; width:48%; }
 .order-submit-item .serviceTime input[type=checkbox]{ margin:0;}
-.order-submit-item .tipBox{ width:90%; margin:0 auto; }
+.order-submit-item .tipBox{ width:90%; margin:0 auto; overflow:hidden; }
 .order-submit-item .tipBox .tipIco{ display: inline-block; width:27px; height:31px; background: url(../img/order/tipIco.png) no-repeat; background-size: 27px 31px; }
 
 .commitBox{ width:100%; margin:0 auto; background-color: white; }
-.commitBox p{ width:90%; margin:0 auto; padding-top: 5%; font-size: 1.4rem; }
-.commitBox textarea{ display: block; width: 90%; margin:3% auto 0; height:6rem; border: none; background-color: #f9f6f2; padding:10px 13px; overflow: hidden; }
+.commitBox p{ width:90%; margin:0 auto; padding-top: 5%; font-size: .5rem; }
+.commitBox textarea{ display: block; width: 90%; margin:3% auto 0; height:1.875rem; border: none; background-color: #f9f6f2; padding:10px 13px; overflow: hidden; }
 .tipBox{ margin:5% auto; }
 .tipBox h3{ font-size: 1.4rem; text-indent: 1em;}
-.tipBox p{ color: #1d202f; }
-#orderSubmitForm .my_bth_radius1{ display: block; width: 90%; height:3rem; line-height:3rem; background: #d1ac51; color: #fff; font-size:1.4rem; border:none; margin:5% auto 0; padding:0; text-align: center; border-radius: 5px; position:relative; left:0;}
+.tipBox p{ color: #1d202f; margin-left: 20px; display: inline-block; float: left;}
+#orderSubmitForm .my_bth_radius1{ display: block; width: 90%; height:1.25rem; line-height:1.25rem; background: #d1ac51; color: #fff; font-size:1.4rem; border:none; margin:5% auto 0; padding:0; text-align: center; border-radius: 5px; position:relative; left:0;}
+.my_bth_radius1{ display: block; width: 90%; height:1.25rem; line-height:1.25rem; background: #d1ac51; color: #fff; font-size:.5rem; border:none; margin:20px auto; padding:0; text-align: center; border-radius: 5px;}
 
 /*order-details-item*/
 .order-details-item{ width: 90%; margin: 0 auto; padding: 10px 0; overflow: hidden; }

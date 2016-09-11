@@ -2,11 +2,11 @@
 .login-goback{ display: block; position: absolute; top:1%; left:5%; width:50px; height: 50px; background: url(../img/login/cha.png) no-repeat; background-size: 50px; text-indent:-9999em; }
 .loginlogo{ width: 125px; height:59px; background: url(../img/login/deng-logo.png) left center no-repeat; background-size: 125px 59px; margin: 0 auto; padding: 50% 0 0; }
 .loginform .in{ width: 90%; height: 128px; background: url(../img/login/bd.png) left center no-repeat; background-size: 100%; margin:0 auto;}
-.loginform .conform{ display:block; width:90%; height:3.5rem; line-height: 3.5rem; text-align: center; background-color: #d1ac51; color: #fff; font-size:1.6rem; border-radius: 5px; margin:3% auto; }
+.loginform .conform{ display:block; width:90%; height:1.56rem; line-height: 1.56rem; text-align: center; background-color: #d1ac51; color: #fff; font-size:.5rem; border-radius: 5px; margin:3% auto; }
 .div-phone, .div-ranks{ width: 86%; height:62px;  margin-left:50px; line-height: 62px; }
-.div-phone input, .div-ranks input{ display:inline-block; background-color: transparent; border:none; text-indent: 1em; font-size:1.6rem; margin:0; }
+.div-phone input, .div-ranks input{ display:inline-block; background-color: transparent; border:none; text-indent: 1em; font-size:.5rem; margin:0; }
 .div-conform{ margin:5% auto 0; }
-.send0, .send1{ display:block; position: absolute; top:15px; right:15px; background-color: #d3d3d3; padding:5px 8px; color: #fff; font-size: 1.4rem; border-radius: 5px; line-height: 25px;}
-.loginTip{ color: #655c77; text-align: center; margin:5% auto; font-size: 1.4rem; }
+.send0, .send1{ display:block; position: absolute; top:15px; right:15px; background-color: #d3d3d3; padding:5px 8px; color: #fff; font-size: .5rem; border-radius: 5px; line-height: 25px;}
+.loginTip{ color: #655c77; text-align: center; margin:5% auto; font-size: .5rem; }
 .loginTip a{ color: #fff; text-decoration: underline; }
 .loginDes{ color: #585e78; text-align: center; position: relative; top: 25%; }
