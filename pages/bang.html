@@ -1,3 +1,32 @@
+<link rel="stylesheet" href="css/mui.min.css" />
+<link rel="stylesheet" href="css/list.css" />
+<style type="text/css">
+.mui-segmented-control{ border:1px solid #d1ac51; border-radius: 15px; }
+.mui-segmented-control.mui-yellow-tab{ border:1px solid #d1ac51; border-radius:8px; }
+.mui-segmented-control .mui-control-item{ background-color: white; color:#d1ac51; border-color:#d1ac51; border-left:1px solid #d1ac51; line-height: .9rem; }
+.mui-segmented-control .mui-control-item.mui-active{ background-color: #1d202f !important; color:#d1ac51; text-decoration:none; }
+.mui-checkbox input[type=checkbox], .mui-radio input[type=radio] {
+    position: absolute;
+    top: 4px;
+    right: 20px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 0;
+    outline: 0!important;
+    background: url(../kuxi/img/list/gx-03.png) no-repeat;
+    background-size: 18px;
+    -webkit-appearance: none;
+}
+.mui-checkbox input[type=checkbox]:checked, .mui-radio input[type=radio]:checked {
+    width: 18px;
+    height: 18px;
+    background: url(../kuxi/img/list/gx.png) no-repeat;
+    background-size: 18px;
+}
+.mui-checkbox input[type=checkbox]:before{ content:''; }
+.mui-checkbox input[type=checkbox]:checked:before { content: ''; }
+</style>
 <div class="kuxi-page" ng-controller="bangCtrl">
 <header>
     <p>
@@ -41,12 +70,3 @@
       <!--list-ft end-->
 	</dl>
 </div>
-
-<script>
-$(function(){
-    //动态检测屏幕高度 start
-	var documentHeight = $(document).height();
-	$('.kuxi-page').css('height', documentHeight);
-    //动态检测屏幕高度 end
-});
-</script>

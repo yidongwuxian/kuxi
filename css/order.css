@@ -1,4 +1,4 @@
-/*order-item*/ 
+/*order-item*/
 .order-item{ width:100%; background-color: white; border-top: 1px solid #ececec; overflow: hidden; }
 .order-item li{ position:relative; padding:10px auto; border-bottom: 1px solid #ececec; overflow: hidden;}
 .order-item li img{ display: inline-block; float: left; width:51px; height:51px; margin:20px; }
@@ -115,7 +115,7 @@
 .order-submit-dl dd{ float: left; width:70%; margin-top: 10px; }
 .order-submit-dl dd .desc{ float:left; width: 60%; margin:0 5%; }
 .order-submit-dl dd .desc p{ line-height: 20px; }
-.order-submit-dl .productName{ font-size: 1.6rem; color: #1d202f; }
+.order-submit-dl .productName{ font-size: .5rem; color: #1d202f; }
 .order-submit-dl .productAlias, .order-submit-dl .productSize, .order-submit-dl .productDetail{ font-size: 1.2rem; color: #7b7b7b; }
 .order-submit-dl dd .priceNum{ float:right; }
 .order-submit-dl dd .priceNum b{ display: block; width:100%; text-align: right;}

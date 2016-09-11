@@ -1,24 +1,25 @@
-/*list-item*/ 
+/*list-item*/
 .list-item{ width:100%; background-color: white;  border-bottom: 1px solid  #dbdbdb; overflow: hidden; }
 .list-item dl{ float:left; width:50%; border-top: 1px solid  #dbdbdb; border-right: 1px solid  #dbdbdb; padding:10px 0 10px 10px; margin:0; min-height: 145px;}
 .list-item dl:nth-child(2n){ border-right:none; }
 .list-item dt a{ display:block; width:80px; height:80px; }
 .list-item dt img{ display:block; width:100%;  vertical-align: middle;}
-.list-item .details{ width:76px; }
-.list-item .details h3{ display:block; margin:10px 15px 10px 0; font-size:1.6rem; color:#1d202f; max-width: 71px;
+.list-item .details{ width:77px; }
+.list-item .details h3{ display:block; margin:10px 15px 10px 0; font-size:.5rem; color:#1d202f; max-width: 71px;
     max-height: 20px; line-height: 20px; overflow:hidden;}
-.list-item .details span{ display: block; font-weight:normal; font-family: "Microsoft YaHei"; font-size:1.6rem; color: #ff4800; margin-right:10px; }
-.list-item .details span b{ font-weight:normal; font-family: Arial; font-size:2rem; }
-.list-item dd{ margin-top: 10px; font-size: 1.2rem; color: #a3a3a3; }
+.list-item .details span{ display: block; font-weight:normal; color: #ff4800; margin-right:10px; }
+.list-item .details span i{ display: inline-block; font-style: normal; font-family: "Microsoft YaHei"; font-size:.31rem; }
+.list-item .details span b{ font-weight:normal; font-family: Arial; font-size:.75rem; }
+.list-item dd{ margin-top: 10px; font-size: .31rem; color: #a3a3a3; }
 .selecteBtn{ position: absolute; right:5px; bottom:5px; width:18px; height:18px; background: url(../img/list/gx-03.png) no-repeat; background-size: 18px; }
 .selecteBtn.cur{ position: absolute; right:5px; bottom:5px; width:18px; height:18px;  background: url(../img/list/gx.png) no-repeat; background-size: 18px; }
 
 /*底部结算*/
-.list-ft{ position: fixed; bottom:0; width: 100%; background-color: #e5e5e5; }
+.list-ft{ position: fixed; bottom:0; width: 100%; height:1.53rem; background-color: #e5e5e5; }
 .list-ft .tt{ display: inline-block; width:70%; padding:10px 10px 0; }
-.list-ft .tt p{ font-size: 1.3rem; color:#1d202f; text-align: right;}
-.list-ft .tt p b{ display:inline-block; font-size: 2rem; color: #ff4800; font-family: Arial;}
-.list-ft a{ display: inline-block; float: right; width:30%; line-height: 4.9rem; text-align: center; font-size: 1.6rem; background-color: #d1ac51; color:white; }
+.list-ft .tt p{ font-size: .4rem; color:#1d202f; text-align: right; margin:0; }
+.list-ft .tt p b{ display:inline-block; font-size: .5rem; color: #ff4800; font-family: Arial;}
+.list-ft a{ display: inline-block; float: right; width:30%; line-height: 1.53rem; text-align: center; font-size: .5rem; background-color: #d1ac51; color:white; }
 
 /*加减数量*/
 .yunBox{ clear: both; margin-top: 28px; }
@@ -46,7 +47,7 @@
 .tipBox{ margin:5% auto; }
 .tipBox h3{ font-size: 1.4rem; text-indent: 1em;}
 .tipBox p{ color: #1d202f; }
-.my_bth_radius1{ display: block; width: 90%; height:3rem; line-height:3rem; background: #d1ac51; color: #fff; font-size:1.4rem; border:none; margin:50px auto 0; padding:0; text-align: center; border-radius: 5px; position: fixed; bottom:5%;
+.my_bth_radius1{ display: block; width: 90%; height:3rem; line-height:3rem; background: #d1ac51; color: #fff; font-size:1.4rem; border:none; margin:20px auto; padding:0; text-align: center; border-radius: 5px; position: fixed; bottom:5%;
 left:6%;}
 
 /*选取衣服的弹窗*/
