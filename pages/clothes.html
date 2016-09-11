@@ -1,11 +1,30 @@
 <link rel="stylesheet" href="css/mui.min.css" />
-<link rel="stylesheet" href="css/mui.picker.css"  />
-<link rel="stylesheet" href="css/mui.poppicker.css"  />
-<link rel="stylesheet" href="css/app.css" />
 <style type="text/css">
-  .selected{
-    background-color: lightgreen;
-  }
+.mui-segmented-control{ border:1px solid #d1ac51; border-radius: 15px; }
+.mui-segmented-control.mui-yellow-tab{ border:1px solid #d1ac51; border-radius:8px; }
+.mui-segmented-control .mui-control-item{ background-color: white; color:#d1ac51; border-color:#d1ac51; border-left:1px solid #d1ac51; line-height: .9rem; }
+.mui-segmented-control .mui-control-item.mui-active{ background-color: #1d202f !important; color:#d1ac51; text-decoration:none; }
+.mui-checkbox input[type=checkbox], .mui-radio input[type=radio] {
+    position: absolute;
+    top: 4px;
+    right: 20px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 0;
+    outline: 0!important;
+    background: url(../kuxi/img/list/gx-03.png) no-repeat;
+    background-size: 18px;
+    -webkit-appearance: none;
+}
+.mui-checkbox input[type=checkbox]:checked, .mui-radio input[type=radio]:checked {
+    width: 18px;
+    height: 18px;
+    background: url(../kuxi/img/list/gx.png) no-repeat;
+    background-size: 18px;
+}
+.mui-checkbox input[type=checkbox]:before{ content:''; }
+.mui-checkbox input[type=checkbox]:checked:before { content: ''; }
 </style>
 <div class="kuxi-page" ng-controller="clothTabCtrl">
 <header>
@@ -16,26 +35,28 @@
     </p>
 </header>
 <div class="mui-content">
-    <div style="padding:10px">
-        <div class="mui-segmented-control">
-         <a ng-class="$index==0?'mui-control-item mui-active':'mui-control-item'" ng-href="#category_{{category.GOODS_CATEGORY_ID}}" ng-repeat="category in categoryList">{{category.GOODS_CATEGORY_NAME}}</a>
-    	</div>
-    </div>
-    <div>
-      <div ng-class="$index==0 ?'mui-control-content list-item mui-active':'mui-control-content list-item'" id="category_{{category.GOODS_CATEGORY_ID}}" ng-repeat="category in categoryList">
-            <dl ng-repeat="item in result[category.GOODS_CATEGORY_ID]">
-      			  <dt class="ow">
-      				  <a class="fl"><img lazy-src="{{item.GOODS_IMG_URL}}" /></a>
-      				  <div class="fr details">
-      					  <h3>{{item.GOODS_NAME}}</h3>
-      					  <span><b class="goodsPrice">{{item.GOODS_PRICE | currency:  "￥" }}</b></span>
-      				  </div>
-      			  </dt>
-      			  <dd>{{item.GOODS_MARK}}</dd>
-              <div class="mui-checkbox" style="padding-left:15px;">
-                <label><input type="checkbox" ng-click="selectItem($event,item.GOODS_PRICE, item.GOODS_ID,category.GOODS_CATEGORY_ID)" ng-attr-categoryid="{{item.GOODS_ID}}" ng-attr-categoryid="{{item.GOODS_CATEGORY_ID}}" ng-attr-goodsprice="{{item.GOODS_PRICE}}"></label>
-              </div>
-            </dl>
+    <div class="in">
+        <div style="padding:10px">
+            <div class="mui-segmented-control">
+             <a ng-class="$index==0?'mui-control-item mui-active':'mui-control-item'" ng-href="#category_{{category.GOODS_CATEGORY_ID}}" ng-repeat="category in categoryList">{{category.GOODS_CATEGORY_NAME}}</a>
+        	</div>
+        </div>
+        <div>
+          <div ng-class="$index==0 ?'mui-control-content list-item mui-active':'mui-control-content list-item'" id="category_{{category.GOODS_CATEGORY_ID}}" ng-repeat="category in categoryList">
+                <dl ng-repeat="item in result[category.GOODS_CATEGORY_ID]">
+          			  <dt class="ow">
+          				  <a class="fl"><img lazy-src="{{item.GOODS_IMG_URL}}" /></a>
+          				  <div class="fr details">
+          					  <h3>{{item.GOODS_NAME}}</h3>
+          					  <span><i>￥</i><b class="goodsPrice">{{item.GOODS_PRICE}}</b></span>
+          				  </div>
+          			  </dt>
+          			  <dd>{{item.GOODS_MARK}}</dd>
+                  <div class="mui-checkbox" style="padding-left:15px;">
+                    <label><input type="checkbox" ng-click="selectItem($event,item.GOODS_PRICE, item.GOODS_ID,category.GOODS_CATEGORY_ID)" ng-attr-categoryid="{{item.GOODS_ID}}" ng-attr-categoryid="{{item.GOODS_CATEGORY_ID}}" ng-attr-goodsprice="{{item.GOODS_PRICE}}"></label>
+                  </div>
+                </dl>
+            </div>
         </div>
     </div>
     <!--list-ft start-->
@@ -52,12 +73,5 @@
 <script>
 mui.init({
 	swipeBack:true //启用右滑关闭功能
-});
-$(function(){
-    //动态检测屏幕高度 start
-	var documentHeight = $(document).height();
-	$('.kuxi-page').css('height', documentHeight);
-    //动态检测屏幕高度 end
-
 });
 </script>

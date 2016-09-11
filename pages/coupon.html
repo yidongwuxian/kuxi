@@ -6,34 +6,38 @@
 			<a class="serviceDes" href="javascript:;" ng-click="couponAgLnk()">优惠券须知</a>
         </p>
     </header>
-	<div class="bd-fleshcolor">
-		<form class="pr couponSelection">
-			<label>兑换码:</label>
-			<input type="text" class="tx" placeholder="请您输入兑换码" value="" ng-model="couponCode" />
-			<input type="button" class="searchBtn" value="兑换" id="couponBtn" ng-click="submitCouponCode()" />
-		</form>
-		<ul class=" bd-whitecolor">
-			<li class="couponBox pr" ng-repeat="item in items" ng-if="item.IS_USED ==0">
-				<div class="tt">
-					<p><i>￥</i><b>{{item.FACE_VALUE}}</b>元<strong>优惠券</strong></p>
-					<span class="tip">{{item.SHOW_WORDS}}</span>
-				</div>
-				<div class="cn">
-					<p>适用范围：{{item.GOODS_TYPE_NAME}}</p>
-					<p>有效期至：{{item.COUPON_CLOSE | date:'YYYY-MM-dd'}}</p>
-				</div>
-			</li>
-			<li class="couponBox1 pr" ng-repeat="item in items" ng-if="item.IS_USED == 1 ">
-				<div class="tt">
-					<p><i>￥</i><b>{{item.FACE_VALUE}}</b>元<strong>优惠券</strong></p>
-					<span class="tip">{{item.SHOW_WORDS}}</span>
-				</div>
-				<div class="cn">
-					<p>适用范围：{{item.GOODS_TYPE_NAME}}</p>
-					<p>有效期至：{{item.COUPON_CLOSE | date:'YYYY-MM-dd'}}</p>
-				</div>
-			</li>
-		</ul>
+	<div class="in1">
+		<div class="coupon">
+			<form class="pr couponSelection">
+				<label>兑换码:</label>
+				<input type="text" class="tx" placeholder="请您输入兑换码" value="" ng-model="couponCode" />
+				<input type="button" class="searchBtn" value="兑换" id="couponBtn" ng-click="submitCouponCode()" />
+			</form>
+			<div class="bd-fleshcolor"></div>
+			<ul class="bd-whitecolor">
+				<li class="couponBox pr" ng-repeat="item in items" ng-if="item.IS_USED ==0">
+					<div class="tt">
+						<p><i>￥</i><b>{{item.FACE_VALUE}}</b>元<strong>优惠券</strong></p>
+						<span class="tip">{{item.SHOW_WORDS}}</span>
+					</div>
+					<div class="cn">
+						<p>适用范围：{{item.GOODS_TYPE_NAME}}</p>
+						<p>有效期至：{{item.COUPON_CLOSE | date:'YYYY-MM-dd'}}</p>
+					</div>
+				</li>
+				<li class="couponBox1 pr" ng-repeat="item in items" ng-if="item.IS_USED == 1 ">
+					<div class="tt">
+						<p><i>￥</i><b>{{item.FACE_VALUE}}</b>元<strong>优惠券</strong></p>
+						<span class="tip">{{item.SHOW_WORDS}}</span>
+					</div>
+					<div class="cn">
+						<p>适用范围：{{item.GOODS_TYPE_NAME}}</p>
+						<p>有效期至：{{item.COUPON_CLOSE | date:'YYYY-MM-dd'}}</p>
+					</div>
+				</li>
+			</ul>
+			<div class="couponTip bd-whitecolor" ng-if="item.IS_USED ==0">没有更多优惠券了，查看更多优惠券</div>
+	</div>
 	</div>
 </div>
 <!-- 模态框（Modal） -->

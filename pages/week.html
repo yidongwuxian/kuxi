@@ -1,83 +1,89 @@
 <link rel="stylesheet" href="css/mui.min.css" />
-<link rel="stylesheet" href="css/app.css" />
-<div class="kuxi-page" ng-controller="weekCtrl">
+<style type="text/css">
+.mui-segmented-control.mui-yellow-tab{ width:2.81rem; float: left; border-radius: 0; position: relative; top: 0; bottom: 0; min-height: 400px; border:none; background-color: #faf6f3; }
+.mui-segmented-control .mui-control-item{ color:#d1ac51; display: block; width: 100%; border-color: #eee; border-bottom: 1px solid #eee; border-left: none; }
+.mui-segmented-control .mui-control-item.mui-active{ background-color: #d1ac51; color:#fff; text-decoration:none; }
+</style>
+<div class="kuxi-page bd-whitecolor" ng-controller="weekCtrl">
 <header>
     <p>
         <s class="back" onclick="history.go(-1);"></s>
 		库洗周周洗
     </p>
 </header>
-<div class="week-banner">
-	<img src="img/week/banner.png" />
-</div>
-<div class="mui-content">
-    <div class="weekBox">
-        <div class="week-tab mui-segmented-control">
-    		<a ng-repeat="list in lists" ng-if="list.GOODS_TYPE_ID ==7"  href="#item1" class="mui-control-item mui-active">{{list.GOODS_TYPE_NAME}}</a>
-            <a ng-repeat="list in lists" ng-if="list.GOODS_TYPE_ID ==11" href="#item2" class="mui-control-item">{{list.GOODS_TYPE_NAME}}</a>
-            <a ng-repeat="list in lists" ng-if="list.GOODS_TYPE_ID ==12" href="#item3" class="mui-control-item">{{list.GOODS_TYPE_NAME}}</a>
-    	</div>
+<div class="in">
+        <div class="week-banner">
+        	<img src="img/week/banner.png" />
+        </div>
+        <div class="mui-content">
+            <div class="weekBox">
+                <div class="week-tab mui-segmented-control mui-yellow-tab">
+            		<a ng-repeat="list in lists" ng-if="list.GOODS_TYPE_ID ==7"  href="#item1" class="mui-control-item mui-active">{{list.GOODS_TYPE_NAME}}</a>
+                    <a ng-repeat="list in lists" ng-if="list.GOODS_TYPE_ID ==11" href="#item2" class="mui-control-item">{{list.GOODS_TYPE_NAME}}</a>
+                    <a ng-repeat="list in lists" ng-if="list.GOODS_TYPE_ID ==12" href="#item3" class="mui-control-item">{{list.GOODS_TYPE_NAME}}</a>
+            	</div>
+                <div>
+                    <div id="item1" class="mui-control-content week-list-item mui-active">
+                         <dl ng-repeat="cloth in cloths">
+                           <dt>
+                        	   <a class="fl"><img lazy-src="{{cloth.GOODS_IMG_URL}}" /></a>
+                        	   <div class="fl details">
+                        		   <h3>{{cloth.GOODS_NAME}}</h3>
+                        		   <strong class="fr">￥<b>{{cloth.GOODS_PRICE | number:2 }}</b></strong>
+                        		   <p>
+                        			   <span>{{cloth.GOODS_DESC}}</span>
+                        			   <span>支付立减{{cloth.DEDUCTION}}元</span>
+                        		   </p>
+                        	   </div>
+                           </dt>
+                           <dd>{{cloth.GOODS_MARK}}</dd>
+                         </dl>
+                    </div>
+                    <div id="item2" class="mui-control-content week-list-item">
+                         <dl ng-repeat="home in homes">
+                           <dt>
+                        	   <a class="fl"><img lazy-src="{{home.GOODS_IMG_URL}}" /></a>
+                        	   <div class="fl details">
+                                   <h3>{{home.GOODS_NAME}}</h3>
+                        		   <strong class="fr">￥<b>{{home.GOODS_PRICE | number:2 }}</b></strong>
+                        		   <p>
+                        			   <span>{{home.GOODS_DESC}}</span>
+                        			   <span>支付立减{{home.DEDUCTION}}元</span>
+                        		   </p>
+                        	   </div>
+                           </dt>
+                           <dd>{{home.GOODS_MARK}}</dd>
+                         </dl>
+                    </div>
+                    <div id="item3" class="mui-control-content week-list-item">
+                         <dl ng-repeat="car in cars">
+                           <dt>
+                        	   <a class="fl"><img lazy-src="{{car.GOODS_IMG_URL}}" /></a>
+                        	   <div class="fl details">
+                                   <h3>{{car.GOODS_NAME}}</h3>
+                        		   <strong class="fr">￥<b>{{car.GOODS_PRICE | number:2 }}</b></strong>
+                        		   <p>
+                        			   <span>{{car.GOODS_DESC}}</span>
+                        			   <span>支付立减{{car.DEDUCTION}}元</span>
+                        		   </p>
+                        	   </div>
+                           </dt>
+                           <dd>{{car.GOODS_MARK}}</dd>
+                         </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--list-ft start-->
+        <div class="list-ft">
+        	<div class="tt">
+        		<p>您已选择衣物数量：3件</p>
+        		<p>需支付： <b>45元</b></p>
+        	</div>
+        	<a>点击确认</a>
+        </div>
+        <!--list-ft end-->
     </div>
-    <div>
-        <div id="item1" class="mui-control-content week-list-item mui-active">
-             <dl ng-repeat="cloth in cloths">
-               <dt>
-            	   <a class="fl"><img lazy-src="{{cloth.GOODS_IMG_URL}}" /></a>
-            	   <div class="fl details">
-            		   <h3>{{cloth.GOODS_NAME}}</h3>
-            		   <strong class="fr">￥<b>{{cloth.GOODS_PRICE | number:2 }}</b></strong>
-            		   <p>
-            			   <span>{{cloth.GOODS_DESC}}</span>
-            			   <span>支付立减{{cloth.DEDUCTION}}元</span>
-            		   </p>
-            	   </div>
-               </dt>
-               <dd>{{cloth.GOODS_MARK}}</dd>
-             </dl>
-        </div>
-        <div id="item2" class="mui-control-content week-list-item">
-             <dl ng-repeat="home in homes">
-               <dt>
-            	   <a class="fl"><img lazy-src="{{home.GOODS_IMG_URL}}" /></a>
-            	   <div class="fl details">
-                       <h3>{{home.GOODS_NAME}}</h3>
-            		   <strong class="fr">￥<b>{{home.GOODS_PRICE | number:2 }}</b></strong>
-            		   <p>
-            			   <span>{{home.GOODS_DESC}}</span>
-            			   <span>支付立减{{home.DEDUCTION}}元</span>
-            		   </p>
-            	   </div>
-               </dt>
-               <dd>{{home.GOODS_MARK}}</dd>
-             </dl>
-        </div>
-        <div id="item3" class="mui-control-content week-list-item">
-             <dl ng-repeat="car in cars">
-               <dt>
-            	   <a class="fl"><img lazy-src="{{car.GOODS_IMG_URL}}" /></a>
-            	   <div class="fl details">
-                       <h3>{{car.GOODS_NAME}}</h3>
-            		   <strong class="fr">￥<b>{{car.GOODS_PRICE | number:2 }}</b></strong>
-            		   <p>
-            			   <span>{{car.GOODS_DESC}}</span>
-            			   <span>支付立减{{car.DEDUCTION}}元</span>
-            		   </p>
-            	   </div>
-               </dt>
-               <dd>{{car.GOODS_MARK}}</dd>
-             </dl>
-        </div>
-    </div>
-</div>
-<!--list-ft start-->
-<div class="list-ft">
-	<div class="tt">
-		<p>您已选择衣物数量：3件</p>
-		<p>需支付： <b>45元</b></p>
-	</div>
-	<a>点击确认</a>
-</div>
-<!--list-ft end-->
 </div>
 <script type="text/javascript" src="js/mui.min.js"></script>
 <script>

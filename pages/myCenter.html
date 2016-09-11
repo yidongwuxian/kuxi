@@ -4,7 +4,9 @@
             <s class="back" onclick="history.go(-1);"></s>
         </p>
     </header>
-	<div class="user-hd">
+    <!--in start-->
+    <div class="in">
+	   <div class="user-hd">
 		<div class="user-nav">
 			<div class="user-icon"><img class="user-icon-pic" src="img/userCenter/touxiang.png" /></div>
 			<h3 class="user-tx" ng-model="user.USERNAME">{{data.USERNAME}}</h3>
@@ -23,7 +25,7 @@
 				</li>
 				<li>
 					<div>
-						<p ng-model="data.FACE_VALUE"><span>￥</span>{{data.FACE_VALUE}}</p>
+						<p ng-model="data.FACE_VALUE"><span>￥</span>{{data.FACE_VALUE }}</p>
 						<p>获得优惠券金额</p>
 					</div>
 				</li>
@@ -31,7 +33,7 @@
 		</div>
 
 	</div>
-	<div class="user-item">
+	   <div class="user-item">
 		<ul>
 			<li class="first-item">
 				<a ui-sref="myOrder">我的订单</a>
@@ -59,6 +61,7 @@
 			</li>
 		</ul>
 	</div>
+    </div>
 </div>
 <!--ft start-->
 <div class="ft" >
@@ -82,9 +85,3 @@
     </dl>
 </div>
 <!--ft end-->
-<script>
-$(function(){
-	var documentHeight = $(document).height();
-	$('.kuxi-page').css('height', documentHeight);
-});
-</script>

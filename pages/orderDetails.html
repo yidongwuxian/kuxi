@@ -1,55 +1,58 @@
-	<div class="kuxi-page">
-		<!--header start-->
-		<header>
-            <p class="addressSelection">
-                <s class="back" onclick="history.go(-1);"></s>
-				我的订单
-            </p>
-        </header>
-		<!--header end-->
-		<div class="order-details-item">
-			<dl>
-				<dt>
-					<img src="img/userCenter/touxiang.png" />
-				</dt>
-				<dd>
-					<p><span>管家姓名:</span>王五</p>
-					<p><span>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</span>1736</p>
-					<p><span>管家电话:</span>18633230625</p>
-				</dd>
-			</dl>
-		</div>
-		<div class="line-fleshcolor"></div>
-		<div class="order-details-item">
-			<p><span>客户姓名:</span>张三</p>
-			<p><span>客户电话:</span>18633230625</p>
-			<p><span>客户地址:</span><b>北京市丰台区南四环西路188号总部基地一区19号楼六层</b></p>
-		</div>
-		<div class="line-fleshcolor"></div>
-		<div class="order-details-item">
-			<p><span>订单编号:</span>64737399</p>
-			<p><span>订单类型:</span>奢饰品护理</p>
-			<p><span>下单时间:</span>2015/09/02</p>
-			<p><span>服务时间:</span>2015/09/02/12:00</p>
-		</div>
-		<div class="line-fleshcolor"></div>
-		<div class="order-details-item">
-			<p><span>订单金额:</span>18元</p>
-			<p><span>实付:</span>18元</p>
-			<p><span>优惠方式:</span>无</p>
-			<p><span>支付方式:</span>微信支付</p>
-		</div>
-		<div class="line-fleshcolor"></div>
-		<div class="order-details-item w100" id="myTab" ng-app="myApp" ng-controller="orderDetailsTabCtrl">
-			<ul class="nav nav-tabs">
-				<li ng-repeat="tab in myTab"
- 				   ng-class="{active:isActiveTab(tab.url)}"
- 				   ng-click="onClickTab(tab)">{{tab.title}}</li>
-			</ul>
-			<div id="mainView">
-				<div ng-include="currentTab"></div>
+<div class="kuxi-page" ng-controller="orderDetailCtrl">
+	<!--header start-->
+	<header>
+		<p class="addressSelection">
+			<s class="back" onclick="history.go(-1);"></s>
+			我的订单
+		</p>
+	</header>
+	<!--header end-->
+	<div class="order-details-item">
+		<dl ng-repeat="guanjia in guanjiainfo">
+			<dt>
+				<img ng-src="{{guanjia.GOODS_IMG_URL}}" />
+			</dt>
+			<dd>
+				<p><span>管家姓名:</span>{{guanjia.NAME}}</p>
+				<p><span>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</span>1736</p>
+				<p><span>管家电话:</span>{{guanjia.PHONE}}</p>
+			</dd>
+		</dl>
+	</div>
+	<div class="line-fleshcolor"></div>
+	<div class="order-details-item" ng-repeat="orderinfo in orderinfos">
+		<p><span>客户姓名:</span>{{orderinfo.MEMBER_ADDRESS_CONSIGNEE}}</p>
+		<p><span>客户电话:</span>{{orderinfo.MEMBER_ADDRESS_TELEPHONE}}</p>
+		<p><span>客户地址:</span><b>{{orderinfo.MEMBER_ADDRESS_INFO_2}}</b></p>
+	</div>
+	<div class="line-fleshcolor"></div>
+	<div class="order-details-item" ng-repeat="orderinfo in orderinfos">
+		<p><span>订单编号:</span>{{orderinfo.ORDER_NO}}</p>
+		<p><span>订单类型:</span>{{orderinfo.GOODS_TYPE_NAME}}</p>
+		<p><span>下单时间:</span>{{orderinfo.ORDER_TIME | date:'yyyy/MM/dd'}}</p>
+		<p><span>服务时间:</span>{orderinfo.SHOULAN_TIME | date:'yyyy/MM/dd HH:mm'}}</p>
+	</div>
+	<div class="line-fleshcolor"></div>
+	<div class="order-details-item" ng-repeat="orderitem in orderitems">
+		<p><span>订单金额:</span>{{orderitem.GOODS_PRICE}}元</p>
+		<p><span>实付:</span>{{orderitem.ORDER_PAY_PRICE}}元</p>
+		<p><span>优惠方式:</span>无</p>
+		<p><span>支付方式:</span>
+			<b ng-if="orderinfos.PAY_TYPE == 1">支付宝支付</b>
+			<b ng-if="orderinfos.PAY_TYPE == 2">微信支付</b>
+			<b ng-if="orderinfos.PAY_TYPE == 3">余额支付</b>
+		</p>
+	</div>
+	<div class="line-fleshcolor"></div>
+	<div class="mui-content">
+		<div style="padding:10px">
+			<div class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#item1">订单状态</a>
+					<a class="mui-control-item" href="#item2">衣物详情</a>
 			</div>
-			<script type="text/ng-template" id="orderStatus.tpl">
+		</div>
+		<div>
+			<div id="item1" class="mui-control-content list-item mui-active">
 				<div class="order-submit-dl2">
 					<dl>
 						<dt class="fl">
@@ -108,8 +111,8 @@
 						</li>
 					</ol>
 				</div>
-			</script>
-			<script type="text/ng-template" id="clothDetails.tpl">
+			</div>
+			<div id="item2" class="mui-control-content list-item">
 				<div class="order-submit-dl2">
 					<dl>
 						<dt class="fl">
@@ -168,12 +171,13 @@
 						</li>
 					</ol>
 				</div>
-			</script>
+			</div>
 		</div>
 	</div>
-	<script>
-	$(function(){
-		var documentHeight = $(document).height();
-		$('.kuxi-page').css('height', documentHeight);
-	});
-	</script>
+</div>
+<script>
+$(function(){
+	var documentHeight = $(document).height();
+	$('.kuxi-page').css('height', documentHeight);
+});
+</script>

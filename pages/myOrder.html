@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="css/mui.min.css" />
-<link rel="stylesheet" href="css/app.css" />
+<style>
+.mui-segmented-control.mui-yellow-tab{ border:1px solid #d1ac51; border-radius:8px; }
+.mui-segmented-control .mui-control-item{ background-color: white; color:#d1ac51; border-color:#d1ac51; border-left:1px solid #d1ac51; line-height: .9rem; }
+.mui-segmented-control .mui-control-item.mui-active{ background-color: #1d202f !important; color:#d1ac51; text-decoration:none; }
+</style>
 	<div class="kuxi-page" ng-controller="orderCtrl">
 		<!--header start-->
 		<header>
@@ -9,87 +13,91 @@
             </p>
         </header>
 		<!--header end-->
-		<div class="mui-content">
-		    <div style="padding:10px">
-		        <div class="mui-segmented-control">
-		    			<a class="mui-control-item mui-active" href="#item1">待支付</a>
-		    			<a class="mui-control-item" href="#item2">服务中</a>
-						<a class="mui-control-item" href="#item3">已完成</a>
-		    	</div>
-		    </div>
-		    <div>
-			    <div id="item1" class="mui-control-content list-item mui-active">
-					<div class="order-item">
-						<ul>
-							<li ng-repeat="topaid in topaids">
-								<a>
-									<img class="fl" ng-src="{{topaid.SERVICE_IMG_URL}}" />
-									<div class="details">
-									   <p>订单编号：<span>{{topaid.ORDER_NO}}</span></p>
-									   <p>订单状态：<b>未支付</b></p>
-									   <p>
-										  订单类型：<span ng-if="topaid.GOODS_TYPE_ID == 7  ">精致洗衣</span>
-										   <span ng-if="topaid.GOODS_TYPE_ID == 10 ">精致鞋护</span>
-										   <span ng-if="topaid.GOODS_TYPE_ID == 11 ">家庭洗涤</span>
-										   <span ng-if="topaid.GOODS_TYPE_ID == 12 ">车饰清洗</span>
-										   <span ng-if="topaid.GOODS_TYPE_ID == 13 ">衣物清洗</span>
-										   <span ng-if="topaid.GOODS_TYPE_ID == 14 ">周周洗</span>
-									   </p>
-									   <p>下单时间：<span>{{topaid.ORDER_TIME | date: 'yyyy/MM/dd' }}</span></p>
-									   <p>管家：   <span>{{topaid.guanjiainfo}}</span></p>
-								   </div>
-								</a>
-							</li>
-						</ul>
-					 </div>
-				</div>
-				<div id="item2" class="mui-control-content list-item">
-					<div class="order-item">
-						<ul>
-							<li ng-repeat="payment in paymenting">
-								<a>
-									<img class="fl" ng-src="{{payment.SERVICE_IMG_URL}}"  />
-									<div class="details">
-									   <p>订单编号：<span>{{payment.ORDER_NO}}</span></p>
-									   <p>订单状态：<b>{{payment.ORDER_STATUS}}</b></p>
-									   订单类型：
-									    <span ng-if="payment.GOODS_TYPE_ID == 7  ">精致洗衣</span>
-										<span ng-if="payment.GOODS_TYPE_ID == 10 ">精致鞋护</span>
-										<span ng-if="payment.GOODS_TYPE_ID == 11 ">家庭洗涤</span>
-										<span ng-if="payment.GOODS_TYPE_ID == 12 ">车饰清洗</span>
-										<span ng-if="payment.GOODS_TYPE_ID == 13 ">衣物清洗</span>
-										<span ng-if="payment.GOODS_TYPE_ID == 14 ">周周洗</span>
-									   <p>下单时间：<span>{{payment.ORDER_TIME | date: 'yyyy/MM/dd' }}</span></p>
-									   <p><span>管家：</span>{{payment.guanjiainfo}}</p>
-								   </div>
-								</a>
-							</li>
-						</ul>
+		<div class="in">
+			<div class="mui-content">
+			    <div style="padding:10px">
+			        <div class="mui-segmented-control mui-yellow-tab">
+			    			<a class="mui-control-item mui-active" href="#item1">待支付</a>
+			    			<a class="mui-control-item" href="#item2">服务中</a>
+							<a class="mui-control-item" href="#item3">已完成</a>
+			    	</div>
+			    </div>
+			    <div>
+				    <div id="item1" class="mui-control-content list-item mui-active">
+						<div class="order-item">
+							<ul>
+								<li ng-repeat="topaid in topaids">
+									<a href="javascript:;" ng-click="goOrderDetails()">
+										<img class="fl" ng-src="{{topaid.SERVICE_IMG_URL}}" />
+										<div class="details">
+										   <p>订单编号：<span>{{topaid.ORDER_NO}}</span></p>
+										   <p>订单状态：<b>未支付</b></p>
+										   <p>
+											  订单类型：<span ng-if="topaid.GOODS_TYPE_ID == 7  ">精致洗衣</span>
+											   <span ng-if="topaid.GOODS_TYPE_ID == 10 ">精致鞋护</span>
+											   <span ng-if="topaid.GOODS_TYPE_ID == 11 ">家庭洗涤</span>
+											   <span ng-if="topaid.GOODS_TYPE_ID == 12 ">车饰清洗</span>
+											   <span ng-if="topaid.GOODS_TYPE_ID == 13 ">衣物清洗</span>
+											   <span ng-if="topaid.GOODS_TYPE_ID == 14 ">周周洗</span>
+										   </p>
+										   <p>下单时间：<span>{{topaid.ORDER_TIME | date: 'yyyy/MM/dd' }}</span></p>
+										   <p>管&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家：   <span>{{topaid.guanjiainfo}}</span></p>
+										   <input type="hidden" ng-bind="topaid.ORDER_ID" />
+									   </div>
+									</a>
+								</li>
+							</ul>
+						 </div>
 					</div>
-				</div>
-				<div id="item3" class="mui-control-content list-item">
-					<div class="order-item">
-						<ul>
-							<li ng-repeat="complete in completed">
-								<a>
-									<img class="fl" ng-src="{{complete.SERVICE_IMG_URL}}" />
-									<div class="details">
-									   <p>订单编号：<span>{{complete.ORDER_NO}}</span></p>
-									   <p>订单状态：<b>已签收/{{complete.IS_VALUATE}}</b></p>
-									   <p>下单时间：<span>{{complete.ORDER_TIME | date: 'yyyy/MM/dd' }}</span></p>
-									   <p>管家： <span>{{complete.guanjiainfo}}</span></p>
-								   </div>
-								</a>
-								<button ng-click="goCommit()">去评价</button>
-							</li>
-						</ul>
+					<div id="item2" class="mui-control-content list-item">
+						<div class="order-item">
+							<ul>
+								<li ng-repeat="payment in paymenting">
+									<a>
+										<img class="fl" ng-src="{{payment.SERVICE_IMG_URL}}"  />
+										<div class="details">
+										   <p>订单编号：<span>{{payment.ORDER_NO}}</span></p>
+										   <p>订单状态：<b>{{payment.ORDER_STATUS}}</b></p>
+										   <p>订单类型：
+										    <span ng-if="payment.GOODS_TYPE_ID == 7  ">精致洗衣</span>
+											<span ng-if="payment.GOODS_TYPE_ID == 10 ">精致鞋护</span>
+											<span ng-if="payment.GOODS_TYPE_ID == 11 ">家庭洗涤</span>
+											<span ng-if="payment.GOODS_TYPE_ID == 12 ">车饰清洗</span>
+											<span ng-if="payment.GOODS_TYPE_ID == 13 ">衣物清洗</span>
+											<span ng-if="payment.GOODS_TYPE_ID == 14 ">周周洗</span>
+										   </p>
+										   <p>下单时间：<span>{{payment.ORDER_TIME | date: 'yyyy/MM/dd' }}</span></p>
+										   <p>管&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家：<span>{{payment.guanjiainfo}}</span></p>
+									   </div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div id="item3" class="mui-control-content list-item">
+						<div class="order-item">
+							<ul>
+								<li ng-repeat="complete in completed">
+									<a>
+										<img class="fl" ng-src="{{complete.SERVICE_IMG_URL}}" />
+										<div class="details">
+										   <p>订单编号：<span>{{complete.ORDER_NO}}</span></p>
+										   <p>订单状态：<b>已签收/{{complete.IS_VALUATE}}</b></p>
+										   <p>下单时间：<span>{{complete.ORDER_TIME | date: 'yyyy/MM/dd' }}</span></p>
+										   <p>管&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家： <span>{{complete.guanjiainfo}}</span></p>
+									   </div>
+									</a>
+									<button ng-click="goCommit()">去评价</button>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!--activity-mask start-->
 		<!-- 模态框（Modal） -->
-		<div class="modal fade" id="activityModal" tabindex="-1" role="dialog" aria-labelledby="activityModalLabel" aria-hidden="true">
+		<div class="modal fade" id="activityModal" style="display:none;" tabindex="-1" role="dialog" aria-labelledby="activityModalLabel" aria-hidden="true">
 		   <div class="pr modal-dialog">
 		      <div class="modal-content">
 				  <p class="close" data-dismiss="modal" aria-hidden="true">&times;</p>

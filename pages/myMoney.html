@@ -6,17 +6,19 @@
 				我的钱包
             </p>
         </header>
-		<div class="guest-cn">
-    		<div class="bd">
-    			<div class="notice">
-		        	<div class="moneyIco"></div>
-					<p>账户</p>
-		        	<b>{{items.MEMBER_BALANCE}}</b>
-					<div id="rechargeBtn" class="my_bth1" data-toggle="modal" data-target="#rechargeModal"><span>充值</span></div>
-					<div class="my_bth2" ng-click="rechargeRecord()"><span>消费记录</span></div>
-		        </div>
-    		</div>
-        </div>
+		<div class="in">
+			<div class="guest-cn">
+				<div class="bd">
+					<div class="notice1">
+						<div class="moneyIco"></div>
+						<p>账户</p>
+						<b>{{items.MEMBER_BALANCE}}</b>
+						<div id="rechargeBtn" class="my_bth1" data-toggle="modal" data-target="#rechargeModal"><span>充值</span></div>
+						<div class="my_bth2" ng-click="rechargeRecord()"><span>消费记录</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- 模态框（Modal） -->
 	<div class="modal fade" id="rechargeModal" tabindex="-1" role="dialog" aria-labelledby="rechargeModalLabel" aria-hidden="true">

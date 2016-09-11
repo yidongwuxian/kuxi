@@ -6,16 +6,17 @@
 			<a class="serviceDes" href="/">编辑</a>
         </p>
     </header>
-	<div class="feedback-item1" ng-repeat="item in items">
-		<div>
-			<p class="cblack">系统信息：</p>
-			<p class="cgray">{{item.MESSAGE_CONTENT}}<span class="fr">{{item.ADD_TIME | date:'MM-dd'}}</span></p>
+	<div class="kuxi-page bd-whitecolor">
+		<div class="in2">
+			<div class="feedback-item1" ng-repeat="item in items">
+				<div>
+					<p class="cblack">系统信息：</p>
+					<p class="cgray">
+						<span class="fl">{{item.MESSAGE_CONTENT}}</span>
+						<span class="fr">{{item.ADD_TIME | date:'MM-dd'}}</span>
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
-<script>
-$(function(){
-	var documentHeight = $(document).height();
-	$('.kuxi-page').css('height', documentHeight);
-});
-</script>

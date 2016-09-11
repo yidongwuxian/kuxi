@@ -1,60 +1,62 @@
-<link rel="stylesheet" href="css/mui.min.css" />
-<link rel="stylesheet" href="css/app.css" />
-<script type="text/javascript" src="js/mui.min.js"></script>
 <div class="kuxi-page">
-    <div ui-view="hd"></div>
-    <div id="gallery" class="swipe" ng-controller="ads1Ctrl">
-        <div class="container slider" >
-            <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
-                 ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
-                 ng-hide="!isCurrentSlideIndex($index)" lazy-src="{{slide.PICTURE_URL}}">
-            <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
-            <a class="arrow next" href="#" ng-click="prevSlide()"></a>
-            <nav class="nav">
-                <div class="wrapper">
-                    <ul class="dots">
-                        <li class="dot" ng-repeat="slide in slides">
-                            <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
-                               ng-click="setCurrentSlideIndex($index);" ng-bind="slide.NAME"></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <div class="gallery-mask"></div>
-     </div>
-     <div class="floor-item"  ng-controller="floorCtrl">
-         <nav class="quick-entry-nav pr" >
-             <a class="quick-entry-link" ui-sref=".list({id:floor.GOODS_TYPE_ID})"  ng-repeat="floor in floors">
-                 <img lazy-src="{{floor.GOODS_IMG_URL}}" />
-                 <span ng-bind="floor.GOODS_TYPE_NAME"></span>
-             </a>
-             <a class="quick-entry-link" ui-sref="week"  ng-repeat="floor in floors" ng-if="floor.IS_WEEKLY ==2 && floor.GOODS_TYPE_STATUS == 1">
-                 <img lazy-src="{{floor.GOODS_IMG_URL}}" />
-                 <span ng-bind="floor.GOODS_TYPE_NAME"></span>
-             </a>
-             <a class="quick-entry-link" href="javascript:;"  ng-repeat="floor in floors" ng-if="floor.IS_WEEKLY ==1 && floor.GOODS_TYPE_STATUS == 1">
-                 <img lazy-src="{{floor.GOODS_IMG_URL}}" />
-                 <span ng-bind="floor.GOODS_TYPE_NAME"></span>
-             </a>
-         </nav>
-     </div>
-     <div class="floor-item m10">
-         <div class="headlines">
-             <span class="hdlines-tt"><img src="img/index/scrollTT.png" /></span>
-             <div class="hdlines-box" id="hdlinesBox" ng-controller="ads6Ctrl">
-                 <ul>
-                     <li ng-repeat="ad in ads6"><a href="#" ng-bind="ad.NAME"></a></li>
-                 </ul>
+     <div ui-view="hd"></div>
+     <!--in start-->
+     <div class="in">
+         <div id="gallery" class="swipe" ng-controller="ads1Ctrl">
+            <div class="container slider" >
+                <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
+                     ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+                     ng-hide="!isCurrentSlideIndex($index)" lazy-src="{{slide.PICTURE_URL}}">
+                <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
+                <a class="arrow next" href="#" ng-click="prevSlide()"></a>
+                <nav class="nav">
+                    <div class="wrapper">
+                        <ul class="dots">
+                            <li class="dot" ng-repeat="slide in slides">
+                                <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                                   ng-click="setCurrentSlideIndex($index);" ng-bind="slide.NAME"></a></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
+            <div class="gallery-mask"></div>
          </div>
-         <div class="module-con" ng-controller="ads7Ctrl">
-            <li ng-repeat="ad in ads7">
-                <a href="/">
-                    <img lazy-src="{{ad.PICTURE_URL}}" alt="" />
-                </a>
-            </li>
+         <div class="floor-item"  ng-controller="floorCtrl">
+             <nav class="quick-entry-nav pr" >
+                 <a class="quick-entry-link" ui-sref=".list({id:floor.GOODS_TYPE_ID})"  ng-repeat="floor in floors">
+                     <img lazy-src="{{floor.GOODS_IMG_URL}}" />
+                     <span ng-bind="floor.GOODS_TYPE_NAME"></span>
+                 </a>
+                 <a class="quick-entry-link" ui-sref="week"  ng-repeat="floor in floors" ng-if="floor.IS_WEEKLY ==2 && floor.GOODS_TYPE_STATUS == 1">
+                     <img lazy-src="{{floor.GOODS_IMG_URL}}" />
+                     <span ng-bind="floor.GOODS_TYPE_NAME"></span>
+                 </a>
+                 <a class="quick-entry-link" href="javascript:;"  ng-repeat="floor in floors" ng-if="floor.IS_WEEKLY ==1 && floor.GOODS_TYPE_STATUS == 1">
+                     <img lazy-src="{{floor.GOODS_IMG_URL}}" />
+                     <span ng-bind="floor.GOODS_TYPE_NAME"></span>
+                 </a>
+             </nav>
+         </div>
+         <div class="gray_in"></div>
+         <div class="floor-item">
+             <div class="headlines">
+                 <span class="hdlines-tt"><img src="img/index/scrollTT.png" /></span>
+                 <div class="hdlines-box" id="hdlinesBox" ng-controller="ads6Ctrl">
+                     <ul>
+                         <li ng-repeat="ad in ads6"><a href="#" ng-bind="ad.NAME"></a></li>
+                     </ul>
+                </div>
+             </div>
+             <div class="module-con" ng-controller="ads7Ctrl">
+                <li ng-repeat="ad in ads7">
+                    <a href="/">
+                        <img lazy-src="{{ad.PICTURE_URL}}" alt="" />
+                    </a>
+                </li>
+             </div>
          </div>
      </div>
+     <!--in end-->
 </div>
 <div ui-view="ft"></div>
 <div ui-view="download"></div>
@@ -94,15 +96,3 @@
     </div>
     <div ng-if="flag == false"></div>
 </div>
-<script>
-mui.init({
-	swipeBack:true //启用右滑关闭功能
-});
-
-$(function(){
-    //动态检测屏幕高度 start
-	var documentHeight = $(document).height();
-	$('.kuxi-page').css('height', documentHeight);
-    //动态检测屏幕高度 end
-});
-</script>
