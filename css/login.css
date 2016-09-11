@@ -1,4 +1,4 @@
-.bdblue{ background-color: #1d202f;}
+.bdblue{ background-color: #1d202f;} 
 .login-goback{ display: block; position: absolute; top:1%; left:5%; width:50px; height: 50px; background: url(../img/login/cha.png) no-repeat; background-size: 50px; text-indent:-9999em; }
 .loginlogo{ width: 125px; height:59px; background: url(../img/login/deng-logo.png) left center no-repeat; background-size: 125px 59px; margin: 0 auto; padding: 50% 0 0; }
 .loginform .in{ width: 90%; height: 128px; background: url(../img/login/bd.png) left center no-repeat; background-size: 100%; margin:0 auto;}

@@ -1,4 +1,4 @@
-/*顶部地区选择*/
+/*顶部地区选择*/  
 .regionSelection s{ display:inline-block; width:20px; height:20px; background: url(../img/common/wz.png) no-repeat; background-size: 20px 20px; position: absolute; left: 20%; top: 10px; }
 .regionSelection i{ display:inline-block; width:20px; height:10px; background: url(../img/index/wz1.png) no-repeat; background-size: 10px 5px; position: absolute; right: 20%; top: 16px; }
 .regionSelection span{ display:block; margin:0 auto; width:60%; max-width: 160px; height:30px; max-height:30px; overflow:hidden; }
