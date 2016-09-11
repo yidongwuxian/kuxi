@@ -1,18 +1,18 @@
-/*顶部地区选择*/  
+/*顶部地区选择*/
 .regionSelection s{ display:inline-block; width:20px; height:20px; background: url(../img/common/wz.png) no-repeat; background-size: 20px 20px; position: absolute; left: 20%; top: 10px; }
 .regionSelection i{ display:inline-block; width:20px; height:10px; background: url(../img/index/wz1.png) no-repeat; background-size: 10px 5px; position: absolute; right: 20%; top: 16px; }
-.regionSelection span{ display:block; margin:0 auto; width:60%; max-width: 160px; height:30px; max-height:30px; overflow:hidden; }
+.regionSelection span{ display:block; font-size: .5rem; margin:0 auto; width:60%; max-width: 160px; height:30px; max-height:30px; overflow:hidden; }
 /*城市弹层*/
 .city-container{ display:none;width:100%;min-height:800px;position:absolute;top:40px;left:0;background-color:#ffffff;z-index:9999;}
-.letter{width:4%;overflow:hidden;line-height:28px;font-size:16px;position:fixed;top:40px;right:10px;text-align:center;background-color: #e8e8ea; opacity: .5;}
+.letter{width:4%;overflow:hidden;line-height:28px;font-size:16px;position:fixed;top:50%;right:10px;text-align:center;background-color: #e8e8ea; opacity: .5;}
 .letter ul{list-style-type:none;}
 .letter ul li a{text-decoration:none;color: #d1ac51;}
 .city{width:100%;overflow:hidden;padding:20px 0;}
 .city-list{width:100%;overflow:hidden;}
-.city-list .city-letter{color:#6e6e6e;font-size:1.6rem;background-color: #e0e0e0; display:inline-block;width:100%;height:2.5rem;}
-.city-list .city-letter span{ font-size: 1.6rem; color: #444849; margin:0 10px; line-height: 2.5rem;}
+.city-list .city-letter{color:#6e6e6e;font-size:.5rem;background-color: #e0e0e0; display:inline-block;width:100%;height:1.45rem;}
+.city-list .city-letter span{ font-size: .5rem; color: #444849; margin:0 10px; line-height: 1.45rem;}
 .city-list .city-cn{ width:90%; border-left:1px solid #e5e5e5;  margin:0 auto; overflow:hidden; }
-.city-list .city-cn p{color:#a3a3a3;float:left;width:25%;height:50px;line-height:50px;text-align:center;border-bottom:1px solid #e5e5e5;border-right:1px solid #e5e5e5;cursor:pointer;}
+.city-list .city-cn p{color:#a3a3a3;float:left;width:25%;height:50px;line-height:50px;text-align:center;border-bottom:1px solid #e5e5e5;border-right:1px solid #e5e5e5;cursor:pointer; font-size: .46rem; overflow:hidden;}
 .UISelect{margin-top:5px}
 /*轮播图*/
 #gallery{clear:both; position:relative; margin:0 auto; width:100%; background: white; overflow:hidden; }
@@ -22,15 +22,16 @@
 #gallery slide img {display: inline-block; width:100%; vertical-align: bottom; }
 /*频道图标*/
 .floor-item { width: 100%; background: white; font-size: 100%; overflow: hidden; }
-.quick-entry-link{ width: 25%; float: left; font-size: 1.2rem; text-decoration: none; color: #d1ac51; text-align: center; display: block; padding-bottom: 10px; }
+.quick-entry-link{ width: 25%; float: left; text-decoration: none; color: #d1ac51; text-align: center; display: block; padding-bottom: 10px; }
 .quick-entry-link img { display: block; width: 40px; height: 40px; margin: 0 auto 6px auto; }
+.quick-entry-link span{ font-size: .34rem; }
 /*消息头条*/
-.headlines{ width:100%;  height:3.6rem; position: relative; border-top: 1px solid #dbdbdb; overflow:hidden; }
+.headlines{ width:100%;  height:1.125rem; position: relative; border-top: 1px solid #dbdbdb; overflow:hidden; }
 .hdlines-tt{ position: absolute; top:11px; left:20px;  width:159px; height:37px;}
 .hdlines-tt img{ display:block; max-width: 50%; max-height: 50%; vertical-align: bottom; }
 .hdlines-box{ width: 70%; float: right; margin-right: 10px; }
 .hdlines-box ul{ width:100%; height:195px; }
-.hdlines-box li{ width:100%; float:left; text-align:center; font-size:1.2rem; }
+.hdlines-box li{ width:100%; float:left; text-align:center; font-size:.34rem; }
 .hdlines-box li a{ display: block; height: 42px; line-height: 42px; text-indent: 20px; color: #b9b9b9; }
 /*module-con*/
 .module-con{ border-top: 1px solid #dbdbdb; }
