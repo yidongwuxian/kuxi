@@ -25,7 +25,7 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
           }
       })
       .state('main.list', {
-                url: '/list/:id',
+                url: '/list/:uid',
                 views: {
                       "hd@main": {
                           templateUrl: 'pages/list-hd.html'
@@ -154,19 +154,14 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 
       function getTemplateUrl($stateParams) {
           var page = "";
-          switch($stateParams.id){
+          switch($stateParams.uid){
                 case '7' :
-                     page = "clothes"; break;
                 case '8' :
-                      page = "";       break;
                 case '9' :
-                      page = "";       break;
                case '10' :
-                      page = "shoes";   break;
                case '11' :
-                      page = "home";   break;
                case '12' :
-                      page = "car";   break;
+                      page = "clothes";   break;
                case '13' :
                       page = "bang";   break;
           }

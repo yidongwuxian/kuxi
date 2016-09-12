@@ -77,22 +77,23 @@
 	<!--<script type="text/javascript" src="js/clothes.js"></script>-->
 	<script>
 	var app = angular.module("myApp", []);
-	var httpx = 'http://111.198.143.96:11211';
-        app.controller("clothTabCtrl", function($scope,$http) {
+        app.controller("clothTabCtrl", function($scope,DataGetterService,$http) {
         	$scope.totalPrice=0;
         	$scope.totalNum=0;
 			$scope.categoryList = [];
 			$scope.goodsList = {};
-        	var xurl = httpx + "/api/v2/goods_list?AREA_ID=23&REQ_TYPE=01&GOODS_TYPE_ID=7&callback=JSON_CALLBACK";
-        	$http.jsonp(xurl).success(
-			　　function(data){
+			DataGetterService.getData(function(data){
 				  $scope.result = data.result;
 				  $scope.categoryList = data.result.categoryList;
 				  for (var i = 0,ca; ca=$scope.categoryList[i++]; ) {
 				  		var key= ca.GOODS_CATEGORY_ID;
 				  		$scope.result[key].selectedStyle=false;
 				  };
-			　　}
+			　　},"/api/v2/goods_list?AREA_ID=23&REQ_TYPE=01&GOODS_TYPE_ID=7&callback=JSON_CALLBACK");
+        	var xurl = httpx + 
+
+        	$http.jsonp(xurl).success(
+			
 			);
 
 

@@ -1,7 +1,7 @@
 
 
 app.controller('clothTabCtrl', clothTabCtrl);
-function clothTabCtrl($scope, DataGetterService,$localStorage, Constants, $state) {
+function clothTabCtrl($scope, DataGetterService,$stateParams,$localStorage, Constants, $state) {
 
 	$scope.totalPrice=0;
 	$scope.totalNum=0;
@@ -69,7 +69,8 @@ function clothTabCtrl($scope, DataGetterService,$localStorage, Constants, $state
 	  		var key= ca.GOODS_CATEGORY_ID;
 	  		$scope.result[key].selectedStyle=false;
 	  	};
-	}, Constants.list_url);
+	}, '/api/v2/goods_list?&callback=JSON_CALLBACK'
+	,{AREA_ID:$localStorage.AREA_ID,GOODS_TYPE_ID:$stateParams.uid});
 
 	$scope.hobby = false;
 

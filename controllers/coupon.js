@@ -16,16 +16,14 @@ app.controller('couponCtrl', function($scope, $http, DataGetterService,$localSto
 	}
 
 	$scope.submitCoupon = function(){
-		$http.jsonp('http://111.198.143.96:11211/api/exchange_coupon.do?&callback=JSON_CALLBACK&&RECHARGE_CODE='+encodeURI($localStorage.couponCode)+ '&PASSWORD='+encodeURI($scope.couponVal) +'&USERNAME='+$localStorage.USERNAME +'&TOKEN='+$localStorage.TOKEN +'&REQ_TYPE=01').success(
-		　　function(data){
-				if(data.result){
-					$state.go("coupon", {}, { reload: true });
-				}else{
-					$localStorage.reset();
-					alert(data.resp_msg)
-				}
-		　　}
-		);
+		DataGetterService.getData(function(){
+			$state.go("coupon", {}, { reload: true });
+		},'/api/exchange_coupon?&callback=JSON_CALLBACK',{
+			RECHARGE_CODE:$localStorage.couponCode ,
+			PASSWORD: $scope.couponVal ,
+			USERNAME: $localStorage.USERNAME ,
+			TOKEN: $localStorage.TOKEN
+		});
 	}
 
 	//跳转到优惠券使用协议 start

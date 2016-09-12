@@ -25,7 +25,7 @@
          </div>
          <div class="floor-item"  ng-controller="floorCtrl">
              <nav class="quick-entry-nav pr" >
-                 <a class="quick-entry-link" ui-sref=".list({id:floor.GOODS_TYPE_ID})"  ng-repeat="floor in floors" ng-show="floor.GOODS_TYPE_ID>0">
+                 <a class="quick-entry-link" ui-sref=".list({uid:floor.GOODS_TYPE_ID})"  ng-repeat="floor in floors" ng-show="floor.GOODS_TYPE_ID>0">
                      <img lazy-src="{{floor.GOODS_IMG_URL}}" />
                      <span ng-bind="floor.GOODS_TYPE_NAME"></span>
                  </a>
