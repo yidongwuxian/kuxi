@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="css/list.css" />
 <style type="text/css">
 .mui-segmented-control.mui-yellow-tab{ width:2.81rem; float: left; border-radius: 0; position: relative; top: 0; bottom: 0; min-height: 400px; border:none; background-color: #faf6f3; }
-.mui-segmented-control .mui-control-item{ color:#d1ac51; display: block; width: 100%; border-color: #eee; border-bottom: 1px solid #eee; border-left: none; }
+.mui-segmented-control .mui-control-item{ color:#d1ac51; display: block; width: 100%; border-color: #eee; border-bottom: 1px solid #eee; border-left: none; text-overflow: initial !important; font-size: .46rem; color: #1d202f; }
 .mui-segmented-control .mui-control-item.mui-active{ background-color: #d1ac51; color:#fff; text-decoration:none; }
 </style>
 <div class="kuxi-page bd-whitecolor" ng-controller="weekCtrl">
@@ -30,7 +30,7 @@
                         	   <a class="fl"><img lazy-src="{{cloth.GOODS_IMG_URL}}" /></a>
                         	   <div class="fl details">
                         		   <h3>{{cloth.GOODS_NAME}}</h3>
-                        		   <strong class="fr">￥<b>{{cloth.GOODS_PRICE | number:2 }}</b></strong>
+                        		   <strong><i>￥</i><b>{{cloth.GOODS_PRICE | number:2 }}</b></strong>
                         		   <p>
                         			   <span>{{cloth.GOODS_DESC}}</span>
                         			   <span>支付立减{{cloth.DEDUCTION}}元</span>
@@ -46,7 +46,7 @@
                         	   <a class="fl"><img lazy-src="{{home.GOODS_IMG_URL}}" /></a>
                         	   <div class="fl details">
                                    <h3>{{home.GOODS_NAME}}</h3>
-                        		   <strong class="fr">￥<b>{{home.GOODS_PRICE | number:2 }}</b></strong>
+                        		   <strong><i>￥</i><b>{{home.GOODS_PRICE | number:2 }}</b></strong>
                         		   <p>
                         			   <span>{{home.GOODS_DESC}}</span>
                         			   <span>支付立减{{home.DEDUCTION}}元</span>
@@ -62,7 +62,7 @@
                         	   <a class="fl"><img lazy-src="{{car.GOODS_IMG_URL}}" /></a>
                         	   <div class="fl details">
                                    <h3>{{car.GOODS_NAME}}</h3>
-                        		   <strong class="fr">￥<b>{{car.GOODS_PRICE | number:2 }}</b></strong>
+                        		   <strong><i>￥</i><b>{{car.GOODS_PRICE | number:2 }}</b></strong>
                         		   <p>
                         			   <span>{{car.GOODS_DESC}}</span>
                         			   <span>支付立减{{car.DEDUCTION}}元</span>
