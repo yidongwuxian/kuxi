@@ -13,7 +13,7 @@ serviceApp.service('DataGetterService', function($localStorage, $http, Constants
 					}else if(data.resp_code == '500'){
 						alert(data.resp_msg);
 					} else {
-						call_back_param(data.result);	
+						call_back_param(data.result);
 					}
 			    });
 			}
