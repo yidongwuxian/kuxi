@@ -6,7 +6,7 @@
 .order-item li .details p{ margin:0; color: #1d202f; }
 .order-item li .details p span{ display: inline-block; font-size: .4rem; color:#7b7b7b;}
 .order-item li .details p b{ color:#ff4800; font-size: .4rem;}
-.order-item li button{ position: absolute; right:10px; top:11px; width:45px; height:18px; line-height: 18px; text-align: center; background-color: #d1ac51; color:#fff; font-size: 0.5rem; border-style: none; padding: 0;}
+.order-item li button{ position: absolute; right:10px; top:11px; width:45px; height:18px; line-height: 18px; text-align: center; background-color: #d1ac51; color:#fff; font-size: 0.3rem; border-style: none; padding: 0;}
 
 /*guest-cn*/
 .guest-cn { background-color: white; }

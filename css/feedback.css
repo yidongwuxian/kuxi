@@ -1,10 +1,10 @@
-.my_bth_radius{ display: block; width: 90%; height:3rem; line-height:3rem; background: #d1ac51; color: #fff; font-size:1.4rem; border:none; margin:50px auto 0; padding:0; text-align: center; border-radius: 5px; position: fixed; bottom:10%;
+.my_bth_radius{ display: block; width: 90%; height:1.25rem !important; line-height:1.25rem !important; background: #d1ac51 !important; color: #fff; font-size:.5rem; border:none !important; margin:0 auto; padding:0; text-align: center; border-radius: 5px; position: fixed; bottom:10%;
 left:6%;}
-.feedback-item{ width:100%; height:4rem; line-height: 4rem; margin:0 auto; border-bottom: 1px solid #e2e4e5; font-size: 1.4rem; }
+.feedback-item{ width:100%; height:1.56rem; line-height: 1.56rem; margin:0 auto; border-bottom: 1px solid #e2e4e5; font-size: .5rem; }
 .feedback-item span{ color:#444849; }
-.feedback-item span:first-child{ display: inline-block; max-width: 75%; max-height: 36px; margin-left:6%; overflow: hidden; }
-.feedback-item span:last-child{ display: inline-block; max-width: 25%; max-height: 36px; margin-right:6%; overflow: hidden; }
-.feedback-textarea{ width: 90%; height: 15rem; background-color: #f9f6f2; border: 2px solid #d1ac51; border-radius: 5px; overflow: hidden; margin: 20% auto; display: block; text-indent: 0.5rem; padding: 7px; font-size:1.4rem;}
+.feedback-item span:first-child{ display: inline-block; max-width: 75%;  margin-left:6%; overflow: hidden; }
+.feedback-item span:last-child{ display: inline-block; max-width: 25%;   margin-right:6%; overflow: hidden; }
+.feedback-textarea{ width: 90%; height: 5.4rem; background-color: #f9f6f2; border: 2px solid #d1ac51; border-radius: 5px; overflow: hidden; margin: 20% auto; display: block; text-indent: 0.3rem; padding: 10px; font-size:.5rem;}
 .feedback-item1{ width:100%; margin:0 auto; border-bottom: 1px solid #e2e4e5; }
 .feedback-item1 div{ width:90%; margin:20px auto; overflow: hidden; }
 .feedback-item1 div p{ font-size: .5rem; }
