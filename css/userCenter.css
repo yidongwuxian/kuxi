@@ -1,16 +1,20 @@
 /*头部*/
-.ScanBtn{ position: absolute; right:15px; font-size: 1.6rem; color: #d1ac51;}
+.ScanBtn{ position: absolute; right:15px; font-size: .5rem; color: #d1ac51;}
 /*exclusive-item*/
 .no-nav-tab{ width:100%; border:none; margin:0 auto; border-bottom: 1px solid  #dbdbdb;  }
 .no-nav-tab p{ text-align: left; width:80%; margin:0 auto; }
 .exclusive-item{ width:100%; background-color: white; overflow: hidden; }
 .exclusive-item dl{ float:left; width:100%;border-bottom: 1px solid  #dbdbdb; }
-.exclusive-item dt a{ display:inline-block; width:80px; height:80px; margin:20px; }
-.exclusive-item dt img{ display:block; width:100%;  vertical-align: middle;}
-.exclusive-item .details{ display: inline-block; width: 60%; padding: 20px 0; border-bottom: 1px solid #ececec; float: left; }
-.exclusive-item .details p { font-size: 1.3rem; color: #7b7b7b; line-height: 20px;}
-.exclusive-item .details p span { display: inline-block; width: 80px; color: #1d202f; text-align: right; }
-.exclusive-item dd{ font-size: 1.4rem; color: #a3a3a3; width: 88%; margin: 0 auto; line-height: 2; }
+.exclusive-logo{ display:inline-block; margin:10px 20px; position: relative; width: 2rem; height: 2rem; border: 3px solid #d1ac51; border-radius: 360px; overflow: hidden; }
+.exclusive-logo img{ display:block; width: 1.9rem; height: 1.9rem; position:absolute; top:0; left:0; border-radius: 360px; overflow: hidden; }
+.exclusive-item .details{ display: inline-block; width: 64%; padding: 20px 0; margin-right: 10px; border-bottom: 1px solid #ececec; }
+.exclusive-item .details p { font-size: .5rem; color: #7b7b7b; line-height: 20px; }
+.exclusive-item .details p span { display: inline-block; width: 40%; color: #1d202f;  text-align: right; }
+.exclusive-item dd{ font-size: .5rem; color: #a3a3a3; width: 88%; margin: 10px auto; overflow: hidden; }
+.exclusive-item dd span:first-child{ display: inline-block; width: 30%; }
+.exclusive-item dd span:last-child{ display: inline-block; width: 70%; }
+.exclusive-title{ width: 100%; height: 1.375rem; line-height: 1.375rem; background-color: #f9f6f2; border-bottom: 1px solid #e5e5e5; }
+.exclusive-title p{ font-size: .5rem; text-indent: 1em; }
 /*user-center*/
 .user-hd .user-hd-bd{ position: absolute; top:40px; z-index:2;}
 .user-hd .user-icon-pic{ border-radius: 45px; }

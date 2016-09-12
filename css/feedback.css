@@ -5,8 +5,11 @@ left:6%;}
 .feedback-item span:first-child{ display: inline-block; max-width: 75%; max-height: 36px; margin-left:6%; overflow: hidden; }
 .feedback-item span:last-child{ display: inline-block; max-width: 25%; max-height: 36px; margin-right:6%; overflow: hidden; }
 .feedback-textarea{ width: 90%; height: 15rem; background-color: #f9f6f2; border: 2px solid #d1ac51; border-radius: 5px; overflow: hidden; margin: 20% auto; display: block; text-indent: 0.5rem; padding: 7px; font-size:1.4rem;}
-.feedback-item1{ width:100%; margin:0 auto; border-bottom: 1px solid #e2e4e5; font-size: 1.4rem; }
-.feedback-item1 div{ width:90%; margin:20px auto; }
+.feedback-item1{ width:100%; margin:0 auto; border-bottom: 1px solid #e2e4e5; }
+.feedback-item1 div{ width:90%; margin:20px auto; overflow: hidden; }
+.feedback-item1 div p{ font-size: .5rem; }
+.feedback-item1 div p span{ font-size: .4rem; }
+.feedback-item1 div p span:first-child{ width:70%; max-width: 70%; overflow:hidden; }
 /*record*/
 .record-item li{ width: 100%; margin:0 auto 8px; }
 .record-item li .tt{ line-height: 30px; background-color: #f5f6f1; color: #808080; font-size:.4rem; text-align: center; }

@@ -10,8 +10,8 @@ ul,li,ol{ list-style: none; }
 .m10{ margin-top: 1rem; }
 .mt50{ margin-top:50px; }
 .nbt{ border-bottom: none !important; }
-.cblack{ color: #1d202f; font-size: 1.4rem; }
-.cgray{ color: #a3a3a3;  font-size: 1.4rem; }
+.cblack{ color: #1d202f; }
+.cgray{ color: #a3a3a3; }
 .line-fleshcolor{ width: 100%; height:8px; background-color: #f9f6f2; }
 .bd-fleshcolor{ background-color: #f9f6f2;  }
 .bd-whitecolor{ background-color: white; }
