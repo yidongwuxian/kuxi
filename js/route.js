@@ -126,6 +126,10 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
               url: '/orderDetails',
               templateUrl: 'pages/orderDetails.html'
       })
+      .state('orderDetailsNotPay', {
+              url: '/orderDetailsNotPay',
+              templateUrl: 'pages/orderDetailsNotPay.html'
+      })
       .state('orderPayment', {
               url: '/orderPayment',
               templateUrl: 'pages/orderPayment.html'

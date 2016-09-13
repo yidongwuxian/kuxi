@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="css/mui.min.css" />
+<style type="text/css">
+.mui-segmented-control{ width:50% !important; border:1px solid #d1ac51; border-radius: 15px; }
+.mui-segmented-control.mui-yellow-tab{ border:1px solid #d1ac51; border-radius:8px; }
+.mui-segmented-control .mui-control-item{ background-color: #d1ac51; color:#fff; border-color:#d1ac51; border-left:1px solid #d1ac51; line-height: .9rem; }
+.mui-segmented-control .mui-control-item.mui-active{ background-color: #fff !important; color:#d1ac51; text-decoration:none; }
+</style>
+<div class="kuxi-page" ng-controller="orderDetailNotPayCtrl">
+	<!--header start-->
+	<header>
+		<p class="addressSelection">
+			<s class="back" onclick="history.go(-1);"></s>
+			我的订单
+		</p>
+	</header>
+	<!--header end-->
+	<div class="in1">
+		<div class="order-details-item"  ng-if="isGuanJia">
+			<dl>
+				<dt>
+					<img ng-src="{{guanjia.GOODS_IMG_URL}}" />
+				</dt>
+				<dd>
+					<p><span>管家姓名:</span>{{guanjia.NAME}}</p>
+					<p><span>工&nbsp;&nbsp;号:</span>1736</p>
+					<p><span>管家电话:</span>{{guanjia.PHONE}}</p>
+				</dd>
+			</dl>
+		</div>
+		<div class="line-fleshcolor"></div>
+		<div class="order-details-item">
+			<p><span>客户姓名:</span>{{orderinfo.MEMBER_ADDRESS_CONSIGNEE}}</p>
+			<p><span>客户电话:</span>{{orderinfo.MEMBER_ADDRESS_TELEPHONE}}</p>
+			<p><span>客户地址:</span><b>{{orderinfo.MEMBER_ADDRESS_INFO_2}}</b></p>
+		</div>
+		<div class="line-fleshcolor"></div>
+		<div class="order-details-item">
+			<p><span>订单编号:</span>{{orderinfo.ORDER_NO}}</p>
+			<p><span>订单类型:</span>
+				<b ng-show="orderinfo.GOODS_TYPE_ID == 7  ">精致洗衣</b>
+			   <b ng-show="orderinfo.GOODS_TYPE_ID == 10 ">精致鞋护</b>
+			   <b ng-show="orderinfo.GOODS_TYPE_ID == 11 ">家庭洗涤</b>
+			   <b ng-show="orderinfo.GOODS_TYPE_ID == 12 ">车饰清洗</b>
+			   <b ng-show="orderinfo.GOODS_TYPE_ID == 13 ">衣物清洗</b>
+			   <b ng-show="orderinfo.GOODS_TYPE_ID == 14 ">周周洗</b>
+			</p>
+			<p><span>下单时间:</span>{{orderinfo.ORDER_TIME | date:'yyyy/MM/dd'}}</p>
+			<p><span>服务时间:</span>{{orderinfo.ORDER_PICKUP_DATE | date:'yyyy/MM/dd'}} &nbsp; {{orderinfo.ORDER_PICKUP_TIME}}</p>
+		</div>
+		<div class="line-fleshcolor"></div>
+		<div id="item1" class="mui-control-content list-item mui-active">
+			<div class="order-submit-dl2">
+				<dl ng-repeat="item in orderitem">
+					<dt class="fl">
+						<img ng-src="{{item.GOODS_IMG_URL}}" />
+					</dt>
+					<dd>
+						<div class="desc">
+							<p class="productName"><span>{{item.GOODS_NAME}}</span></p>
+							<!--<p class="productAlias"><span>手提包（小）</span></p> -->
+							<p class="productSize"><span>{{item.ORDER_ITEM_GOODS_REMARK}}</span></p>
+							<p class="productDetail"><span>{{item.ORDER_ITEM_ATTACHMENT_INFO}}</span></p>
+						</div>
+						<div class="priceNum">
+							<b><i>￥</i>{{item.GOODS_PRICE}}</b>
+						</div>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div ng-if="orderinfo.IS_GUANJIA_SUBMIT==0&& orderinfo.PAY_STATUS==3">
+			<div class="line-fleshcolor"></div>
+			<div class="order-details-item">
+				<p><span>订单金额:</span>{{orderinfo.ORDER_TOTAL_PRICE}}元</p>
+				<p><span>实付:</span>{{orderinfo.ORDER_PAY_PRICE}}元</p>
+				<p><span>优惠方式:</span>无</p>
+				<p><span>支付方式:</span>
+					<b ng-if="orderinfo.PAY_TYPE == 1">支付宝支付</b>
+					<b ng-if="orderinfo.PAY_TYPE == 2">微信支付</b>
+					<b ng-if="orderinfo.PAY_TYPE == 3">余额支付</b>
+				</p>
+			</div>
+		</div>
+		<div ng-if="orderinfo.IS_GUANJIA_SUBMIT==1&& orderinfo.PAY_STATUS==2">
+			<button ng-click="newCheckCoupon(orderinfo)">查看可使用优惠券;到达优惠券列表</button>
+			<button ng-click="cancelOrder(orderinfo)">取消订单</button>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/mui.min.js"></script>
+<script type="text/javascript" src="controllers/orderDetail.js"></script>
+<script>
+mui.init({
+	swipeBack:true //启用右滑关闭功能
+});
+</script>
