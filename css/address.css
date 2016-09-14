@@ -36,7 +36,16 @@
 /*添加地址信息*/
 .address-item{ width:90%; height:1.23rem; line-height: 1.23rem; margin:0 auto; border-bottom: 1px solid #e2e4e5; font-size: .375rem; }
 .address-item label{ display: inline-block; float:left; width:100px; color:#000; margin-bottom:0; }
-.address-item input,.address-item span{ display: inline-block; width: 70%; border: none; background: transparent; padding: 0; margin: 0; color: #b0b0b0; }
+.address-item input{ display: inline-block; width: 70%; border: none; background: transparent; padding: 0; margin: 0; color: #b0b0b0; }
+.address-item typeahead{ display: inline-block; width: 73%; border: none; background: transparent; padding: 0; margin: 0; color: #b0b0b0; }
+.list-group i{ display:inline-block; }
+.list-group { padding-left: 0; margin-bottom: 20px; position: absolute; z-index: 99; overflow-y: scroll; width:70% !important; height: 500px; margin: 0 !important; }
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #d1ac51 !important;
+    border-color: #d1ac51 !important;
+}
 .defaultSel{ float:left; display: inline-block; margin-right:10px !important;}
 /*搜索地址栏*/
 .searchTx{ width: 58%; height: 2.3rem; line-height: 2.3rem; text-indent: 0.5rem; background: white; border-radius: 4px; border: none; margin-left: 17px;}
