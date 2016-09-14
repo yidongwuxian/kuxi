@@ -22,7 +22,7 @@
 				</dt>
 				<dd>
 					<p><span>管家姓名:</span>{{guanjia.NAME}}</p>
-					<p><span>工&nbsp;&nbsp;号:</span>1736</p>
+					<p><span>接单数量:</span>{{guanjia.ORDER_COUNT}}</p>
 					<p><span>管家电话:</span>{{guanjia.PHONE}}</p>
 				</dd>
 			</dl>
@@ -57,9 +57,9 @@
 					<dd>
 						<div class="desc">
 							<p class="productName"><span>{{item.GOODS_NAME}}</span></p>
-							<!--<p class="productAlias"><span>手提包（小）</span></p> -->
-							<p class="productSize"><span>{{item.ORDER_ITEM_GOODS_REMARK}}</span></p>
-							<p class="productDetail"><span>{{item.ORDER_ITEM_ATTACHMENT_INFO}}</span></p>
+							<p class="productAlias"><span>颜色:{{item.ORDER_ITEM_COLOR}}</span></p>
+							<p class="productSize"><span>问题:{{item.ORDER_ITEM_GOODS_REMARK}}</span></p>
+							<p class="productDetail"><span>附件:{{item.ORDER_ITEM_ATTACHMENT_INFO}}</span></p>
 						</div>
 						<div class="priceNum">
 							<b><i>￥</i>{{item.GOODS_PRICE}}</b>
@@ -72,14 +72,18 @@
 			<div class="line-fleshcolor"></div>
 			<div class="order-details-item">
 				<p><span>订单金额:</span>{{orderinfo.ORDER_TOTAL_PRICE}}元</p>
-				<p><span>实付:</span>{{orderinfo.ORDER_PAY_PRICE}}元</p>
-				<p><span>优惠方式:</span>无</p>
+				<p><span>配送费:</span>{{orderinfo.TRANSPORT_FEE}}元</p>
+				<p ng-if="orderinfo.DEDUCTION > 0"><span>系统递减:</span>-{{orderinfo.DEDUCTION}}元</p>
+				<p ng-if="orderinfo.DEDUCTION== 0 && orderinfo.PAY_TYPE"><span>优惠券递减:</span>{{orderinfo.COUPON_PRICE}}元</p>
+				<p ng-if="orderinfo.DEDUCTION== 0 && !orderinfo.PAY_TYPE" ng-click="chooseCoupon(orderinfo)"><span>选择优惠券:</span>{{maxCoupon.FACE_VALUE>0 ?maxCoupon.FACE_VALUE+'元':'查看优惠券'}}&gt;</p>
+				<p><span>应支付金额:</span>{{orderinfo.ORDER_NEED_PAY_PRICE}}元</p>
 				<p><span>支付方式:</span>
-					<b ng-if="orderinfo.PAY_TYPE == 1">支付宝支付</b>
-					<b ng-if="orderinfo.PAY_TYPE == 2">微信支付</b>
-					<b ng-if="orderinfo.PAY_TYPE == 3">余额支付</b>
+					<b ng-if="false"><label><input type="radio" ng-model="PAY_TYPE" value="1" checked="checked">支付宝支付</label></b>
+					<b><label><input type="radio" ng-model="PAY_TYPE" value="2">微信支付</label></b>
+					<b><label><input type="radio" ng-model="PAY_TYPE" value="3" ng-disabled="orderinfo.MEMBER_BALANCE<orderinfo.ORDER_NEED_PAY_PRICE">余额支付(余额:{{orderinfo.MEMBER_BALANCE}})</label></b>
 				</p>
 			</div>
+			<button ng-click="gotoPay(orderinfo)">确认支付</button>
 		</div>
 		<div ng-if="orderinfo.IS_GUANJIA_SUBMIT==1&& orderinfo.PAY_STATUS==2">
 			<button ng-click="newCheckCoupon(orderinfo)">查看可使用优惠券;到达优惠券列表</button>

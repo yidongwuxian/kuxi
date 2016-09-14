@@ -45,7 +45,10 @@
 											   <span ng-if="topaid.GOODS_TYPE_ID == 14 ">周周洗</span>
 										   </p>
 										   <p>下单时间：<span>{{topaid.ORDER_TIME | date: 'yyyy/MM/dd' }}</span></p>
-										   <p ng-if="topaid.guanjiainfo">管&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家：   <span>{{topaid.guanjiainfo}}</span></p>
+										   <p>管&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家：   
+										   	<span ng-if="topaid.guanjiainfo">{{topaid.guanjiainfo}}</span>
+										   	<span ng-if="!topaid.guanjiainfo">等待派单中</span>
+										   </p>
 									   </div>
 									</a>
 								</li>
